@@ -14,7 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.3
   firebase_core: ^2.13.1
-  google_fonts: ^4.0.4
+  # google_fonts: ^4.0.4
   equatable: ^2.0.5
   firebase_auth: ^4.6.3
   shared_preferences: ^2.1.2
@@ -23,6 +23,7 @@ dependencies:
   cloud_firestore: ^4.3.1
   flutter_screenutil: ^5.6.0
   flutter_svg: ^2.0.5
+  fl_chart: ^0.62.0
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +32,40 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/poppins_fonts/Poppins-Black.ttf
+        - asset: assets/poppins_fonts/Poppins-BlackItalic.ttf
+        - asset: assets/poppins_fonts/Poppins-Bold.ttf
+        - asset: assets/poppins_fonts/Poppins-BoldItalic.ttf
+        - asset: assets/poppins_fonts/Poppins-ExtraBold.ttf
+        - asset: assets/poppins_fonts/Poppins-ExtraBoldItalic.ttf
+        - asset: assets/poppins_fonts/Poppins-ExtraLight.ttf
+        - asset: assets/poppins_fonts/Poppins-ExtraLightItalic.ttf
+        - asset: assets/poppins_fonts/Poppins-Italic.ttf
+        - asset: assets/poppins_fonts/Poppins-Light.ttf
+        - asset: assets/poppins_fonts/Poppins-LightItalic.ttf
+        - asset: assets/poppins_fonts/Poppins-Medium.ttf
+        - asset: assets/poppins_fonts/Poppins-MediumItalic.ttf
+        - asset: assets/poppins_fonts/Poppins-Regular.ttf
+        - asset: assets/poppins_fonts/Poppins-SemiBold.ttf
+        - asset: assets/poppins_fonts/Poppins-SemiBoldItalic.ttf
+        - asset: assets/poppins_fonts/Poppins-Thin.ttf
+        - asset: assets/poppins_fonts/Poppins-ThinItalic.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/inter/Inter-Black.ttf
+        - asset: assets/inter/Inter-Bold.ttf
+        - asset: assets/inter/Inter-ExtraBold.ttf
+        - asset: assets/inter/Inter-ExtraLight.ttf
+        - asset: assets/inter/Inter-Light.ttf
+        - asset: assets/inter/Inter-Medium.ttf
+        - asset: assets/inter/Inter-Regular.ttf
+        - asset: assets/inter/Inter-SemiBold.ttf
+        - asset: assets/inter/Inter-Thin.ttf
+
+
   uses-material-design: true
   assets:
     - assets/img/

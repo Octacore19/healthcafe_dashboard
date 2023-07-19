@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:healthcafe_dashboard/config/dev_config.dart';
 import 'package:healthcafe_dashboard/config/env_config.dart';
 import 'package:healthcafe_dashboard/config/prod_config.dart';
@@ -45,11 +44,10 @@ class App {
       yield LicenseEntryWithLineBreaks(['assets/poppins_fonts'], license);
     });
     LicenseRegistry.addLicense(() async* {
-      final license =
-          await rootBundle.loadString('assets/inter/OFL.txt');
+      final license = await rootBundle.loadString('assets/inter/OFL.txt');
       yield LicenseEntryWithLineBreaks(['assets/inter'], license);
     });
-    GoogleFonts.config.allowRuntimeFetching = false;
+    // GoogleFonts.config.allowRuntimeFetching = false;
 
     const appEnv = String.fromEnvironment('APP_ENV');
     _env = appEnv == "dev"

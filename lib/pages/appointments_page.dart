@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:healthcafe_dashboard/routing/app_page.dart';
+
+class AppointmentsPage extends AppPage {
+  const AppointmentsPage({required super.args});
+
+  @override
+  Widget build(BuildContext context) {
+    return const AppointmentsScreen();
+  }
+}
 
 class AppointmentsScreen extends StatefulWidget {
   const AppointmentsScreen({super.key});
@@ -10,6 +20,8 @@ class AppointmentsScreen extends StatefulWidget {
 class _AppointmentsScreenState extends State<AppointmentsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Center(child: Text('Appointments Page'),),
+    );
   }
 }

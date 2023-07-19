@@ -7,12 +7,14 @@ class AppRouterInfoParser extends RouteInformationParser<PageConfig> {
     RouteInformation routeInformation,
     BuildContext context,
   ) async {
+    debugPrint('parseRouteInformationWithDependencies is called');
     final String? path = routeInformation.location;
     return PageConfig(location: path);
   }
 
   @override
   RouteInformation? restoreRouteInformation(PageConfig configuration) {
+    debugPrint('restoreRouteInformation is called');
     return RouteInformation(location: configuration.path.toString());
   }
 }

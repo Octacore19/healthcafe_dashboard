@@ -1,12 +1,13 @@
+import 'package:healthcafe_dashboard/pages/settings_page.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/routing/page_config.dart';
-import 'package:healthcafe_dashboard/scr/appointments/appointments_page.dart';
-import 'package:healthcafe_dashboard/scr/dashboard/dashboard_page.dart';
-import 'package:healthcafe_dashboard/scr/error_page.dart';
-import 'package:healthcafe_dashboard/scr/home/home_page.dart';
-import 'package:healthcafe_dashboard/scr/login/login_page.dart';
-import 'package:healthcafe_dashboard/scr/test/test_page.dart';
-import 'package:healthcafe_dashboard/scr/users/users_page.dart';
+import 'package:healthcafe_dashboard/pages/appointments_page.dart';
+import 'package:healthcafe_dashboard/pages/dashboard_page.dart';
+import 'package:healthcafe_dashboard/pages/error_page.dart';
+import 'package:healthcafe_dashboard/pages/home_page.dart';
+import 'package:healthcafe_dashboard/pages/login_page.dart';
+import 'package:healthcafe_dashboard/pages/wellness_plan_page.dart';
+import 'package:healthcafe_dashboard/pages/users_page.dart';
 
 class AppRouter {
   const AppRouter._();
@@ -14,9 +15,10 @@ class AppRouter {
   static const String home = '/';
   static const String login = '/login';
   static const String dashboard = '/dashboard';
-  static const String test = '/test';
+  static const String wellnessPlans = '/wellness-plans';
   static const String appointments = '/appointments';
   static const String users = '/users';
+  static const String settings = '/settings';
 
   static AppPage getPage(PageConfig config) {
     return _routes[config.route]?.call(config.args) ??
@@ -27,8 +29,9 @@ class AppRouter {
     home: (args) => HomePage(args: args),
     login: (args) => LoginPage(args: args),
     dashboard: (args) => DashboardPage(args: args),
-    test: (args) => TestPage(args: args),
+    wellnessPlans: (args) => WellnessPlansPage(args: args),
     appointments: (args) => AppointmentsPage(args: args),
     users: (args) => UsersPage(args: args),
+    settings: (args) => SettingsPage(args: args),
   };
 }

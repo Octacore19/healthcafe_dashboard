@@ -9,12 +9,13 @@ typedef TransitionAnimationBuilder = Widget Function(
 
 abstract class AppPage<P> extends Page<P> {
   const AppPage({
+    ValueKey? key,
     required this.args,
     this.transitionDuration = 400,
     this.reverseTransitionDuration = 400,
     this.fullscreenDialog = false,
     this.animationBuilder,
-  });
+  }) : super(key: key);
 
   final Map<String, dynamic> args;
 

@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 
 class UsersPage extends AppPage {
-  const UsersPage({required super.args});
+  const UsersPage({
+    required super.args,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,9 @@ class _UsersScreenState extends State<UsersScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('Users Page'),),
+      body: Center(
+        child: Text('Users Page'),
+      ),
     );
   }
 }

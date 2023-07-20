@@ -10,7 +10,7 @@ import 'package:healthcafe_dashboard/widgets/labelled_textfield.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 
 class LoginPage extends AppPage {
-  const LoginPage({required super.args});
+  const LoginPage({required super.args, super.key});
 
   @override
   Widget build(BuildContext context) {

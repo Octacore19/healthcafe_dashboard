@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 
 class WellnessPlansPage extends AppPage {
-  const WellnessPlansPage({required super.args});
+  const WellnessPlansPage({
+    required super.args,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,9 @@ class _State extends State<WellnessPlanScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('Wellness Plans Page'),),
+      body: Center(
+        child: Text('Wellness Plans Page'),
+      ),
     );
   }
 }

@@ -10,16 +10,12 @@ class PageConfig extends Equatable {
   }) {
     path = Uri.tryParse(location ?? '') ?? Uri.parse('/');
 
-    route = path.toString();
-
     this.args.addIfNotNull(args);
 
     page = AppRouter.getPage(this);
   }
 
   late final Uri path;
-
-  late final String route;
 
   final String? name;
 

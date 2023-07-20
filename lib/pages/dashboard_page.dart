@@ -7,7 +7,10 @@ import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 
 class DashboardPage extends AppPage {
-  const DashboardPage({required super.args});
+  const DashboardPage({
+    required super.args,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

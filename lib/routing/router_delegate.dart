@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:healthcafe_dashboard/res/keys.dart';
 import 'package:healthcafe_dashboard/routing/nav_stack.dart';
 import 'package:healthcafe_dashboard/routing/page_config.dart';
 import 'package:healthcafe_dashboard/routing/router_cubit.dart';
@@ -25,12 +24,11 @@ class AppRouterDelegate extends RouterDelegate<PageConfig>
   }
 
   @override
-  GlobalKey<NavigatorState>? get navigatorKey => AppKeys.rootKey;
+  GlobalKey<NavigatorState>? get navigatorKey => GlobalKey<NavigatorState>();
 
   @override
   Future<void> setNewRoutePath(PageConfig configuration) async {
-    debugPrint('Config: $configuration');
-    _cubit.push(configuration.route, configuration.args);
+    _cubit.push(configuration.path.path, configuration.args);
   }
 
 

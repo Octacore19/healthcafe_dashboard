@@ -21,6 +21,11 @@ class RouterCubit extends Cubit<NavStack> {
     emit(state.clearAndPush(config));
   }
 
+  void replace(String path, [Map<String, dynamic>? args]) {
+    PageConfig config = PageConfig(location: path, args: args);
+    emit(state.replace(config));
+  }
+
   void pop() {
     emit(state.pop());
   }

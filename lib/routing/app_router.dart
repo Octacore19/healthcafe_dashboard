@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:healthcafe_dashboard/pages/auth_page.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/routing/page_config.dart';
 import 'package:healthcafe_dashboard/pages/error_page.dart';
 import 'package:healthcafe_dashboard/pages/home_page.dart';
-import 'package:healthcafe_dashboard/pages/login_page.dart';
 
 class AppRouter {
   const AppRouter._();
 
   static const String home = '/';
-  static const String login = '/login';
+  static const String login = '/auth/login';
+  static const String forgetPassword = '/auth/forgot-password';
   static const String wellnessPlans = '/wellness-plans';
   static const String appointments = '/appointments';
   static const String users = '/users';
@@ -21,7 +22,14 @@ class AppRouter {
   }
 
   static final Map<String, AppPage Function(Map<String, dynamic>)> _routes = {
-    login: (args) => LoginPage(args: args),
+    login: (args) {
+      args['page'] = 0;
+      return AuthPage(args: args);
+    },
+    forgetPassword: (args) {
+      args['page'] = 1;
+      return AuthPage(args: args);
+    },
     home: (args) {
       args['page'] = 0;
       return HomePage(args: args, key: const ValueKey('home'));

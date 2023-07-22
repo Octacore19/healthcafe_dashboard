@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:healthcafe_dashboard/domain/models/homepage.dart';
 import 'package:healthcafe_dashboard/pages/appointments_page.dart';
 import 'package:healthcafe_dashboard/pages/dashboard_page.dart';
 import 'package:healthcafe_dashboard/pages/settings_page.dart';
@@ -23,11 +24,11 @@ class HomeRouterCubit extends Cubit<int> {
   }
 
   final pages = {
-    'Dashboard': const DashboardPage(args: {}),
-    'Users': const UsersPage(args: {}),
-    'Appointments': const AppointmentsPage(args: {}),
-    'Wellness Plans': const WellnessPlansPage(args: {}),
-    'Settings': const SettingsPage(args: {}),
+    HomePages.dashboard: const DashboardPage(args: {}),
+    HomePages.users: const UsersPage(args: {}),
+    HomePages.appointments: const AppointmentsPage(args: {}),
+    HomePages.wellness: const WellnessPlansPage(args: {}),
+    HomePages.settings: const SettingsPage(args: {}),
   };
 
   final RouterCubit _routerCubit;

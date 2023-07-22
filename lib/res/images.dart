@@ -11,4 +11,8 @@ class AppSvgs {
   static const String threeLayersIcon = 'assets/img/three_layers.svg';
   static const String notificationIcon = 'assets/img/notification_icon.svg';
   static const String dropdownIcon = 'assets/img/dropdown_icon.svg';
+  static const String note = 'assets/img/note.svg';
+  static const String noteFavorite = 'assets/img/note-favorite.svg';
+  static const String people = 'assets/img/people.svg';
+  static const String setting = 'assets/img/setting.svg';
 }

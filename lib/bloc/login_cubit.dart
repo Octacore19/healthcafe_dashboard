@@ -45,9 +45,7 @@ class LoginCubit extends Cubit<LoginState> {
       } else {
         final request = LoginRequest(email: email, password: pwd);
         await _authRepo.login(request);
-        _userSub = _authRepo.authUser.listen((user) {
-          emit(SuccessState());
-        });
+        emit(SuccessState());
       }
     } on DioException catch (e) {
       final res = e.response?.data;

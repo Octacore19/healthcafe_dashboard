@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:healthcafe_dashboard/bloc/auth_bloc.dart';
+import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
 import 'package:healthcafe_dashboard/routing/app_router.dart';
 import 'package:healthcafe_dashboard/routing/page_config.dart';
 
@@ -11,11 +11,17 @@ class AppRouterInfoParser extends RouteInformationParser<PageConfig> {
     BuildContext context,
   ) async {
     String? path = AppRouter.login;
-    final auth = BlocProvider.of<AuthBloc>(context);
-    final state = auth.state;
-    if (state is AuthenticatedState) {
-      path = routeInformation.location;
+    try {
+      final repo = RepositoryProvider.of<UserRepo>(context);
+      final user = await repo.authUser.first;
+      debugPrint('Auth state => $user');
+      if (user != null) {
+        path = routeInformation.location;
+      }
+    } catch (e) {
+      debugPrint('Error => $e');
     }
+    debugPrint('Path: $path');
     return PageConfig(location: path);
   }
 

@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
+import 'package:healthcafe_dashboard/data/remote/models/user_response.dart';
 import 'package:healthcafe_dashboard/domain/models/gender.dart';
 
 class AuthUser extends Equatable {
@@ -46,6 +47,25 @@ class AuthUser extends Equatable {
       gender: Gender.unknown,
       phoneVerified: false,
       profilePicture: '',
+    );
+  }
+
+  factory AuthUser.fromResponse(UserResponse? res) {
+    final genderIndex = res?.gender ?? 2;
+    return AuthUser._(
+      id: res?.uid ?? '',
+      name: res?.displayName ?? 'Admin',
+      email: res?.email ?? '',
+      phone: res?.phoneNumber ?? '',
+      dob: DateTime.tryParse(res?.dob ?? '') ?? DateTime.now(),
+      emailVerified: res?.emailVerified ?? false,
+      gender: Gender.values.firstWhere(
+        (e) => e.genderIndex == genderIndex,
+        orElse: () => Gender.unknown,
+      ),
+      phoneVerified: res?.phoneVerified ?? false,
+      disabled: res?.disabled ?? false,
+      profilePicture: res?.profilePicture ?? '',
     );
   }
 

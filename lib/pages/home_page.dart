@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:healthcafe_dashboard/domain/models/homepage.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
@@ -37,8 +38,9 @@ class HomePage extends AppPage {
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width * 0.175,
                   child: DecoratedBox(
-                    decoration:
-                        const BoxDecoration(color: AppColors.primary600),
+                    decoration: const BoxDecoration(
+                      color: AppColors.primary700,
+                    ),
                     child: Column(
                       children: [
                         Container(
@@ -76,26 +78,29 @@ class HomePage extends AppPage {
     );
   }
 
-  Widget buildItems(List<String> pages, int page, Function(int) onChanged) {
+  Widget buildItems(List<HomePages> pages, int page, Function(int) onChanged) {
     return ListView.separated(
       itemCount: pages.length,
       separatorBuilder: (_, __) => SizedBox(height: 24.h),
       itemBuilder: (context, index) {
         bool current = page == index;
 
+        final item = pages[index];
+
         return ListTile(
           onTap: () => onChanged(index),
           selected: current,
           textColor: Colors.white,
-          selectedColor: AppColors.primary500,
-          selectedTileColor: Colors.white,
+          selectedColor: Colors.white,
+          selectedTileColor: AppColors.primary500,
+          contentPadding: const EdgeInsets.fromLTRB(24, 10, 24, 10).r,
           leading: SvgPicture.asset(
-            AppSvgs.threeLayersIcon,
+            item.icon,
             colorFilter: current
-                ? const ColorFilter.mode(AppColors.primary500, BlendMode.srcIn)
+                ? const ColorFilter.mode(Colors.white, BlendMode.srcIn)
                 : null,
           ),
-          title: Text(pages[index]),
+          title: Text(item.title),
         );
       },
     );

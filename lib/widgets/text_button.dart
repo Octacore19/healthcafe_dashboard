@@ -4,20 +4,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Textbutton extends StatelessWidget {
   const Textbutton({
     required this.onTap,
+    this.inProgress = false,
     this.label = '',
     this.width = 0,
-    this.child,
     this.bgColor,
     this.fgColor,
     this.padding,
     this.textStyle,
     this.density,
     this.minimumSize,
+    this.child,
     super.key,
   });
 
   final VoidCallback? onTap;
   final Widget? child;
+  final bool inProgress;
   final String label;
   final double width;
   final Color? bgColor;
@@ -29,10 +31,18 @@ class Textbutton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget child = this.child ?? Text(label);
+    if (inProgress) {
+      child = SizedBox(
+        height: 24.h,
+        width: 24.h,
+        child: const CircularProgressIndicator.adaptive(),
+      );
+    }
     return TextButton(
       onPressed: onTap,
       style: TextButton.styleFrom(
-        backgroundColor: bgColor,
+        backgroundColor: inProgress ? bgColor?.withOpacity(0.5) : bgColor,
         foregroundColor: fgColor,
         textStyle: textStyle ??
             TextStyle(
@@ -46,7 +56,7 @@ class Textbutton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8).r,
         ),
       ),
-      child: child ?? Text(label),
+      child: child,
     );
   }
 }

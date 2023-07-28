@@ -14,6 +14,8 @@ class Textbutton extends StatelessWidget {
     this.density,
     this.minimumSize,
     this.child,
+    this.border,
+    this.borderRadius,
     super.key,
   });
 
@@ -28,6 +30,8 @@ class Textbutton extends StatelessWidget {
   final TextStyle? textStyle;
   final VisualDensity? density;
   final Size? minimumSize;
+  final BorderSide? border;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +56,9 @@ class Textbutton extends StatelessWidget {
         padding: padding,
         visualDensity: density,
         minimumSize: minimumSize,
+        side: border,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8).r,
+          borderRadius: borderRadius ?? BorderRadius.circular(8).r,
         ),
       ),
       child: child,

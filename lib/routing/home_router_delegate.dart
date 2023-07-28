@@ -24,7 +24,7 @@ class HomeRouterDelegate extends RouterDelegate<PageConfig>
       builder: (context, state) {
         final user = state.user;
         return Scaffold(
-          backgroundColor: AppColors.grey50,
+          backgroundColor: AppColors.grey25,
           appBar: AppBar(
             backgroundColor: Colors.white,
             elevation: 1,
@@ -44,7 +44,7 @@ class HomeRouterDelegate extends RouterDelegate<PageConfig>
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
-                      color: AppColors.grey700,
+                      color: AppColors.gray700,
                     ),
                   ),
                   Text(
@@ -52,7 +52,7 @@ class HomeRouterDelegate extends RouterDelegate<PageConfig>
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
-                      color: AppColors.grey50,
+                      color: AppColors.gray50,
                     ),
                   ),
                 ],

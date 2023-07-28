@@ -24,11 +24,11 @@ class AppRouter {
   static final Map<String, AppPage Function(Map<String, dynamic>)> _routes = {
     login: (args) {
       args['page'] = 0;
-      return AuthPage(args: args);
+      return AuthPage(args: args, key: const ValueKey('login'));
     },
     forgetPassword: (args) {
       args['page'] = 1;
-      return AuthPage(args: args);
+      return AuthPage(args: args, key: const ValueKey('forget_password'));
     },
     home: (args) {
       args['page'] = 0;
@@ -36,19 +36,19 @@ class AppRouter {
     },
     wellnessPlans: (args) {
       args['page'] = 3;
-      return HomePage(args: args, key: const ValueKey('home'));
+      return HomePage(args: args, key: const ValueKey('wellness_plan'));
     },
     appointments: (args) {
       args['page'] = 2;
-      return HomePage(args: args, key: const ValueKey('home'));
+      return HomePage(args: args, key: const ValueKey('appointments'));
     },
     users: (args) {
       args['page'] = 1;
-      return HomePage(args: args, key: const ValueKey('home'));
+      return HomePage(args: args, key: const ValueKey('users'));
     },
     settings: (args) {
       args['page'] = 4;
-      return HomePage(args: args, key: const ValueKey('home'));
+      return HomePage(args: args, key: const ValueKey('settings'));
     },
   };
 }

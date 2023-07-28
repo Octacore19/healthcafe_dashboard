@@ -81,7 +81,7 @@ class HomePage extends AppPage {
   Widget buildItems(List<HomePages> pages, int page, Function(int) onChanged) {
     return ListView.separated(
       itemCount: pages.length,
-      separatorBuilder: (_, __) => SizedBox(height: 24.h),
+      separatorBuilder: (_, __) => SizedBox(height: 20.h),
       itemBuilder: (context, index) {
         bool current = page == index;
 

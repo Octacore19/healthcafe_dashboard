@@ -1,36 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/main.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
   </component>
-  <component name="ToolWindowManager">
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-    </layout>
+  <component name="ChangeListManager">
+    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/healthcafe_dashboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/healthcafe_dashboard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/dashboard_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bloc/dashboard_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/dashboard_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bloc/dashboard_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/otp_response.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/remote/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/repos/user_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/user_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/dashboard_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/users_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/colors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/images.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/images.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/routing/home_router_delegate.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/home_router_delegate.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/text_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/text_button.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2T9tjrLUD2MmywO4vJahSs6pihW" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-    </navigator>
+    <navigator currentView="ProjectPane" proportions="" version="1" />
     <panes>
       <pane id="ProjectPane">
         <option name="show-excluded-files" value="false" />
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager" selected="Flutter.main.dart">
+    <configuration name="dev.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="additionalArgs" value="--dart-define=APP_SUFFIX=.dev --dart-define=APP_NAME=Healthcafe-dev --dart-define=APP_ENV=dev" />
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="stage.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="additionalArgs" value="dart-define=APP_NAME=Healthcafe-stage --dart-define=APP_ENV=stage" />
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flutter.main.dart" />
+      <item itemvalue="Flutter.stage.dart" />
+      <item itemvalue="Flutter.dev.dart" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="" />
+      <created>1690467262500</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690467262500</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+    </layout>
   </component>
 </project>

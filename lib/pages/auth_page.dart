@@ -9,7 +9,7 @@ import 'package:healthcafe_dashboard/routing/auth_router_delegate.dart';
 import '../res/colors.dart';
 
 class AuthPage extends AppPage {
-  const AuthPage({required super.args});
+  const AuthPage({required super.args, super.key});
 
   @override
   Widget build(BuildContext context) {

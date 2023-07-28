@@ -15,4 +15,7 @@ class AppSvgs {
   static const String noteFavorite = 'assets/img/note-favorite.svg';
   static const String people = 'assets/img/people.svg';
   static const String setting = 'assets/img/setting.svg';
+  static const String calendarTick = 'assets/img/calendar-tick.svg';
+  static const String sort = 'assets/img/sort.svg';
+  static const String search = 'assets/img/search.svg';
 }

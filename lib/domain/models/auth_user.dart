@@ -15,6 +15,7 @@ class AuthUser extends Equatable {
     required this.phoneVerified,
     required this.disabled,
     required this.profilePicture,
+    required this.dateCreated,
   }) {
     final nameSplit = name.split(' ');
     firstName = nameSplit.firstOrNull ?? '';
@@ -31,6 +32,7 @@ class AuthUser extends Equatable {
   final bool phoneVerified;
   final bool disabled;
   final String profilePicture;
+  final DateTime? dateCreated;
 
   late final String firstName;
   late final String lastName;
@@ -47,6 +49,7 @@ class AuthUser extends Equatable {
       gender: Gender.unknown,
       phoneVerified: false,
       profilePicture: '',
+      dateCreated: null,
     );
   }
 
@@ -66,6 +69,7 @@ class AuthUser extends Equatable {
       phoneVerified: res?.phoneVerified ?? false,
       disabled: res?.disabled ?? false,
       profilePicture: res?.profilePicture ?? '',
+      dateCreated: DateTime.tryParse(res?.creationTime ?? ''),
     );
   }
 

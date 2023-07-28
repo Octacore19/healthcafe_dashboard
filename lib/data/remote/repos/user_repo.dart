@@ -34,4 +34,19 @@ class IUserRepo implements UserRepo {
       return authUser;
     });
   }
+
+  @override
+  Stream<List<AuthUser>> get users => _db
+      .collection('users')
+      .where("admin", isEqualTo: false)
+      .withConverter(
+        fromFirestore: UserResponse.fromFirestore,
+        toFirestore: (UserResponse res, _) => res.toJson(),
+      )
+      .snapshots()
+      .map(
+        (event) => event.docs.map((e) {
+          return AuthUser.fromResponse(e.data());
+        }).toList(),
+      );
 }

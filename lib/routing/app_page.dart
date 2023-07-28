@@ -51,7 +51,17 @@ abstract class AppPage<P> extends Page<P> {
           child,
         );
       },
-      pageBuilder: (context, animation, secondaryAnimation) => build(context),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        final width = MediaQuery.of(context).size.width;
+        if (width < 1200) {
+          return const Scaffold(
+            body: Center(
+              child: Text('Can`t use on this device'),
+            ),
+          );
+        }
+        return build(context);
+      },
     );
   }
 

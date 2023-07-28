@@ -5,6 +5,7 @@ import 'package:healthcafe_dashboard/bloc/auth_bloc.dart';
 import 'package:healthcafe_dashboard/bloc/dashboard_cubit.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
+import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 import 'package:healthcafe_dashboard/widgets/title_subtitle_view.dart';
 import 'package:intl/intl.dart';
@@ -18,7 +19,9 @@ class DashboardPage extends AppPage {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => DashboardCubit(),
+      create: (context) => DashboardCubit(
+        userRepo: RepositoryProvider.of(context),
+      ),
       child: const DashboardScreen(),
     );
   }
@@ -68,46 +71,55 @@ class _State extends State<DashboardScreen> {
   }
 
   Widget buildMetric(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: buildMetricItem(
-            context: context,
-            title: 'Users',
-            count: 2000,
-            percent: 100,
-          ),
-        ),
-        SizedBox(width: 20.w),
-        Expanded(
-          child: buildMetricItem(
-            context: context,
-            title: 'Total appointments',
-            count: 2000,
-            percent: 30,
-            isSuccess: false,
-          ),
-        ),
-        SizedBox(width: 20.w),
-        Expanded(
-          child: buildMetricItem(
-            context: context,
-            title: 'Pending appointments',
-            count: 2000,
-            percent: 50,
-          ),
-        ),
-        SizedBox(width: 20.w),
-        Expanded(
-          child: buildMetricItem(
-            context: context,
-            title: 'Total Sales',
-            count: 2000,
-            percent: 59.5,
-            isSuccess: false,
-          ),
-        ),
-      ],
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        if (state is! AuthenticatedState) return const SizedBox.shrink();
+        return BlocBuilder<DashboardCubit, DashboardState>(
+          builder: (context, state) {
+            return Row(
+              children: [
+                Expanded(
+                  child: buildMetricItem(
+                    context: context,
+                    title: 'Users',
+                    count: state.users.length,
+                    percent: 100,
+                  ),
+                ),
+                SizedBox(width: 20.w),
+                Expanded(
+                  child: buildMetricItem(
+                    context: context,
+                    title: 'Total appointments',
+                    count: 2000,
+                    percent: 30,
+                    isSuccess: false,
+                  ),
+                ),
+                SizedBox(width: 20.w),
+                Expanded(
+                  child: buildMetricItem(
+                    context: context,
+                    title: 'Pending appointments',
+                    count: 2000,
+                    percent: 50,
+                  ),
+                ),
+                SizedBox(width: 20.w),
+                Expanded(
+                  child: buildMetricItem(
+                    context: context,
+                    title: 'Total Sales',
+                    count: 2000,
+                    percent: 59.5,
+                    isSuccess: false,
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
     );
   }
 
@@ -261,7 +273,7 @@ class _State extends State<DashboardScreen> {
   ) {
     Widget buildItem(
       String title, {
-      Color color = AppColors.grey50,
+      Color color = AppColors.gray50,
       FontWeight weight = FontWeight.w600,
       double size = 14,
     }) {
@@ -359,87 +371,16 @@ class _State extends State<DashboardScreen> {
   }
 
   Widget buildAppointmentFooter(BuildContext context) {
-    return Card(
+    return const Card(
       elevation: 0.5,
       margin: EdgeInsets.zero,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
         ),
       ),
-      child: Container(
-        width: double.maxFinite,
-        padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Textbutton(
-              onTap: () {},
-              fgColor: AppColors.grey50,
-              child: Row(
-                children: [
-                  Icon(Icons.arrow_back, size: 16.r),
-                  SizedBox(width: 6.w),
-                  Text(
-                    'Prev',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  splashRadius: 24.r,
-                  visualDensity: VisualDensity.compact,
-                  icon: Text('1'),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  splashRadius: 24.r,
-                  visualDensity: VisualDensity.compact,
-                  icon: Text('2'),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  splashRadius: 24.r,
-                  visualDensity: VisualDensity.compact,
-                  icon: Text('5'),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  splashRadius: 24.r,
-                  visualDensity: VisualDensity.compact,
-                  icon: Text('6'),
-                ),
-              ],
-            ),
-            Textbutton(
-              onTap: () {},
-              fgColor: AppColors.grey50,
-              child: Row(
-                children: [
-                  Text(
-                    'Next',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  SizedBox(width: 6.w),
-                  Icon(Icons.arrow_forward, size: 16.r),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+      child: PaginationFooter(),
     );
   }
 

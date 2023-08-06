@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/bloc/users_cubit.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
@@ -13,7 +14,7 @@ import 'package:intl/intl.dart';
 
 class UsersPage extends AppPage {
   const UsersPage({
-    required super.args,
+    required super.state,
     super.key,
   });
 
@@ -64,6 +65,8 @@ class _UsersScreenState extends State<UsersScreen>
             const TitleSubtitleView(
               title: 'Manage Users',
               subtitle: 'Manage your customer information',
+              titleSize: 20,
+              subtitleSize: 16,
             ),
             SizedBox(height: 30.h),
             buildContent(context),
@@ -211,7 +214,9 @@ class _UsersScreenState extends State<UsersScreen>
                 children: [
                   Expanded(child: Text('active', style: style, maxLines: 1)),
                   Textbutton(
-                    onTap: () {},
+                    onTap: () {
+                      GoRouter.of(context).go('/users/detail/${value.id}');
+                    },
                     label: 'View',
                     fgColor: AppColors.primary500,
                     textStyle: TextStyle(

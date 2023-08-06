@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,9 +6,7 @@ import 'package:healthcafe_dashboard/app.dart';
 import 'package:healthcafe_dashboard/bloc/auth_bloc.dart';
 import 'package:healthcafe_dashboard/config/providers.dart';
 import 'package:healthcafe_dashboard/res/theme.dart';
-import 'package:healthcafe_dashboard/routing/route_info_parser.dart';
-import 'package:healthcafe_dashboard/routing/router_cubit.dart';
-import 'package:healthcafe_dashboard/routing/router_delegate.dart';
+import 'package:healthcafe_dashboard/routing/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +20,6 @@ void main() async {
             RepositoryProvider.of(context),
           ),
         ),
-        BlocProvider(create: (_) => RouterCubit(App.configs)),
       ],
       child: const MyApp(),
     ),
@@ -35,16 +33,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      minTextAdapt: true,
+      useInheritedMediaQuery: true,
       designSize: const Size(1440, 1024),
       builder: (context, child) => MaterialApp.router(
         title: App.env.name,
         theme: AppTheme.lightTheme(context),
         darkTheme: AppTheme.darkTheme(context),
         themeMode: ThemeMode.light,
-        debugShowCheckedModeBanner: false,
-        routerDelegate: AppRouterDelegate(BlocProvider.of(context)),
-        routeInformationParser: AppRouterInfoParser(),
-        backButtonDispatcher: RootBackButtonDispatcher(),
+        debugShowCheckedModeBanner: kDebugMode,
+        // routerConfig: appRoutes,
+        routeInformationParser: appRoutes.routeInformationParser,
+        routerDelegate: appRoutes.routerDelegate,
+        routeInformationProvider: appRoutes.routeInformationProvider,
       ),
     );
   }

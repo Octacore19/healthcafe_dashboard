@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/bloc/login_cubit.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
-import 'package:healthcafe_dashboard/routing/app_router.dart';
-import 'package:healthcafe_dashboard/routing/auth_router_cubit.dart';
-import 'package:healthcafe_dashboard/routing/router_cubit.dart';
 import 'package:healthcafe_dashboard/utils/widget_utils.dart';
 import 'package:healthcafe_dashboard/widgets/labelled_textfield.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 
 class LoginPage extends AppPage {
-  const LoginPage({required super.args, super.key});
+  const LoginPage({required super.state, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +32,6 @@ class LoginScreen extends StatefulWidget {
 
 class _State extends State<LoginScreen> {
   bool _hidePassword = true;
-
-  RouterCubit? _router;
-  AuthRouterCubit? _authRouter;
   LoginCubit? _login;
 
   set hidePassword(bool value) {
@@ -49,8 +44,6 @@ class _State extends State<LoginScreen> {
   @override
   void initState() {
     hidePassword = true;
-    _router = BlocProvider.of(context);
-    _authRouter = BlocProvider.of(context);
     _login = BlocProvider.of(context);
     super.initState();
   }
@@ -61,7 +54,7 @@ class _State extends State<LoginScreen> {
       body: BlocListener<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is SuccessState) {
-            _router?.clearAndPush(AppRouter.home);
+            GoRouter.of(context).go('/');
           }
           if (state is ErrorState) {
             showSnackBar(context: context, message: state.message);
@@ -124,7 +117,8 @@ class _State extends State<LoginScreen> {
                         fontWeight: FontWeight.w400,
                         fontSize: 12.sp,
                       ),
-                      onTap: () => _authRouter?.onPageChanged(1),
+                      onTap: () =>
+                          GoRouter.of(context).push('/forgot-password'),
                     ),
                   ),
                   SizedBox(height: 20.h),

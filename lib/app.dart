@@ -8,8 +8,6 @@ import 'package:healthcafe_dashboard/config/dev_config.dart';
 import 'package:healthcafe_dashboard/config/env_config.dart';
 import 'package:healthcafe_dashboard/config/prod_config.dart';
 import 'package:healthcafe_dashboard/config/stage_config.dart';
-import 'package:healthcafe_dashboard/routing/app_router.dart';
-import 'package:healthcafe_dashboard/routing/page_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class App {
@@ -94,11 +92,5 @@ class App {
     // await Hive.openBox<HiveHealthTip>('health_tips');
 
     _initialized = true;
-  }
-
-  static List<PageConfig> get configs {
-    return [
-      PageConfig(location: AppRouter.home),
-    ];
   }
 }

@@ -12,7 +12,7 @@ import 'package:intl/intl.dart';
 
 class DashboardPage extends AppPage {
   const DashboardPage({
-    required super.args,
+    required super.state,
     super.key,
   });
 

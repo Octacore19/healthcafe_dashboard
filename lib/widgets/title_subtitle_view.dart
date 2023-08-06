@@ -6,11 +6,15 @@ class TitleSubtitleView extends StatelessWidget {
   const TitleSubtitleView({
     required this.title,
     required this.subtitle,
+    this.titleSize,
+    this.subtitleSize,
     super.key,
   });
 
   final String title;
   final String subtitle;
+  final double? titleSize;
+  final double? subtitleSize;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class TitleSubtitleView extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: 36.sp,
+            fontSize: (titleSize ?? 36).sp,
             fontWeight: FontWeight.w700,
             color: AppColors.grey900,
           ),
@@ -31,7 +35,7 @@ class TitleSubtitleView extends StatelessWidget {
         Text(
           subtitle,
           style: TextStyle(
-            fontSize: 18.sp,
+            fontSize: (subtitleSize ?? 18).sp,
             fontWeight: FontWeight.w400,
             color: AppColors.grey500,
           ),

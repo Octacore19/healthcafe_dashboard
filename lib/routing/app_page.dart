@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 typedef TransitionAnimationBuilder = Widget Function(
   BuildContext,
@@ -7,17 +8,20 @@ typedef TransitionAnimationBuilder = Widget Function(
   Widget,
 );
 
+final GlobalKey<NavigatorState> rootNavKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> homeNavKey = GlobalKey<NavigatorState>();
+
 abstract class AppPage<P> extends Page<P> {
   const AppPage({
     ValueKey? key,
-    required this.args,
+    required this.state,
     this.transitionDuration = 400,
     this.reverseTransitionDuration = 400,
     this.fullscreenDialog = false,
     this.animationBuilder,
   }) : super(key: key);
 
-  final Map<String, dynamic> args;
+  final GoRouterState state;
 
   final int transitionDuration, reverseTransitionDuration;
 

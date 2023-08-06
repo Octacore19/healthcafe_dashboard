@@ -52,6 +52,11 @@ class LabelledTextField extends StatelessWidget {
             initialValue: initialValue,
             controller: controller,
             keyboardType: inputType,
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+              color: AppColors.grey700,
+            ),
             decoration: InputDecoration(
               isDense: true,
               hintText: hint,

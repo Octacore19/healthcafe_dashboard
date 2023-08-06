@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/widgets/labelled_textfield.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 
 class ForgotPasswordPage extends AppPage {
-  const ForgotPasswordPage({required super.args});
+  const ForgotPasswordPage({required super.state, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class ForgotPasswordPage extends AppPage {
                 fgColor: Colors.white,
                 minimumSize: Size(p1.maxWidth * 0.5, 48),
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 10).r,
-                onTap: () => Navigator.pop(context),
+                onTap: () => context.pop(),
               ),
               SizedBox(height: 20.h),
               Container(

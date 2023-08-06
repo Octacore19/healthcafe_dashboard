@@ -3,7 +3,7 @@ import 'package:healthcafe_dashboard/routing/app_page.dart';
 
 class SettingsPage extends AppPage {
   const SettingsPage({
-    required super.args,
+    required super.state,
     super.key,
   });
 

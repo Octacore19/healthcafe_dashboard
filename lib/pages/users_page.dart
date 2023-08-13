@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +11,7 @@ import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
 import 'package:healthcafe_dashboard/widgets/search_filter_view.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 import 'package:healthcafe_dashboard/widgets/title_subtitle_view.dart';
+import 'package:healthcafe_dashboard/utils/data_table.dart' as table;
 import 'package:intl/intl.dart';
 
 class UsersPage extends AppPage {
@@ -161,61 +163,56 @@ class _UsersScreenState extends State<UsersScreen>
       color: AppColors.grey800,
       overflow: TextOverflow.fade,
     );
-    List<Widget> children = [];
-    Widget buildHeaderItem() {
-      return Container(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 16).r,
-        color: AppColors.grey50,
-        child: Row(
-          children: [
-            Expanded(child: Text('Date Joined', style: style, maxLines: 1)),
-            Expanded(
-                flex: 2, child: Text('Full name', style: style, maxLines: 1)),
-            Expanded(flex: 2, child: Text('Email', style: style, maxLines: 1)),
-            Expanded(
-                flex: 2,
-                child: Text('Phone Number', style: style, maxLines: 1)),
-            Expanded(
-                flex: 2, child: Text('Address', style: style, maxLines: 1)),
-            Expanded(child: Text('HMO', style: style, maxLines: 1)),
-            Expanded(child: Text('Status', style: style, maxLines: 1)),
-          ],
+
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Container(
+        clipBehavior: Clip.hardEdge,
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.gray200),
+          borderRadius: BorderRadius.circular(8),
         ),
-      );
-    }
-
-    Widget buildItem(AuthUser value) {
-      style = style.copyWith(color: AppColors.grey600);
-
-      final formatter = DateFormat('dd-MM-yyyy');
-      final creationDate =
-          value.dateCreated != null ? formatter.format(value.dateCreated!) : '';
-      return Container(
-        margin: EdgeInsets.zero,
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 16).r,
-        decoration: const BoxDecoration(
-          border: Border(
-            top: BorderSide(color: AppColors.gray200),
+        child: table.DataTable(
+          columnSpacing: 4,
+          showCheckboxColumn: false,
+          clipBehavior: Clip.hardEdge,
+          headingRowColor: MaterialStateProperty.resolveWith(
+            (states) => AppColors.grey50,
           ),
-        ),
-        child: Row(
-          children: [
-            Expanded(child: Text(creationDate, style: style, maxLines: 1)),
-            Expanded(
-                flex: 2, child: Text(value.name, style: style, maxLines: 1)),
-            Expanded(
-                flex: 2, child: Text(value.email, style: style, maxLines: 1)),
-            Expanded(
-                flex: 2, child: Text(value.phone, style: style, maxLines: 1)),
-            Expanded(flex: 2, child: Text('', style: style, maxLines: 1)),
-            Expanded(child: Text('', style: style, maxLines: 1)),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(child: Text('active', style: style, maxLines: 1)),
-                  Textbutton(
+          border: const TableBorder(
+            horizontalInside: BorderSide(color: AppColors.gray200),
+          ),
+          headingTextStyle: style,
+          columns: const [
+            table.DataColumn(label: Text('Date Joined')),
+            table.DataColumn(label: Text('Full name')),
+            table.DataColumn(label: Text('Email')),
+            table.DataColumn(label: Text('Phone number')),
+            table.DataColumn(label: Text('Address')),
+            table.DataColumn(label: Text('HMO')),
+            table.DataColumn(label: Text("Status")),
+          ],
+          rows: users.mapIndexed((index, element) {
+            final formatter = DateFormat('dd-MM-yyyy');
+            final creationDate = element.dateCreated != null
+                ? formatter.format(element.dateCreated!)
+                : '';
+            style = style.copyWith(color: AppColors.grey600);
+            return table.DataRow.byIndex(
+              index: index,
+              cells: [
+                table.DataCell(Text(creationDate, style: style)),
+                table.DataCell(Text(element.name, style: style)),
+                table.DataCell(Text(element.email, style: style)),
+                table.DataCell(Text(element.phone, style: style)),
+                table.DataCell(Text('Olivia Rhye', style: style)),
+                table.DataCell(Text('Olivia Rhye', style: style)),
+                table.DataCell(
+                  Text('active', style: style),
+                  showSuffix: true,
+                  suffix: Textbutton(
                     onTap: () {
-                      GoRouter.of(context).go('/users/detail/${value.id}');
+                      GoRouter.of(context).go('/users/detail/${element.id}');
                     },
                     label: 'View',
                     fgColor: AppColors.primary500,
@@ -224,51 +221,11 @@ class _UsersScreenState extends State<UsersScreen>
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                ],
-              ),
-            ),
-          ],
+                ),
+              ],
+            );
+          }).toList(),
         ),
-      );
-    }
-
-    children.add(buildHeaderItem());
-
-    for (var user in users) {
-      children.add(buildItem(user));
-    }
-
-    Widget buildList() {
-      return SingleChildScrollView(
-        child: Card(
-          elevation: 0.5,
-          margin: EdgeInsets.zero,
-          clipBehavior: Clip.hardEdge,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10).r,
-            side: const BorderSide(color: AppColors.gray200),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: children,
-          ),
-        ),
-      );
-    }
-
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.59,
-      child: TabBarView(
-        controller: _controller,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          buildList(),
-          buildList(),
-          buildList(),
-          buildList(),
-        ],
       ),
     );
   }

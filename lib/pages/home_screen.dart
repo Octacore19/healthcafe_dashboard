@@ -65,7 +65,41 @@ class HomeScreen extends StatelessWidget {
               );
             },
           ),
-          Expanded(child: navShell)
+          Expanded(
+            child: Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.white,
+                elevation: 0,
+                actions: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20).w,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(AppSvgs.notificationIcon),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 30).w,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: FadeInImage.assetNetwork(
+                        placeholder: AppImages.loading,
+                        image: 'https://www.google.com',
+                        imageErrorBuilder: (_, __, stack) => Image(
+                          image: const AssetImage(AppImages.profilePicture),
+                          height: 24.h,
+                          width: 24.w,
+                        ),
+                        height: 24.h,
+                        width: 24.w,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              body: navShell,
+            ),
+          )
         ],
       ),
     );

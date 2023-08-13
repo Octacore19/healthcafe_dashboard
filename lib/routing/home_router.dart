@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:healthcafe_dashboard/pages/appointment_detail_page.dart';
 import 'package:healthcafe_dashboard/pages/appointments_page.dart';
 import 'package:healthcafe_dashboard/pages/dashboard_page.dart';
 import 'package:healthcafe_dashboard/pages/home_screen.dart';
@@ -42,6 +43,14 @@ final homeRoute = StatefulShellRoute.indexedStack(
           state: state,
           key: state.pageKey,
         ),
+        routes: [
+          GoRoute(
+            path: 'detail/:id',
+            pageBuilder: (context, state) {
+              return AppointmentDetailPage(state: state);
+            },
+          )
+        ],
       ),
     ]),
     StatefulShellBranch(routes: [

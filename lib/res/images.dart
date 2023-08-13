@@ -28,4 +28,5 @@ class AppSvgs {
   static const String taskSquare = 'assets/img/task-square.svg';
   static const String logo = 'assets/img/logo.svg';
   static const String logoText = 'assets/img/logo-text.svg';
+  static const String more = 'assets/img/more.svg';
 }

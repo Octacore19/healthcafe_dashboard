@@ -1,42 +1,33 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/bloc/users_cubit.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
-import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
-import 'package:healthcafe_dashboard/widgets/search_filter_view.dart';
+import 'package:healthcafe_dashboard/widgets/text_button.dart';
 import 'package:healthcafe_dashboard/widgets/title_subtitle_view.dart';
-import 'package:healthcafe_dashboard/utils/data_table.dart' as table;
 import 'package:intl/intl.dart';
 
-class UserProfilePage extends AppPage {
-  const UserProfilePage({required super.state});
+class AppointmentDetailPage extends AppPage {
+  const AppointmentDetailPage({required super.state});
 
   @override
   Widget build(BuildContext context) {
-    // final id = state.pathParameters['id'] ?? '';
-    return BlocProvider(
-      create: (context) => UsersCubit(
-        userRepo: RepositoryProvider.of(context),
-      ),
-      child: const UserProfileScreen(),
-    );
+    return const AppointmentDetailScreen();
   }
 }
 
-class UserProfileScreen extends StatefulWidget {
-  const UserProfileScreen({super.key});
+class AppointmentDetailScreen extends StatefulWidget {
+  const AppointmentDetailScreen({super.key});
 
   @override
-  State<UserProfileScreen> createState() => _UserProfileScreenState();
+  State<AppointmentDetailScreen> createState() =>
+      _AppointmentDetailScreenState();
 }
 
-class _UserProfileScreenState extends State<UserProfileScreen> {
+class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,13 +48,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
               ),
             ),
-            const TitleSubtitleView(
-              title: 'User Profile',
-              subtitle: 'Manage your user information',
-              titleSize: 20,
-              subtitleSize: 16,
-            ),
-            SizedBox(height: 30.h),
+            buildHeader(context),
             buildContent(context),
           ],
         ),
@@ -71,109 +56,134 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  Widget buildContent(BuildContext context) {
-    return BlocBuilder<UsersCubit, UsersState>(
-      builder: (context, state) {
-        return Card(
-          elevation: 0.5,
-          margin: EdgeInsets.zero,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16).r,
+  Widget buildHeader(BuildContext context) {
+    return Row(
+      children: [
+        const TitleSubtitleView(
+          title: 'Appointment Information',
+          subtitle: 'Manage your user information',
+          titleSize: 20,
+          subtitleSize: 16,
+        ),
+        const Spacer(),
+        Padding(
+          padding: const EdgeInsets.only(right: 8).w,
+          child: Textbutton(
+            onTap: () {},
+            label: 'Download',
+            border: const BorderSide(color: AppColors.grey300),
+            borderRadius: BorderRadius.circular(8).r,
+            padding: const EdgeInsets.fromLTRB(24, 8, 24, 8).r,
+            minimumSize: Size(124.w, 48.h),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(30).r,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                buildProfileHeader(context),
-                buildProfileInfo(context),
-                buildWellnessAssessment(context),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20).h,
-                  child: Text(
-                    'Appointments',
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.grey700,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 30).h,
-                  child: SearchVilterView(
-                    onFromTapped: () {},
-                    onToTapped: () {},
-                    showFilter: true,
-                  ),
-                ),
-                buildAssessmentTable(context),
-                const PaginationFooter()
-              ],
-            ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 8).w,
+          child: Textbutton(
+            onTap: () {},
+            label: 'Upload Result',
+            bgColor: AppColors.primary500,
+            fgColor: Colors.white,
+            padding: const EdgeInsets.fromLTRB(24, 8, 24, 8).r,
+            minimumSize: Size(124.w, 48.h),
           ),
-        );
-      },
+        )
+      ],
     );
   }
 
-  Widget buildProfileHeader(BuildContext context) {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 20).w,
-          child: ClipOval(
-            child: FadeInImage.assetNetwork(
-              placeholder: AppImages.loading,
-              image: 'https://www.google.com',
-              imageErrorBuilder: (_, __, stack) => Image(
-                image: const AssetImage(AppImages.profilePicture),
-                height: 120.h,
-                width: 120.w,
-              ),
-              height: 120.h,
-              width: 120.w,
-            ),
-          ),
+  Widget buildContent(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30).h,
+      child: Card(
+        elevation: 0.5,
+        margin: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16).r,
         ),
-        Expanded(
+        child: Padding(
+          padding: const EdgeInsets.all(20).r,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'John Doe',
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w600,
-                  fontSize: 24.sp,
-                  color: AppColors.grey900,
-                ),
-              ),
-              Text(
-                'Lorem ipsum ipsum',
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16.sp,
-                  color: AppColors.grey500,
-                ),
-              ),
+              buildAppointmentInfo(context),
+              buildProfileInfo(context),
+              buildWellnessAssessment(context),
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 20).w,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white,
-              backgroundColor: AppColors.danger500,
+      ),
+    );
+  }
+
+  Widget buildAppointmentInfo(BuildContext context) {
+    return Card(
+      elevation: 0.5,
+      margin: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16).r,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20).r,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Appointment Information',
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontFamily: 'Inter',
+                fontWeight: FontWeight.w600,
+              ),
             ),
-            child: const Text('Deactivate'),
-          ),
+            Padding(
+              padding: const EdgeInsets.only(top: 16).h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  buildDataTab(
+                    AppSvgs.userTag,
+                    'Appointment name',
+                    'John Doe',
+                  ),
+                  buildDataTab(
+                    AppSvgs.sms,
+                    'Appointment ID',
+                    'dummy@email.com',
+                  ),
+                  buildDataTab(
+                    AppSvgs.call,
+                    'Appointment date',
+                    '0800000000',
+                  ),
+                  buildDataTab(
+                    AppSvgs.cardTick,
+                    'Appointment time',
+                    'N30,000',
+                  ),
+                  buildDataTab(
+                    AppSvgs.calendarTick,
+                    'Amount',
+                    '12-01-2023',
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 6).h,
+              child: Row(
+                children: [
+                  buildDataTab(
+                    AppSvgs.locationCross,
+                    'Address',
+                    '34, lorem street, Lekki',
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
@@ -367,67 +377,6 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildAssessmentTable(BuildContext context) {
-    TextStyle style = TextStyle(
-      fontSize: 14.sp,
-      fontWeight: FontWeight.w500,
-      color: AppColors.grey900,
-      overflow: TextOverflow.fade,
-    );
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      child: Container(
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.gray200),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: table.DataTable(
-          columnSpacing: 4,
-          showCheckboxColumn: false,
-          clipBehavior: Clip.hardEdge,
-          headingRowColor: MaterialStateProperty.resolveWith(
-            (states) => AppColors.grey50,
-          ),
-          border: const TableBorder(
-            horizontalInside: BorderSide(color: AppColors.gray200),
-          ),
-          headingTextStyle: style,
-          columns: const [
-            table.DataColumn(label: Text('Date')),
-            table.DataColumn(label: Text('Time')),
-            table.DataColumn(label: Text('Appointment ID')),
-            table.DataColumn(label: Text('Appointment name')),
-            table.DataColumn(label: Text('Address')),
-            table.DataColumn(label: Text("Doctor's report")),
-            table.DataColumn(label: Text("Status")),
-          ],
-          rows: List.generate(
-            10,
-            (index) {
-              style = style.copyWith(color: AppColors.grey500);
-              return table.DataRow.byIndex(
-                index: index,
-                cells: [
-                  table.DataCell(Text('11-04-2022', style: style)),
-                  table.DataCell(Text('11:00 am', style: style)),
-                  table.DataCell(Text('VAC-826778785', style: style)),
-                  table.DataCell(Text('Olivia Rhye', style: style)),
-                  table.DataCell(Text('Olivia Rhye', style: style)),
-                  table.DataCell(Text('Olivia Rhye', style: style)),
-                  table.DataCell(
-                    Text('Completed', style: style),
-                    showSuffix: true,
-                  ),
-                ],
-              );
-            },
           ),
         ),
       ),

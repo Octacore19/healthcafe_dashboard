@@ -110,7 +110,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
               (index) => table.DataRow.byIndex(
                 index: index,
                 onSelectChanged: (value) {
-                  GoRouter.of(context).go('/appointments/detail/${000000}');
+                  GoRouter.of(context).go('/appointments/detail/${0}');
                 },
                 cells: const [
                   table.DataCell(Text('11-04-2022')),

@@ -4,6 +4,7 @@ import 'package:healthcafe_dashboard/pages/appointments_page.dart';
 import 'package:healthcafe_dashboard/pages/dashboard_page.dart';
 import 'package:healthcafe_dashboard/pages/home_screen.dart';
 import 'package:healthcafe_dashboard/pages/settings_page.dart';
+import 'package:healthcafe_dashboard/pages/upload_test_page.dart';
 import 'package:healthcafe_dashboard/pages/user_profile_page.dart';
 import 'package:healthcafe_dashboard/pages/users_page.dart';
 import 'package:healthcafe_dashboard/pages/wellness_plan_page.dart';
@@ -45,11 +46,18 @@ final homeRoute = StatefulShellRoute.indexedStack(
         ),
         routes: [
           GoRoute(
-            path: 'detail/:id',
-            pageBuilder: (context, state) {
-              return AppointmentDetailPage(state: state);
-            },
-          )
+              path: 'detail/:id',
+              pageBuilder: (context, state) {
+                return AppointmentDetailPage(state: state);
+              },
+              routes: [
+                GoRoute(
+                  path: 'result',
+                  pageBuilder: (context, state) {
+                    return UploadTestPage(state: state);
+                  },
+                ),
+              ]),
         ],
       ),
     ]),

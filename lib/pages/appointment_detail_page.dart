@@ -80,14 +80,16 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
         Padding(
           padding: const EdgeInsets.only(left: 8).w,
           child: Textbutton(
-            onTap: () {},
+            onTap: () {
+              GoRouter.maybeOf(context)?.go('/appointments/detail/${0}/result');
+            },
             label: 'Upload Result',
             bgColor: AppColors.primary500,
             fgColor: Colors.white,
             padding: const EdgeInsets.fromLTRB(24, 8, 24, 8).r,
             minimumSize: Size(124.w, 48.h),
           ),
-        )
+        ),
       ],
     );
   }

@@ -29,4 +29,5 @@ class AppSvgs {
   static const String logo = 'assets/img/logo.svg';
   static const String logoText = 'assets/img/logo-text.svg';
   static const String more = 'assets/img/more.svg';
+  static const String uploadCloud = 'assets/img/upload-cloud.svg';
 }

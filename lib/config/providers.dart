@@ -1,8 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/app.dart';
 import 'package:healthcafe_dashboard/data/remote/auth_service.dart';
-import 'package:healthcafe_dashboard/data/remote/repos/auth_repo.dart';
-import 'package:healthcafe_dashboard/data/remote/repos/user_repo.dart';
+import 'package:healthcafe_dashboard/data/repos/appointment_repo.dart';
+import 'package:healthcafe_dashboard/data/repos/auth_repo.dart';
+import 'package:healthcafe_dashboard/data/repos/user_repo.dart';
+import 'package:healthcafe_dashboard/domain/repos/appointment_repo.dart';
 import 'package:healthcafe_dashboard/domain/repos/auth_repo.dart';
 import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
 
@@ -22,6 +24,11 @@ class AppProviders {
           firebaseFirestore: App.db,
         ),
       ),
+      RepositoryProvider<AppointmentRepo>(
+        create: (context) => IAppointmentRepo(
+          firebaseFirestore: App.db,
+        ),
+      )
     ];
   }
 }

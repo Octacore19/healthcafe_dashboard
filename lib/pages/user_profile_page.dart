@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/bloc/users_cubit.dart';
+import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
@@ -19,10 +20,10 @@ class UserProfilePage extends AppPage {
 
   @override
   Widget build(BuildContext context) {
-    // final id = state.pathParameters['id'] ?? '';
     return BlocProvider(
       create: (context) => UsersCubit(
         userRepo: RepositoryProvider.of(context),
+        id: state.pathParameters['id'],
       ),
       child: const UserProfileScreen(),
     );
@@ -85,8 +86,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildProfileHeader(context),
-                buildProfileInfo(context),
+                buildProfileHeader(context, state.selected),
+                buildProfileInfo(context, state.selected),
                 buildWellnessAssessment(context),
                 Padding(
                   padding: const EdgeInsets.only(top: 20).h,
@@ -118,7 +119,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  Widget buildProfileHeader(BuildContext context) {
+  Widget buildProfileHeader(BuildContext context, AuthUser? user) {
     return Row(
       children: [
         Padding(
@@ -142,7 +143,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'John Doe',
+                user?.name ?? '',
                 style: TextStyle(
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w600,
@@ -151,7 +152,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
               ),
               Text(
-                'Lorem ipsum ipsum',
+                user?.email ?? '',
                 style: TextStyle(
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w400,
@@ -169,6 +170,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: AppColors.danger500,
+              minimumSize: Size(124.w, 48.h),
             ),
             child: const Text('Deactivate'),
           ),
@@ -177,7 +179,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  Widget buildProfileInfo(BuildContext context) {
+  Widget buildProfileInfo(BuildContext context, AuthUser? user) {
+    final formatter = DateFormat('dd-MM-yyyy');
+    final creationDate =
+        user?.dateCreated != null ? formatter.format(user!.dateCreated!) : 'Nil';
     return Padding(
       padding: const EdgeInsets.only(top: 20).h,
       child: Card(
@@ -207,27 +212,27 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     buildDataTab(
                       AppSvgs.userTag,
                       'Full name',
-                      'John Doe',
+                      user?.name ?? 'Nil',
                     ),
                     buildDataTab(
                       AppSvgs.sms,
                       'Email address',
-                      'dummy@email.com',
+                      user?.email ?? 'Nil',
                     ),
                     buildDataTab(
                       AppSvgs.call,
                       'Phone number',
-                      '0800000000',
+                      user?.phone ?? 'Nil',
                     ),
                     buildDataTab(
                       AppSvgs.cardTick,
                       'Total plans',
-                      'N30,000',
+                      'Nil',
                     ),
                     buildDataTab(
                       AppSvgs.calendarTick,
                       'Date joined',
-                      '12-01-2023',
+                      creationDate,
                     ),
                   ],
                 ),
@@ -239,7 +244,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     buildDataTab(
                       AppSvgs.locationCross,
                       'Address',
-                      '34, lorem street, Lekki',
+                      'Nil',
                     ),
                   ],
                 ),

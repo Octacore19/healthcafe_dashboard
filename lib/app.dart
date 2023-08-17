@@ -8,6 +8,10 @@ import 'package:healthcafe_dashboard/config/dev_config.dart';
 import 'package:healthcafe_dashboard/config/env_config.dart';
 import 'package:healthcafe_dashboard/config/prod_config.dart';
 import 'package:healthcafe_dashboard/config/stage_config.dart';
+import 'package:healthcafe_dashboard/data/local/appointment.dart';
+import 'package:healthcafe_dashboard/data/local/constants.dart';
+import 'package:healthcafe_dashboard/data/local/user.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class App {
@@ -45,7 +49,6 @@ class App {
       final license = await rootBundle.loadString('assets/inter/OFL.txt');
       yield LicenseEntryWithLineBreaks(['assets/inter'], license);
     });
-    // GoogleFonts.config.allowRuntimeFetching = false;
 
     const appEnv = String.fromEnvironment('APP_ENV');
     _env = appEnv == "dev"
@@ -86,10 +89,12 @@ class App {
     // HydratedBloc.storage = AppHydratedStorage();
 
     // Hive
-    // await Hive.initFlutter();
-    // Hive.registerAdapter(HealthTipAdapter());
+    await Hive.initFlutter();
+    Hive.registerAdapter(UserAdapter());
+    Hive.registerAdapter(AppointmentAdapter());
 
-    // await Hive.openBox<HiveHealthTip>('health_tips');
+    await Hive.openBox<HiveUser>(userBox);
+    await Hive.openBox<HiveAppointment>(appointmentBox);
 
     _initialized = true;
   }

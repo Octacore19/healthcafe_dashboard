@@ -17,6 +17,8 @@ class LoginPage extends AppPage {
     return BlocProvider(
       create: (context) => LoginCubit(
         authRepo: RepositoryProvider.of(context),
+        userRepo: RepositoryProvider.of(context),
+        appRepo: RepositoryProvider.of(context),
       ),
       child: const LoginScreen(),
     );

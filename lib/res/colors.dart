@@ -27,8 +27,12 @@ class AppColors {
   static const Color grey800 = Color(0xFF1D2939);
   static const Color grey900 = Color(0xFF101828);
   static const Color gray900 = Color(0xFF101828);
+  static const Color warning50 = Color(0xFFFFFAEB);
+  static const Color warning700 = Color(0xFFB54708);
   static const Color danger500 = Color(0xFFA92F34);
+  static const Color success50 = Color(0xFFECFDF3);
   static const Color success500 = Color(0xFF12B76A);
+  static const Color success700 = Color(0xFF027A48);
 
   static const Color pinViewBoxColor = grey300;
   static const Color pinViewTextColor = grey300;

@@ -182,7 +182,7 @@ class _UsersScreenState extends State<UsersScreen>
           border: const TableBorder(
             horizontalInside: BorderSide(color: AppColors.gray200),
           ),
-          headingTextStyle: style,
+          headingTextStyle: style.copyWith(fontWeight: FontWeight.bold),
           columns: const [
             table.DataColumn(label: Text('Date Joined')),
             table.DataColumn(label: Text('Full name')),
@@ -196,7 +196,7 @@ class _UsersScreenState extends State<UsersScreen>
             final formatter = DateFormat('dd-MM-yyyy');
             final creationDate = element.dateCreated != null
                 ? formatter.format(element.dateCreated!)
-                : '';
+                : 'Nil';
             style = style.copyWith(color: AppColors.grey600);
             return table.DataRow.byIndex(
               index: index,
@@ -205,10 +205,31 @@ class _UsersScreenState extends State<UsersScreen>
                 table.DataCell(Text(element.name, style: style)),
                 table.DataCell(Text(element.email, style: style)),
                 table.DataCell(Text(element.phone, style: style)),
-                table.DataCell(Text('Olivia Rhye', style: style)),
-                table.DataCell(Text('Olivia Rhye', style: style)),
+                table.DataCell(Text('Nil', style: style)),
+                table.DataCell(Text('Nil', style: style)),
                 table.DataCell(
-                  Text('active', style: style),
+                  Row(
+                    children: [
+                      DecoratedBox(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16).r,
+                          color: !element.disabled
+                              ? AppColors.success50
+                              : AppColors.warning50,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(8, 2, 8, 2).r,
+                          child: Text(
+                            !element.disabled ? 'active' : 'inactive',
+                            style: style.copyWith(
+                                color: !element.disabled
+                                    ? AppColors.success700
+                                    : AppColors.warning700),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   showSuffix: true,
                   suffix: Textbutton(
                     onTap: () {

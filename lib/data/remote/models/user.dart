@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:healthcafe_dashboard/data/local/user.dart';
 
 class UserResponse {
   UserResponse._({
@@ -67,6 +68,22 @@ class UserResponse {
       'creation_time': creationTime,
       'profile_picture': profilePicture,
     };
+  }
+
+  HiveUser get toHive {
+    return HiveUser()
+      ..uid = uid
+      ..displayName = displayName
+      ..dob = dob
+      ..email = email
+      ..emailVerified = emailVerified
+      ..gender = gender
+      ..lastSignInTime = lastSignInTime
+      ..phoneNumber = phoneNumber
+      ..phoneVerified = phoneVerified
+      ..disabled = disabled
+      ..creationTime = creationTime
+      ..profilePicture = profilePicture;
   }
 
   @override

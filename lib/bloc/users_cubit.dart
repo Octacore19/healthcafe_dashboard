@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,13 +10,14 @@ import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
 part 'users_state.dart';
 
 class UsersCubit extends Cubit<UsersState> {
-  UsersCubit({required UserRepo userRepo})
+  UsersCubit({required UserRepo userRepo, String? id})
       : _userRepo = userRepo,
         super(const InitialState()) {
     _searchController = TextEditingController();
 
     _usersSub = _userRepo.users.listen((users) {
-      emit(UpdatedState(users: users));
+      final user = users.firstWhereOrNull((e) => e.id == id);
+      emit(UpdatedState(users: users, selected: user));
     });
   }
 

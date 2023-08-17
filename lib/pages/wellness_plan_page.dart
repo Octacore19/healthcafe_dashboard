@@ -123,16 +123,11 @@ class _State extends State<WellnessPlanScreen> {
               table.DataColumn(
                 label: Text('Description'),
               ),
-              /* table.DataColumn(label: Text('Phone number')),
-              table.DataColumn(label: Text("Status")), */
             ],
             rows: List.generate(
               10,
               (index) => table.DataRow.byIndex(
                 index: index,
-                /* onSelectChanged: (value) {
-                  // GoRouter.of(context).go('/appointments/detail/${0}');
-                }, */
                 cells: [
                   const table.DataCell(Text('11-04-2022')),
                   const table.DataCell(Text('11:00 am')),

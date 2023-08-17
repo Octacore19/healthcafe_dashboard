@@ -46,18 +46,19 @@ final homeRoute = StatefulShellRoute.indexedStack(
         ),
         routes: [
           GoRoute(
-              path: 'detail/:id',
-              pageBuilder: (context, state) {
-                return AppointmentDetailPage(state: state);
-              },
-              routes: [
-                GoRoute(
-                  path: 'result',
-                  pageBuilder: (context, state) {
-                    return UploadTestPage(state: state);
-                  },
-                ),
-              ]),
+            path: 'detail/:id',
+            pageBuilder: (context, state) {
+              return AppointmentDetailPage(state: state);
+            },
+            routes: [
+              GoRoute(
+                path: 'result',
+                pageBuilder: (context, state) {
+                  return UploadTestPage(state: state);
+                },
+              ),
+            ],
+          ),
         ],
       ),
     ]),

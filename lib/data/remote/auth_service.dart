@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:healthcafe_dashboard/config/env_config.dart';
-import 'package:healthcafe_dashboard/data/remote/models/auth_response.dart';
+import 'package:healthcafe_dashboard/data/remote/models/auth.dart';
 
 class AuthService {
   AuthService(this._config);

@@ -1,6 +1,5 @@
 import 'dart:math' as math;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -383,7 +382,13 @@ class DataTable extends StatelessWidget {
     this.onSelectAll,
     this.decoration,
     this.dataRowColor,
-    this.dataRowHeight,
+    @Deprecated(
+      'Migrate to use dataRowMinHeight and dataRowMaxHeight instead. '
+      'This feature was deprecated after v3.7.0-5.0.pre.',
+    )
+    double? dataRowHeight,
+    double? dataRowMinHeight,
+    double? dataRowMaxHeight,
     this.dataTextStyle,
     this.headingRowColor,
     this.headingRowHeight,
@@ -402,6 +407,11 @@ class DataTable extends StatelessWidget {
             (sortColumnIndex >= 0 && sortColumnIndex < columns.length)),
         assert(!rows.any((DataRow row) => row.cells.length != columns.length)),
         assert(dividerThickness == null || dividerThickness >= 0),
+        assert(dataRowMinHeight == null || dataRowMaxHeight == null || dataRowMaxHeight >= dataRowMinHeight),
+       assert(dataRowHeight == null || (dataRowMinHeight == null && dataRowMaxHeight == null),
+         'dataRowHeight ($dataRowHeight) must not be set if dataRowMinHeight ($dataRowMinHeight) or dataRowMaxHeight ($dataRowMaxHeight) are set.'),
+       dataRowMinHeight = dataRowHeight ?? dataRowMinHeight,
+       dataRowMaxHeight = dataRowHeight ?? dataRowMaxHeight,
         _onlyTextColumn = _initOnlyTextColumn(columns);
 
   /// The configuration and labels for the columns in the table.
@@ -496,7 +506,29 @@ class DataTable extends StatelessWidget {
   /// If null, [DataTableThemeData.dataRowHeight] is used. This value defaults
   /// to [kMinInteractiveDimension] to adhere to the Material Design
   /// specifications.
-  final double? dataRowHeight;
+  @Deprecated(
+    'Migrate to use dataRowMinHeight and dataRowMaxHeight instead. '
+    'This feature was deprecated after v3.7.0-5.0.pre.',
+  )
+  double? get dataRowHeight => dataRowMinHeight == dataRowMaxHeight ? dataRowMinHeight : null;
+
+  /// {@template flutter.material.dataTable.dataRowMinHeight}
+  /// The minimum height of each row (excluding the row that contains column headings).
+  /// {@endtemplate}
+  ///
+  /// If null, [DataTableThemeData.dataRowMinHeight] is used. This value defaults
+  /// to [kMinInteractiveDimension] to adhere to the Material Design
+  /// specifications.
+  final double? dataRowMinHeight;
+
+  /// {@template flutter.material.dataTable.dataRowMaxHeight}
+  /// The maximum height of each row (excluding the row that contains column headings).
+  /// {@endtemplate}
+  ///
+  /// If null, [DataTableThemeData.dataRowMaxHeight] is used. This value defaults
+  /// to [kMinInteractiveDimension] to adhere to the Material Design
+  /// specifications.
+  final double? dataRowMaxHeight;
 
   /// {@template flutter.material.dataTable.dataTextStyle}
   /// The text style for data rows.
@@ -840,13 +872,17 @@ class DataTable extends StatelessWidget {
         dataTableTheme.dataTextStyle ??
         themeData.dataTableTheme.dataTextStyle ??
         themeData.textTheme.bodyMedium!;
-    final double effectiveDataRowHeight = dataRowHeight ??
-        dataTableTheme.dataRowHeight ??
-        themeData.dataTableTheme.dataRowHeight ??
-        kMinInteractiveDimension;
+    final double effectiveDataRowMinHeight = dataRowMinHeight
+      ?? dataTableTheme.dataRowMinHeight
+      ?? themeData.dataTableTheme.dataRowMinHeight
+      ?? kMinInteractiveDimension;
+    final double effectiveDataRowMaxHeight = dataRowMaxHeight
+      ?? dataTableTheme.dataRowMaxHeight
+      ?? themeData.dataTableTheme.dataRowMaxHeight
+      ?? kMinInteractiveDimension;
     label = Container(
       padding: padding,
-      height: effectiveDataRowHeight,
+      constraints: BoxConstraints(minHeight: effectiveDataRowMinHeight, maxHeight: effectiveDataRowMaxHeight),
       alignment:
           numeric ? Alignment.centerRight : AlignmentDirectional.centerStart,
       child: DefaultTextStyle(
@@ -989,7 +1025,7 @@ class DataTable extends StatelessWidget {
           effectiveCheckboxHorizontalMarginStart +
               Checkbox.width +
               effectiveCheckboxHorizontalMarginEnd);
-      tableRows[0].children![0] = _buildCheckbox(
+      tableRows[0].children[0] = _buildCheckbox(
         context: context,
         checked: someChecked ? null : allChecked,
         onRowTap: null,
@@ -1000,7 +1036,7 @@ class DataTable extends StatelessWidget {
       );
       rowIndex = 1;
       for (final DataRow row in rows) {
-        tableRows[rowIndex].children![0] = _buildCheckbox(
+        tableRows[rowIndex].children[0] = _buildCheckbox(
           context: context,
           checked: row.selected,
           onRowTap: row.onSelectChanged == null
@@ -1050,7 +1086,7 @@ class DataTable extends StatelessWidget {
       } else {
         tableColumns[displayColumnIndex] = const IntrinsicColumnWidth();
       }
-      tableRows[0].children![displayColumnIndex] = _buildHeadingCell(
+      tableRows[0].children[displayColumnIndex] = _buildHeadingCell(
         context: context,
         padding: padding,
         label: column.label,
@@ -1067,7 +1103,7 @@ class DataTable extends StatelessWidget {
       rowIndex = 1;
       for (final DataRow row in rows) {
         final DataCell cell = row.cells[dataColumnIndex];
-        tableRows[rowIndex].children![displayColumnIndex] = _buildDataCell(
+        tableRows[rowIndex].children[displayColumnIndex] = _buildDataCell(
           context: context,
           padding: padding,
           label: cell.child,
@@ -1147,7 +1183,7 @@ class TableRowInkWell extends InkResponse {
   RectCallback getRectCallback(RenderBox referenceBox) {
     return () {
       RenderObject cell = referenceBox;
-      AbstractNode? table = cell.parent;
+      RenderObject? table = cell.parent;
       final Matrix4 transform = Matrix4.identity();
       while (table is RenderObject && table is! RenderTable) {
         table.applyPaintTransform(cell, transform);
@@ -1156,8 +1192,7 @@ class TableRowInkWell extends InkResponse {
         table = table.parent;
       }
       if (table is RenderTable) {
-        final TableCellParentData cellParentData =
-            cell.parentData! as TableCellParentData;
+        final TableCellParentData cellParentData = cell.parentData! as TableCellParentData;
         assert(cellParentData.y != null);
         final Rect rect = table.getRowBox(cellParentData.y!);
         // The rect is in the table's coordinate space. We need to change it to the

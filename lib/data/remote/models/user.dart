@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:healthcafe_dashboard/data/local/user.dart';
+import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
 
 class UserResponse {
   UserResponse._({
@@ -11,6 +11,8 @@ class UserResponse {
     this.emailVerified,
     this.gender,
     this.lastSignInTime,
+    this.onboardingScore,
+    this.onboarded,
     this.phoneNumber,
     this.phoneVerified,
     this.uid,
@@ -19,18 +21,20 @@ class UserResponse {
     this.profilePicture,
   });
 
-  final String? displayName;
-  final String? dob;
-  final String? email;
-  final bool? emailVerified;
-  final int? gender;
-  final String? phoneNumber;
-  final bool? phoneVerified;
   final String? uid;
-  final bool? disabled;
-  final String? lastSignInTime;
-  final String? creationTime;
+  final String? displayName;
+  final String? email;
+  final String? phoneNumber;
   final String? profilePicture;
+  final String? onboardingScore;
+  final int? gender;
+  final Timestamp? dob;
+  final Timestamp? creationTime;
+  final Timestamp? lastSignInTime;
+  final bool? emailVerified;
+  final bool? onboarded;
+  final bool? phoneVerified;
+  final bool? disabled;
 
   factory UserResponse.fromFirestore(
     DocumentSnapshot<Map<String, dynamic>> snapshot,
@@ -45,6 +49,8 @@ class UserResponse {
       emailVerified: json?['email_verified'],
       gender: json?['gender'],
       lastSignInTime: json?['last_sign_in_time'],
+      onboardingScore: json?['onboarding_score'],
+      onboarded: json?['onboarding_test'],
       phoneNumber: json?['phone_number'],
       phoneVerified: json?['phone_verified'],
       disabled: json?['disabled'],
@@ -62,6 +68,8 @@ class UserResponse {
       'email_verified': emailVerified,
       'gender': gender,
       'last_sign_in_time': lastSignInTime,
+      'onboarding_score': onboardingScore,
+      'onboarding_test': onboarded,
       'phone_number': phoneNumber,
       'phone_verified': phoneVerified,
       'disabled': disabled,
@@ -74,18 +82,17 @@ class UserResponse {
     return HiveUser()
       ..uid = uid
       ..displayName = displayName
-      ..dob = dob
+      ..dob = dob?.toDate().toIso8601String()
       ..email = email
       ..emailVerified = emailVerified
       ..gender = gender
-      ..lastSignInTime = lastSignInTime
+      ..lastSignInTime = lastSignInTime?.toDate().toIso8601String()
+      ..onboardingScore = onboardingScore
+      ..onboarded = onboarded
       ..phoneNumber = phoneNumber
       ..phoneVerified = phoneVerified
       ..disabled = disabled
-      ..creationTime = creationTime
+      ..creationTime = creationTime?.toDate().toIso8601String()
       ..profilePicture = profilePicture;
   }
-
-  @override
-  String toString() => jsonEncode(toJson());
 }

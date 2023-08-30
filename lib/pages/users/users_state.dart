@@ -1,13 +1,12 @@
 part of 'users_cubit.dart';
 
 abstract class UsersState extends Equatable {
-  const UsersState({required this.users, this.selected});
+  const UsersState({required this.users});
 
   final List<AuthUser> users;
-  final AuthUser? selected;
 
   @override
-  List<Object?> get props => [users, selected];
+  List<Object?> get props => [users];
 }
 
 class InitialState extends UsersState {
@@ -15,5 +14,5 @@ class InitialState extends UsersState {
 }
 
 class UpdatedState extends UsersState {
-  const UpdatedState({required super.users, super.selected});
+  const UpdatedState({required super.users});
 }

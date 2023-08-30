@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:healthcafe_dashboard/bloc/auth_bloc.dart';
-import 'package:healthcafe_dashboard/bloc/dashboard_cubit.dart';
+import 'package:healthcafe_dashboard/auth_cubit.dart';
+import 'package:healthcafe_dashboard/pages/dashboard/dashboard_cubit.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
@@ -21,6 +21,7 @@ class DashboardPage extends AppPage {
     return BlocProvider(
       create: (context) => DashboardCubit(
         userRepo: RepositoryProvider.of(context),
+        appointmentRepo: RepositoryProvider.of(context),
       ),
       child: const DashboardScreen(),
     );
@@ -58,7 +59,7 @@ class _State extends State<DashboardScreen> {
   }
 
   Widget buildTitleSubtitle(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
+    return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         final name = state.user?.name ?? '';
         if (state is! AuthenticatedState) return const SizedBox();
@@ -71,7 +72,7 @@ class _State extends State<DashboardScreen> {
   }
 
   Widget buildMetric(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
+    return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         if (state is! AuthenticatedState) return const SizedBox.shrink();
         return BlocBuilder<DashboardCubit, DashboardState>(
@@ -83,7 +84,8 @@ class _State extends State<DashboardScreen> {
                     context: context,
                     title: 'Users',
                     count: state.users.length,
-                    percent: 100,
+                    percent: 0,
+                    // isSuccess: false,
                   ),
                 ),
                 SizedBox(width: 20.w),
@@ -91,9 +93,9 @@ class _State extends State<DashboardScreen> {
                   child: buildMetricItem(
                     context: context,
                     title: 'Total appointments',
-                    count: 2000,
-                    percent: 30,
-                    isSuccess: false,
+                    count: state.appointments.length,
+                    percent: 0,
+                    // isSuccess: false,
                   ),
                 ),
                 SizedBox(width: 20.w),
@@ -101,8 +103,9 @@ class _State extends State<DashboardScreen> {
                   child: buildMetricItem(
                     context: context,
                     title: 'Pending appointments',
-                    count: 2000,
-                    percent: 50,
+                    count: 0,
+                    percent: 0,
+                    // isSuccess: false,
                   ),
                 ),
                 SizedBox(width: 20.w),
@@ -110,9 +113,9 @@ class _State extends State<DashboardScreen> {
                   child: buildMetricItem(
                     context: context,
                     title: 'Total Sales',
-                    count: 2000,
-                    percent: 59.5,
-                    isSuccess: false,
+                    count: 0,
+                    percent: 0,
+                    // isSuccess: false,
                   ),
                 ),
               ],

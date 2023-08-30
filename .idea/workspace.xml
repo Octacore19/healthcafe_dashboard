@@ -5,32 +5,95 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/data/local/model/appointment/appointment.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/data/local/model/base_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/data/local/model/user/user.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/domain/models/appointment_status.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/domain/models/appointment_type.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/date_formatter.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/number_formatter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/healthcafe_dashboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/healthcafe_dashboard.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/dashboard_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bloc/dashboard_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/dashboard_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/bloc/dashboard_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/otp_response.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/remote/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/repos/user_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/auth_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/auth_events.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/auth_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/dashboard_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/dashboard_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/login_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/login_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/users_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/users_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/config/providers.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/local/appointment.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/local/appointment.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/local/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/local/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/local/user.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/local/user.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/appointment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/models/appointment.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/models/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/repos/appointment_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/appointment_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/repos/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/auth_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/user_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/models/appointment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/appointment.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/repos/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/auth_repo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/domain/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/user_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/dashboard_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/users_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/colors.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/res/images.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/images.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/routing/home_router_delegate.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/home_router_delegate.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/text_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/text_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/appointment_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/appointments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointments_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/dashboard_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/settings/settings_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/user_profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/users_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/routing/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/routing/auth_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/auth_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/routing/home_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/home_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/search_filter_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/search_filter_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/lib/pages/login/login_cubit.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/pages/login/login_state.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/pages/home_screen.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/routing/home_router.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/pages/login/login_page.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/main.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pubspec.yaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.env.dev" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/auth_cubit.dart" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2T9tjrLUD2MmywO4vJahSs6pihW" />
   <component name="ProjectView">
@@ -47,13 +110,29 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/data/local/model" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/data/local/model" />
+      <recent name="$PROJECT_DIR$/lib/data/local" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/pages/user_profile" />
+      <recent name="$PROJECT_DIR$/lib/pages/settings" />
+      <recent name="$PROJECT_DIR$/lib/pages/wellness_plans" />
+      <recent name="$PROJECT_DIR$/lib/pages/appointments" />
+      <recent name="$PROJECT_DIR$/lib/pages/users" />
+    </key>
   </component>
   <component name="RunManager" selected="Flutter.main.dart">
     <configuration name="dev.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
@@ -88,5 +167,26 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

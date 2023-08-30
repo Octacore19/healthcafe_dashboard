@@ -78,7 +78,7 @@ class _State extends State<WellnessPlanScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SearchVilterView(
+              SearchFilterView(
                 showFilter: true,
                 onFromTapped: () {},
                 onToTapped: () {},

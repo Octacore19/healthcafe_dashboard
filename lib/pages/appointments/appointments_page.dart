@@ -1,8 +1,13 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthcafe_dashboard/domain/models/appointment.dart';
+import 'package:healthcafe_dashboard/pages/appointments/appointment_cubit.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
+import 'package:healthcafe_dashboard/utils/date_formatter.dart';
 import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
 import 'package:healthcafe_dashboard/widgets/search_filter_view.dart';
 import 'package:healthcafe_dashboard/widgets/title_subtitle_view.dart';
@@ -16,7 +21,12 @@ class AppointmentsPage extends AppPage {
 
   @override
   Widget build(BuildContext context) {
-    return const AppointmentsScreen();
+    return BlocProvider(
+      create: (context) => AppointmentCubit(
+        appointmentRepo: RepositoryProvider.of(context),
+      ),
+      child: const AppointmentsScreen(),
+    );
   }
 }
 
@@ -51,32 +61,41 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
   }
 
   Widget buildContentCard(BuildContext context) {
-    return Card(
-      elevation: 0.5,
-      margin: EdgeInsets.zero,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16).r),
-      child: Padding(
-        padding: const EdgeInsets.all(30).r,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SearchVilterView(
-              showFilter: true,
-              onFromTapped: () {},
-              onToTapped: () {},
+    return BlocBuilder<AppointmentCubit, AppointmentState>(
+      builder: (context, state) {
+        return Card(
+          elevation: 0.5,
+          margin: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16).r,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(30).r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SearchFilterView(
+                  showFilter: true,
+                  onFromTapped: () {},
+                  onToTapped: () {},
+                ),
+                buildAppointmentTable(context, state.appointments),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30).h,
+                  child: const PaginationFooter(),
+                )
+              ],
             ),
-            buildAppointmentTable(context),
-            Padding(
-              padding: const EdgeInsets.only(top: 30).h,
-              child: const PaginationFooter(),
-            )
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
-  Widget buildAppointmentTable(BuildContext context) {
+  Widget buildAppointmentTable(
+    BuildContext context,
+    List<Appointment> appointments,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(top: 30).h,
       child: SizedBox(
@@ -105,17 +124,17 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
               table.DataColumn(label: Text('Phone number')),
               table.DataColumn(label: Text("Status")),
             ],
-            rows: List.generate(
-              10,
-              (index) => table.DataRow.byIndex(
+            rows: appointments.mapIndexed((index, appointment) {
+              final appointmentDate = appointment.date.formatDate;
+              return table.DataRow.byIndex(
                 index: index,
                 onSelectChanged: (value) {
                   GoRouter.of(context).go('/appointments/detail/${0}');
                 },
-                cells: const [
-                  table.DataCell(Text('11-04-2022')),
-                  table.DataCell(Text('11:00 am')),
-                  table.DataCell(Text('VAC-826778785')),
+                cells: [
+                  table.DataCell(Text(appointmentDate)),
+                  table.DataCell(Text(appointment.user?.name ?? 'Nil')),
+                  table.DataCell(Text(appointment.id)),
                   table.DataCell(Text('Olivia Rhye')),
                   table.DataCell(Text('Olivia Rhye')),
                   table.DataCell(Text('Olivia Rhye')),
@@ -124,8 +143,8 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
                     showSuffix: true,
                   ),
                 ],
-              ),
-            ),
+              );
+            }).toList(),
           ),
         ),
       ),

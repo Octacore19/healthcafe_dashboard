@@ -1,10 +1,13 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:healthcafe_dashboard/data/local/appointment.dart';
+import 'package:collection/collection.dart';
+import 'package:healthcafe_dashboard/data/local/model/appointment/appointment.dart';
 import 'package:healthcafe_dashboard/data/local/constants.dart';
+import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
 import 'package:healthcafe_dashboard/data/remote/models/appointment.dart';
 import 'package:healthcafe_dashboard/domain/models/appointment.dart';
+import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
 import 'package:healthcafe_dashboard/domain/repos/appointment_repo.dart';
 import 'package:hive/hive.dart';
 import 'package:rxdart/rxdart.dart';
@@ -29,11 +32,10 @@ class IAppointmentRepo implements AppointmentRepo {
 
   final _box = Hive.box<HiveAppointment>(appointmentBox);
 
+  final _userBox = Hive.box<HiveUser>(userBox);
+
   Query<AppointmentResponse> get _appCollection {
-    return _db
-        .collection('users')
-        .where("admin", isEqualTo: false)
-        .withConverter(
+    return _db.collection('appointments').withConverter(
           fromFirestore: AppointmentResponse.fromFirestore,
           toFirestore: (AppointmentResponse res, _) => res.toJson(),
         );
@@ -56,7 +58,13 @@ class IAppointmentRepo implements AppointmentRepo {
       _box.watch().map((_) => _appointments).startWith(_appointments);
 
   List<Appointment> get _appointments {
-    return _box.values.map(Appointment.fromHive).toList();
+    final hUsers = _userBox.values;
+    return _box.values.map((e) {
+      final user = hUsers
+          .map(AuthUser.fromHive)
+          .firstWhereOrNull((user) => user.id == e.user);
+      return Appointment.fromHive(e, user);
+    }).toList();
   }
 
   @override

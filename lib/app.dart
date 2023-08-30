@@ -8,9 +8,9 @@ import 'package:healthcafe_dashboard/config/dev_config.dart';
 import 'package:healthcafe_dashboard/config/env_config.dart';
 import 'package:healthcafe_dashboard/config/prod_config.dart';
 import 'package:healthcafe_dashboard/config/stage_config.dart';
-import 'package:healthcafe_dashboard/data/local/appointment.dart';
+import 'package:healthcafe_dashboard/data/local/model/appointment/appointment.dart';
 import 'package:healthcafe_dashboard/data/local/constants.dart';
-import 'package:healthcafe_dashboard/data/local/user.dart';
+import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -93,6 +93,7 @@ class App {
     Hive.registerAdapter(UserAdapter());
     Hive.registerAdapter(AppointmentAdapter());
 
+    await Hive.openBox<HiveUser>(adminBox);
     await Hive.openBox<HiveUser>(userBox);
     await Hive.openBox<HiveAppointment>(appointmentBox);
 

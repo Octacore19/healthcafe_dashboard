@@ -5,8 +5,8 @@ import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 
-class SearchVilterView extends StatelessWidget {
-  const SearchVilterView({
+class SearchFilterView extends StatelessWidget {
+  const SearchFilterView({
     required this.onFromTapped,
     required this.onToTapped,
     this.onFilterTapped,

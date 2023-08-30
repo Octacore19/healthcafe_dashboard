@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:healthcafe_dashboard/data/local/appointment.dart';
+import 'package:healthcafe_dashboard/data/local/model/appointment/appointment.dart';
 
 class AppointmentResponse {
   final String? uid;
@@ -9,8 +9,12 @@ class AppointmentResponse {
   final String? testId;
   final int? status;
   final int? price;
-  final String? createdAt;
+  final Timestamp? createdAt;
   final String? appointmentDate;
+  final String? user;
+  final String? address;
+  final String? report;
+  final int? type;
 
   AppointmentResponse._({
     this.uid,
@@ -20,6 +24,10 @@ class AppointmentResponse {
     this.price,
     this.createdAt,
     this.appointmentDate,
+    this.user,
+    this.report,
+    this.address,
+    this.type,
   });
 
   factory AppointmentResponse.fromFirestore(
@@ -32,9 +40,13 @@ class AppointmentResponse {
       name: json?['name'],
       testId: json?['test_id'],
       price: json?['price'],
-      status: json?['payment_status'],
-      appointmentDate: json?['transaction_date'],
+      status: json?['status'],
+      appointmentDate: json?['date'],
       createdAt: json?['created_at'],
+      user: json?['user'],
+      report: json?['report'],
+      address: json?['address'],
+      type: json?['type'],
     );
   }
 
@@ -43,9 +55,13 @@ class AppointmentResponse {
       'name': name,
       'test_id': testId,
       'price': price,
-      'payment_status': status,
-      'transaction_date': appointmentDate,
+      'status': status,
+      'date': appointmentDate,
       'created_at': createdAt,
+      'user': user,
+      'report': report,
+      'address': address,
+      'type': type,
     };
   }
 
@@ -57,7 +73,11 @@ class AppointmentResponse {
       ..price = price
       ..status = status
       ..appointmentDate = appointmentDate
-      ..createdAt = createdAt;
+      ..createdAt = createdAt?.toDate().toIso8601String()
+      ..user = user
+      ..report = report
+      ..address = address
+      ..type = type;
   }
 
   @override

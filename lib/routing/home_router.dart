@@ -1,13 +1,14 @@
+
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/pages/appointment_detail_page.dart';
-import 'package:healthcafe_dashboard/pages/appointments_page.dart';
-import 'package:healthcafe_dashboard/pages/dashboard_page.dart';
+import 'package:healthcafe_dashboard/pages/appointments/appointment_detail_page.dart';
+import 'package:healthcafe_dashboard/pages/appointments/appointments_page.dart';
+import 'package:healthcafe_dashboard/pages/dashboard/dashboard_page.dart';
 import 'package:healthcafe_dashboard/pages/home_screen.dart';
-import 'package:healthcafe_dashboard/pages/settings_page.dart';
+import 'package:healthcafe_dashboard/pages/settings/settings_page.dart';
 import 'package:healthcafe_dashboard/pages/upload_test_page.dart';
-import 'package:healthcafe_dashboard/pages/user_profile_page.dart';
-import 'package:healthcafe_dashboard/pages/users_page.dart';
-import 'package:healthcafe_dashboard/pages/wellness_plan_page.dart';
+import 'package:healthcafe_dashboard/pages/user_profile/user_profile_page.dart';
+import 'package:healthcafe_dashboard/pages/users/users_page.dart';
+import 'package:healthcafe_dashboard/pages/wellness_plans/wellness_plan_page.dart';
 
 final homeRoute = StatefulShellRoute.indexedStack(
   branches: [

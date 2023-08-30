@@ -1,19 +1,23 @@
+import 'package:collection/collection.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/bloc/users_cubit.dart';
+import 'package:healthcafe_dashboard/domain/models/appointment.dart';
+import 'package:healthcafe_dashboard/domain/models/appointment_status.dart';
+import 'package:healthcafe_dashboard/pages/user_profile/user_profile_cubit.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
+import 'package:healthcafe_dashboard/utils/date_formatter.dart';
+import 'package:healthcafe_dashboard/utils/number_formatter.dart';
 import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
 import 'package:healthcafe_dashboard/widgets/search_filter_view.dart';
 import 'package:healthcafe_dashboard/widgets/title_subtitle_view.dart';
 import 'package:healthcafe_dashboard/utils/data_table.dart' as table;
-import 'package:intl/intl.dart';
 
 class UserProfilePage extends AppPage {
   const UserProfilePage({required super.state});
@@ -21,9 +25,10 @@ class UserProfilePage extends AppPage {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => UsersCubit(
-        userRepo: RepositoryProvider.of(context),
-        id: state.pathParameters['id'],
+      create: (context) => UserProfileCubit(
+        repo: RepositoryProvider.of(context),
+        appointmentRepo: RepositoryProvider.of(context),
+        userId: state.pathParameters['id'],
       ),
       child: const UserProfileScreen(),
     );
@@ -73,7 +78,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   }
 
   Widget buildContent(BuildContext context) {
-    return BlocBuilder<UsersCubit, UsersState>(
+    return BlocBuilder<UserProfileCubit, UserProfileState>(
       builder: (context, state) {
         return Card(
           elevation: 0.5,
@@ -86,8 +91,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                buildProfileHeader(context, state.selected),
-                buildProfileInfo(context, state.selected),
+                buildProfileHeader(context, state.user),
+                buildProfileInfo(context, state.user),
                 buildWellnessAssessment(context),
                 Padding(
                   padding: const EdgeInsets.only(top: 20).h,
@@ -103,13 +108,13 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 30).h,
-                  child: SearchVilterView(
+                  child: SearchFilterView(
                     onFromTapped: () {},
                     onToTapped: () {},
                     showFilter: true,
                   ),
                 ),
-                buildAssessmentTable(context),
+                buildAssessmentTable(context, state.appointments),
                 const PaginationFooter()
               ],
             ),
@@ -180,9 +185,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   }
 
   Widget buildProfileInfo(BuildContext context, AuthUser? user) {
-    final formatter = DateFormat('dd-MM-yyyy');
-    final creationDate =
-        user?.dateCreated != null ? formatter.format(user!.dateCreated!) : 'Nil';
+    final creationDate = user?.creationDate.formatDate ?? 'Nil';
     return Padding(
       padding: const EdgeInsets.only(top: 20).h,
       child: Card(
@@ -378,7 +381,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     );
   }
 
-  Widget buildAssessmentTable(BuildContext context) {
+  Widget buildAssessmentTable(
+    BuildContext context,
+    List<Appointment> appointments,
+  ) {
     TextStyle style = TextStyle(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
@@ -413,34 +419,60 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             table.DataColumn(label: Text("Doctor's report")),
             table.DataColumn(label: Text("Status")),
           ],
-          rows: List.generate(
-            10,
-            (index) {
-              style = style.copyWith(color: AppColors.grey500);
-              return table.DataRow.byIndex(
-                index: index,
-                cells: [
-                  table.DataCell(Text('11-04-2022', style: style)),
-                  table.DataCell(Text('11:00 am', style: style)),
-                  table.DataCell(Text('VAC-826778785', style: style)),
-                  table.DataCell(Text('Olivia Rhye', style: style)),
-                  table.DataCell(Text('Olivia Rhye', style: style)),
-                  table.DataCell(Text('Olivia Rhye', style: style)),
-                  table.DataCell(
-                    Text('Completed', style: style),
-                    showSuffix: true,
+          rows: appointments.mapIndexed((index, appointment) {
+            style = style.copyWith(color: AppColors.grey500);
+            final appointmentDate = appointment.date.formatDate;
+            final appointmentTime = appointment.date.formatTime;
+            final statusTextColor =
+                appointment.status == AppointmentStatus.completed
+                    ? AppColors.success700
+                    : appointment.status == AppointmentStatus.upcoming
+                        ? AppColors.warning700
+                        : Colors.grey.shade300;
+            final statusBoxColor =
+                appointment.status == AppointmentStatus.completed
+                    ? AppColors.success50
+                    : appointment.status == AppointmentStatus.upcoming
+                        ? AppColors.warning50
+                        : Colors.grey.shade100;
+            return table.DataRow.byIndex(
+              index: index,
+              cells: [
+                table.DataCell(Text(appointmentDate, style: style)),
+                table.DataCell(Text(appointmentTime, style: style)),
+                table.DataCell(Text(appointment.id, style: style)),
+                table.DataCell(Text(appointment.name, style: style)),
+                table.DataCell(Text(appointment.address, style: style)),
+                table.DataCell(Text(appointment.report, style: style)),
+                table.DataCell(
+                  Row(
+                    children: [
+                      DecoratedBox(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16).r,
+                          color: statusBoxColor,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(8, 2, 8, 2).r,
+                          child: Text(
+                            appointment.status.title,
+                            style: style.copyWith(color: statusTextColor),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              );
-            },
-          ),
+                  showSuffix: true,
+                ),
+              ],
+            );
+          }).toList(),
         ),
       ),
     );
   }
 
   Widget buildChart(BuildContext context) {
-    final df = NumberFormat('#,##0.00');
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.2,
       width: MediaQuery.of(context).size.width * 0.1,
@@ -465,7 +497,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           Align(
             alignment: Alignment.center,
             child: Text(
-              '${df.format(70)}%',
+              70.percent,
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,

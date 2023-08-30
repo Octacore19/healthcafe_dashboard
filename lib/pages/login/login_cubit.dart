@@ -5,30 +5,21 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/domain/repos/appointment_repo.dart';
 import 'package:healthcafe_dashboard/domain/repos/auth_repo.dart';
-import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
 import 'package:healthcafe_dashboard/domain/requests/login_request.dart';
 import 'package:healthcafe_dashboard/utils/cred_utils.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit({
-    required AuthRepo authRepo,
-    required UserRepo userRepo,
-    required AppointmentRepo appRepo,
-  })  : _authRepo = authRepo,
-        _userRepo = userRepo,
-        _appRepo = appRepo,
-        super(const InitailState()) {
+  LoginCubit({required AuthRepo authRepo})
+      : _authRepo = authRepo,
+        super(const InitialState()) {
     _emailController = TextEditingController();
     _pwdController = TextEditingController();
   }
 
   final AuthRepo _authRepo;
-  final UserRepo _userRepo;
-  final AppointmentRepo _appRepo;
 
   StreamSubscription<AuthUser?>? _userSub;
 
@@ -55,8 +46,6 @@ class LoginCubit extends Cubit<LoginState> {
         final request = LoginRequest(email: email, password: pwd);
         await _authRepo.login(request);
         emit(SuccessState());
-        _userRepo.fetchUsersList();
-        _appRepo.fetchAppointmentsList();
       }
     } on DioException catch (e) {
       final res = e.response?.data;

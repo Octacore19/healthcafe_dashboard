@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/bloc/users_cubit.dart';
+import 'package:healthcafe_dashboard/pages/users/users_cubit.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
+import 'package:healthcafe_dashboard/utils/date_formatter.dart';
 import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
 import 'package:healthcafe_dashboard/widgets/search_filter_view.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 import 'package:healthcafe_dashboard/widgets/title_subtitle_view.dart';
 import 'package:healthcafe_dashboard/utils/data_table.dart' as table;
-import 'package:intl/intl.dart';
 
 class UsersPage extends AppPage {
   const UsersPage({
@@ -84,8 +84,9 @@ class _UsersScreenState extends State<UsersScreen>
         return Card(
           elevation: 0.5,
           margin: EdgeInsets.zero,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16).r),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16).r,
+          ),
           child: Padding(
             padding: const EdgeInsets.all(30).r,
             child: Column(
@@ -93,7 +94,8 @@ class _UsersScreenState extends State<UsersScreen>
               children: [
                 buildPageTabs(state.users.length, 0, 0, 0),
                 SizedBox(height: 30.h),
-                SearchVilterView(
+                SearchFilterView(
+                  key: const ValueKey('users_page'),
                   controller: _cubit?.searchController,
                   onFromTapped: () {},
                   onToTapped: () {},
@@ -193,10 +195,7 @@ class _UsersScreenState extends State<UsersScreen>
             table.DataColumn(label: Text("Status")),
           ],
           rows: users.mapIndexed((index, element) {
-            final formatter = DateFormat('dd-MM-yyyy');
-            final creationDate = element.dateCreated != null
-                ? formatter.format(element.dateCreated!)
-                : 'Nil';
+            final creationDate = element.creationDate.formatDate;
             style = style.copyWith(color: AppColors.grey600);
             return table.DataRow.byIndex(
               index: index,

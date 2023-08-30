@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/bloc/login_cubit.dart';
+import 'package:healthcafe_dashboard/pages/login/login_cubit.dart';
 import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/utils/widget_utils.dart';
@@ -15,11 +15,7 @@ class LoginPage extends AppPage {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(
-        authRepo: RepositoryProvider.of(context),
-        userRepo: RepositoryProvider.of(context),
-        appRepo: RepositoryProvider.of(context),
-      ),
+      create: (context) => LoginCubit(authRepo: RepositoryProvider.of(context)),
       child: const LoginScreen(),
     );
   }

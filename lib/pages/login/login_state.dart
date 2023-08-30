@@ -7,8 +7,8 @@ abstract class LoginState extends Equatable {
   List<Object?> get props => [];
 }
 
-class InitailState extends LoginState {
-  const InitailState();
+class InitialState extends LoginState {
+  const InitialState();
 }
 
 class LoadingState extends LoginState {}

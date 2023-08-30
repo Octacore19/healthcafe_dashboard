@@ -1,34 +1,29 @@
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
-import 'package:healthcafe_dashboard/data/local/user.dart';
+import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
 import 'package:healthcafe_dashboard/data/remote/models/user.dart';
 import 'package:healthcafe_dashboard/domain/models/gender.dart';
 import 'package:intl/intl.dart';
 
 class AuthUser extends Equatable {
   AuthUser._({
-    required this.id,
     required this.name,
     required this.email,
+    required this.id,
     required this.phone,
-    required this.dob,
-    required this.emailVerified,
-    required this.gender,
-    required this.phoneVerified,
     required this.disabled,
+    required this.phoneVerified,
+    required this.onboardedTest,
+    required this.gender,
+    required this.emailVerified,
+    required this.dob,
+    required this.onboardScore,
     required this.profilePicture,
-    required this.dateCreated,
-    required this.lastLoginTime,
+    this.creationDate,
   }) {
     final nameSplit = name.split(' ');
     firstName = nameSplit.firstOrNull ?? '';
     lastName = nameSplit.length > 1 ? nameSplit[1] : '';
-    if (lastLoginTime != null) {
-      final activeDifference = DateTime.now().difference(lastLoginTime!);
-      isActive = activeDifference.inDays < 60;
-    } else {
-      isActive = false;
-    }
   }
 
   final String id;
@@ -36,17 +31,17 @@ class AuthUser extends Equatable {
   final String email;
   final String phone;
   final DateTime? dob;
+  final DateTime? creationDate;
   final bool emailVerified;
   final Gender gender;
+  final double onboardScore;
+  final bool onboardedTest;
   final bool phoneVerified;
   final bool disabled;
   final String profilePicture;
-  final DateTime? dateCreated;
-  final DateTime? lastLoginTime;
 
   late final String firstName;
   late final String lastName;
-  late final bool isActive;
 
   factory AuthUser.empty() {
     return AuthUser._(
@@ -58,48 +53,24 @@ class AuthUser extends Equatable {
       dob: DateTime.now(),
       emailVerified: false,
       gender: Gender.unknown,
+      onboardedTest: false,
       phoneVerified: false,
+      onboardScore: 0.0,
       profilePicture: '',
-      dateCreated: null,
-      lastLoginTime: null,
-    );
-  }
-
-  factory AuthUser.fromResponse(UserResponse? res) {
-    final genderIndex = res?.gender ?? 2;
-    final formatter = DateFormat('EEE, d MMM yyyy HH:mm:ss');
-    final creation = res?.creationTime;
-    final loginTime = res?.lastSignInTime;
-    return AuthUser._(
-      id: res?.uid ?? '',
-      name: res?.displayName ?? 'Admin',
-      email: res?.email ?? '',
-      phone: res?.phoneNumber ?? '',
-      dob: DateTime.tryParse(res?.dob ?? ''),
-      emailVerified: res?.emailVerified ?? false,
-      gender: Gender.values.firstWhere(
-        (e) => e.genderIndex == genderIndex,
-        orElse: () => Gender.unknown,
-      ),
-      phoneVerified: res?.phoneVerified ?? false,
-      disabled: res?.disabled ?? false,
-      profilePicture: res?.profilePicture ?? '',
-      dateCreated: creation == null ? null : formatter.parseUTC(creation),
-      lastLoginTime: loginTime == null ? null : formatter.parseUTC(loginTime),
     );
   }
 
   factory AuthUser.fromHive(HiveUser? user) {
     final genderIndex = user?.gender ?? 2;
-    final formatter = DateFormat('EEE, d MMM yyyy HH:mm:ss');
-    final creation = user?.creationTime;
-    final loginTime = user?.lastSignInTime;
     return AuthUser._(
       id: user?.uid ?? '',
       name: user?.displayName ?? '',
       email: user?.email ?? '',
       phone: user?.phoneNumber ?? '',
-      dob: DateTime.tryParse(user?.dob ?? ''),
+      dob: user?.dob == null ? null : DateTime.tryParse(user!.dob!),
+      creationDate: user?.creationTime == null
+          ? null
+          : DateTime.tryParse(user!.creationTime!),
       emailVerified: user?.emailVerified ?? false,
       gender: Gender.values.firstWhere(
         (e) => e.genderIndex == genderIndex,
@@ -108,8 +79,10 @@ class AuthUser extends Equatable {
       phoneVerified: user?.phoneVerified ?? false,
       disabled: user?.disabled ?? false,
       profilePicture: user?.profilePicture ?? '',
-      dateCreated: creation == null ? null : formatter.parseUTC(creation),
-      lastLoginTime: loginTime == null ? null : formatter.parseUTC(loginTime),
+      onboardedTest: user?.onboarded ?? false,
+      onboardScore: user?.onboardingScore != null
+          ? double.tryParse(user!.onboardingScore!) ?? 0.0
+          : 0.0,
     );
   }
 
@@ -124,8 +97,10 @@ class AuthUser extends Equatable {
         dob,
         emailVerified,
         gender,
+        onboardedTest,
         phoneVerified,
         disabled,
+        onboardScore,
         profilePicture,
       ];
 }

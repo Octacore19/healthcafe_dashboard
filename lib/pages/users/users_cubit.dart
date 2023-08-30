@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,8 +15,7 @@ class UsersCubit extends Cubit<UsersState> {
     _searchController = TextEditingController();
 
     _usersSub = _userRepo.users.listen((users) {
-      final user = users.firstWhereOrNull((e) => e.id == id);
-      emit(UpdatedState(users: users, selected: user));
+      emit(UpdatedState(users: users));
     });
   }
 
@@ -33,6 +31,8 @@ class UsersCubit extends Cubit<UsersState> {
   Future<void> close() {
     _searchController?.dispose();
     _usersSub?.cancel();
+    _searchController = null;
+    _usersSub = null;
     return super.close();
   }
 }

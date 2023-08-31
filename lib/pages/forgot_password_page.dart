@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
+import 'package:healthcafe_dashboard/gen/fonts.gen.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/widgets/labelled_textfield.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
@@ -22,10 +23,10 @@ class ForgotPasswordPage extends AppPage {
               Text(
                 'Forgot password',
                 style: TextStyle(
-                  fontFamily: 'Poppins',
+                  fontFamily: FontFamily.poppins,
                   fontSize: 24.sp,
                   fontWeight: FontWeight.w700,
-                  color: AppColors.grey900,
+                  color: ColorName.grey900,
                 ),
               ),
               SizedBox(height: 10.h),
@@ -35,9 +36,10 @@ class ForgotPasswordPage extends AppPage {
                   'A password reset link will be sent to your email',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: FontFamily.poppins,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,
+                    color: ColorName.grey600,
                   ),
                 ),
               ),
@@ -52,11 +54,11 @@ class ForgotPasswordPage extends AppPage {
               Textbutton(
                 label: 'Submit',
                 width: p1.maxWidth * 0.5,
-                bgColor: AppColors.primary500,
+                bgColor: ColorName.primary500,
                 fgColor: Colors.white,
                 minimumSize: Size(p1.maxWidth * 0.5, 48),
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 10).r,
-                onTap: () => context.pop(),
+                onTap: () => context.go('/login'),
               ),
               SizedBox(height: 20.h),
               Container(
@@ -66,13 +68,13 @@ class ForgotPasswordPage extends AppPage {
                   width: p1.maxWidth * 0.5,
                   padding: EdgeInsets.zero,
                   density: VisualDensity.compact,
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => context.go('/login'),
                   child: Text.rich(
                     TextSpan(
                       text: 'Remember password? ',
                       style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 14.sp,
+                        fontFamily: FontFamily.poppins,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w400,
                         color: Colors.black,
                       ),
@@ -81,9 +83,9 @@ class ForgotPasswordPage extends AppPage {
                           text: 'Sign in',
                           style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontSize: 14.sp,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.primary500,
+                            color: ColorName.primary500,
                           ),
                         ),
                       ],

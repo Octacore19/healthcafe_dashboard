@@ -1,5 +1,6 @@
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
 import 'package:healthcafe_dashboard/pages/appointments/appointment_detail_page.dart';
 import 'package:healthcafe_dashboard/pages/appointments/appointments_page.dart';
 import 'package:healthcafe_dashboard/pages/dashboard/dashboard_page.dart';
@@ -12,15 +13,25 @@ import 'package:healthcafe_dashboard/pages/wellness_plans/wellness_plan_page.dar
 
 final homeRoute = StatefulShellRoute.indexedStack(
   branches: [
-    StatefulShellBranch(routes: [
-      GoRoute(
-        path: '/',
-        pageBuilder: (context, state) => DashboardPage(
-          state: state,
-          key: state.pageKey,
+    StatefulShellBranch(
+      routes: [
+        GoRoute(
+          path: '/',
+          pageBuilder: (context, state) => DashboardPage(
+            state: state,
+            key: state.pageKey,
+          ),
+          redirect: (context, state) {
+            final repo = RepositoryProvider.of<UserRepo>(context);
+            final user = repo.currentUser;
+            if (user == null || user.id.isEmpty) {
+              return '/login';
+            }
+            return null;
+          },
         ),
-      ),
-    ]),
+      ],
+    ),
     StatefulShellBranch(routes: [
       GoRoute(
         path: '/users',
@@ -28,6 +39,14 @@ final homeRoute = StatefulShellRoute.indexedStack(
           state: state,
           key: state.pageKey,
         ),
+        redirect: (context, state) {
+          final repo = RepositoryProvider.of<UserRepo>(context);
+          final user = repo.currentUser;
+          if (user == null || user.id.isEmpty) {
+            return '/login';
+          }
+          return null;
+        },
         routes: [
           GoRoute(
             path: 'detail/:id',
@@ -45,6 +64,14 @@ final homeRoute = StatefulShellRoute.indexedStack(
           state: state,
           key: state.pageKey,
         ),
+        redirect: (context, state) {
+          final repo = RepositoryProvider.of<UserRepo>(context);
+          final user = repo.currentUser;
+          if (user == null || user.id.isEmpty) {
+            return '/login';
+          }
+          return null;
+        },
         routes: [
           GoRoute(
             path: 'detail/:id',
@@ -70,6 +97,14 @@ final homeRoute = StatefulShellRoute.indexedStack(
           state: state,
           key: state.pageKey,
         ),
+        redirect: (context, state) {
+          final repo = RepositoryProvider.of<UserRepo>(context);
+          final user = repo.currentUser;
+          if (user == null || user.id.isEmpty) {
+            return '/login';
+          }
+          return null;
+        },
       ),
     ]),
     StatefulShellBranch(routes: [
@@ -79,6 +114,14 @@ final homeRoute = StatefulShellRoute.indexedStack(
           state: state,
           key: state.pageKey,
         ),
+        redirect: (context, state) {
+          final repo = RepositoryProvider.of<UserRepo>(context);
+          final user = repo.currentUser;
+          if (user == null || user.id.isEmpty) {
+            return '/login';
+          }
+          return null;
+        },
       ),
     ])
   ],

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
+import 'package:healthcafe_dashboard/gen/fonts.gen.dart';
 import 'package:healthcafe_dashboard/pages/login/login_cubit.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/utils/widget_utils.dart';
 import 'package:healthcafe_dashboard/widgets/labelled_textfield.dart';
@@ -69,17 +70,17 @@ class _State extends State<LoginScreen> {
                   Text(
                     'Sign in',
                     style: TextStyle(
-                      fontFamily: 'Poppins',
+                      fontFamily: FontFamily.poppins,
                       fontSize: 24.sp,
                       fontWeight: FontWeight.w700,
-                      color: AppColors.grey900,
+                      color: ColorName.grey900,
                     ),
                   ),
                   SizedBox(height: 10.h),
                   Text(
                     'Sign in to get started',
                     style: TextStyle(
-                      fontFamily: 'Poppins',
+                      fontFamily: FontFamily.poppins,
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w400,
                     ),
@@ -110,13 +111,13 @@ class _State extends State<LoginScreen> {
                       label: 'Forgot password',
                       padding: EdgeInsets.zero,
                       density: VisualDensity.compact,
-                      fgColor: AppColors.grey500,
+                      fgColor: ColorName.gray500,
                       textStyle: TextStyle(
                         fontWeight: FontWeight.w400,
-                        fontSize: 12.sp,
+                        fontSize: 14.sp,
+                        fontFamily: FontFamily.inter,
                       ),
-                      onTap: () =>
-                          GoRouter.of(context).push('/forgot-password'),
+                      onTap: () => context.go('/forgot-password'),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -124,10 +125,10 @@ class _State extends State<LoginScreen> {
                     builder: (context, state) => Textbutton(
                       label: 'Login',
                       width: constraints.maxWidth * 0.5,
-                      bgColor: AppColors.primary500,
+                      bgColor: ColorName.primary500,
                       fgColor: Colors.white,
                       minimumSize: Size(constraints.maxWidth * 0.5, 48),
-                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10).r,
+                      padding: const EdgeInsets.fromLTRB(0, 16, 0, 16).r,
                       onTap: _login?.onLoginClicked,
                       inProgress: state is LoadingState,
                     ),

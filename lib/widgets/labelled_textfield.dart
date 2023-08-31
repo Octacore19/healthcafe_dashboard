@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
+import 'package:healthcafe_dashboard/gen/fonts.gen.dart';
 import 'package:healthcafe_dashboard/res/app_icons.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
 
 class LabelledTextField extends StatelessWidget {
   const LabelledTextField({
@@ -42,7 +43,8 @@ class LabelledTextField extends StatelessWidget {
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
-              color: AppColors.grey700,
+              color: ColorName.gray700,
+              fontFamily: FontFamily.inter,
             ),
           ),
           SizedBox(height: 8.h),
@@ -53,9 +55,9 @@ class LabelledTextField extends StatelessWidget {
             controller: controller,
             keyboardType: inputType,
             style: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w400,
-              color: AppColors.grey700,
+              color: ColorName.gray500,
             ),
             decoration: InputDecoration(
               isDense: true,
@@ -63,7 +65,7 @@ class LabelledTextField extends StatelessWidget {
               hintStyle: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w400,
-                color: AppColors.grey500,
+                color: ColorName.gray500.withOpacity(0.3),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8).r,

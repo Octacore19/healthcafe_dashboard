@@ -4,63 +4,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/data/local/model/appointment/appointment.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/data/local/model/base_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/data/local/model/user/user.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/domain/models/appointment_status.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/domain/models/appointment_type.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/date_formatter.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/number_formatter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="tbc">
+      <change afterPath="$PROJECT_DIR$/assets/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/auth_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/auth_events.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/auth_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/dashboard_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/dashboard_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/login_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/login_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/users_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bloc/users_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config/providers.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/local/appointment.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/local/appointment.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/local/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/local/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/local/user.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/local/user.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/appointment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/models/appointment.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/models/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/appointment_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/appointment_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/auth_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/user_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/models/appointment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/appointment.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/repos/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/auth_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/user_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/appointment_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_detail_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/appointments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointments_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/dashboard_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/settings/settings_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/user_profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/users_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/forgot_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/forgot_password_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/routing/app_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/app_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/routing/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/app_router.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/routing/auth_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/auth_router.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/routing/home_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/home_router.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/search_filter_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/search_filter_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/labelled_textfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/labelled_textfield.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +116,14 @@
       <option name="presentableId" value="Default" />
       <updated>1690467262500</updated>
     </task>
+    <task id="LOCAL-00001" summary="tbc">
+      <created>1693437327091</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693437327091</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -188,5 +152,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tbc" />
+    <option name="LAST_COMMIT_MESSAGE" value="tbc" />
   </component>
 </project>

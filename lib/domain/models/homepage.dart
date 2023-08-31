@@ -1,10 +1,12 @@
-import 'package:healthcafe_dashboard/res/images.dart';
+import 'package:healthcafe_dashboard/gen/assets.gen.dart';
 
 enum HomePages {
   dashboard,
   users,
   appointments,
   wellness,
+  vaccines,
+  assessments,
   settings,
 }
 
@@ -21,21 +23,29 @@ extension HomePagesExt on HomePages {
         return 'Wellness Plans';
       case HomePages.settings:
         return 'Settings';
+      case HomePages.vaccines:
+        return 'Vaccines';
+      case HomePages.assessments:
+        return 'Assessments';
     }
   }
 
-  String get icon {
+  SvgGenImage get icon {
     switch (this) {
       case HomePages.dashboard:
-        return AppSvgs.threeLayersIcon;
+        return Assets.img.threeLayers;
       case HomePages.users:
-        return AppSvgs.people;
+        return Assets.img.people;
       case HomePages.appointments:
-        return AppSvgs.noteFavorite;
+        return Assets.img.noteFavorite;
       case HomePages.wellness:
-        return AppSvgs.note;
+        return Assets.img.note;
       case HomePages.settings:
-        return AppSvgs.setting;
+        return Assets.img.setting;
+      case HomePages.vaccines:
+        return Assets.img.note;
+      case HomePages.assessments:
+        return Assets.img.note;
     }
   }
 }

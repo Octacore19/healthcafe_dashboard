@@ -107,23 +107,63 @@ final homeRoute = StatefulShellRoute.indexedStack(
         },
       ),
     ]),
-    StatefulShellBranch(routes: [
-      GoRoute(
-        path: '/settings',
-        pageBuilder: (context, state) => SettingsPage(
-          state: state,
-          key: state.pageKey,
+    StatefulShellBranch(
+      routes: [
+        GoRoute(
+          path: '/vacciness',
+          pageBuilder: (context, state) => SettingsPage(
+            state: state,
+            key: state.pageKey,
+          ),
+          redirect: (context, state) {
+            final repo = RepositoryProvider.of<UserRepo>(context);
+            final user = repo.currentUser;
+            if (user == null || user.id.isEmpty) {
+              return '/login';
+            }
+            return null;
+          },
         ),
-        redirect: (context, state) {
-          final repo = RepositoryProvider.of<UserRepo>(context);
-          final user = repo.currentUser;
-          if (user == null || user.id.isEmpty) {
-            return '/login';
-          }
-          return null;
-        },
-      ),
-    ])
+      ],
+    ),
+    StatefulShellBranch(
+      routes: [
+        GoRoute(
+          path: '/assessments',
+          pageBuilder: (context, state) => SettingsPage(
+            state: state,
+            key: state.pageKey,
+          ),
+          redirect: (context, state) {
+            final repo = RepositoryProvider.of<UserRepo>(context);
+            final user = repo.currentUser;
+            if (user == null || user.id.isEmpty) {
+              return '/login';
+            }
+            return null;
+          },
+        ),
+      ],
+    ),
+    StatefulShellBranch(
+      routes: [
+        GoRoute(
+          path: '/settings',
+          pageBuilder: (context, state) => SettingsPage(
+            state: state,
+            key: state.pageKey,
+          ),
+          redirect: (context, state) {
+            final repo = RepositoryProvider.of<UserRepo>(context);
+            final user = repo.currentUser;
+            if (user == null || user.id.isEmpty) {
+              return '/login';
+            }
+            return null;
+          },
+        ),
+      ],
+    ),
   ],
   builder: (context, state, navShell) => HomeScreen(navShell: navShell),
 );

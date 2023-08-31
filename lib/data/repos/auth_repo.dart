@@ -60,7 +60,6 @@ class IAuthRepo with BaseRepo implements AuthRepo {
         if (hiveUser != null) {
           await _box.clear();
           _box.put(hiveUser.uid, hiveUser);
-          print('Data added: ${_box.values}');
         }
       }
     });

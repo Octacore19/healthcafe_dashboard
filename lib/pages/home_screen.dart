@@ -1,13 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/domain/models/homepage.dart';
-import 'package:healthcafe_dashboard/domain/repos/appointment_repo.dart';
-import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
+import 'package:healthcafe_dashboard/gen/assets.gen.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,6 +18,8 @@ class HomeScreen extends StatelessWidget {
         HomePages.users,
         HomePages.appointments,
         HomePages.wellness,
+        HomePages.vaccines,
+        HomePages.assessments,
         HomePages.settings,
       ];
 
@@ -33,15 +33,13 @@ class HomeScreen extends StatelessWidget {
           NavigationRail(
             leading: Padding(
               padding: const EdgeInsets.symmetric(vertical: 30).h,
-              child: SvgPicture.asset(
-                extended ? AppSvgs.logoText : AppSvgs.logo,
-              ),
+              child: buildIcon(extended),
             ),
-            backgroundColor: AppColors.primary700,
+            backgroundColor: ColorName.primary700,
             destinations: pages
                 .mapIndexed(
                   (i, e) => NavigationRailDestination(
-                    icon: SvgPicture.asset(e.icon),
+                    icon: e.icon.svg(),
                     label: Text(e.title),
                   ),
                 )
@@ -51,17 +49,17 @@ class HomeScreen extends StatelessWidget {
               fontSize: 16.sp,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w400,
-              color: AppColors.primary25,
+              color: ColorName.primary25,
             ),
             unselectedLabelTextStyle: TextStyle(
               fontSize: 16.sp,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w400,
-              color: AppColors.primary25,
+              color: ColorName.primary25,
             ),
             extended: extended,
             useIndicator: true,
-            indicatorColor: AppColors.primary500,
+            indicatorColor: ColorName.primary500,
             onDestinationSelected: (index) {
               navShell.goBranch(
                 index,
@@ -107,5 +105,23 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget buildIcon(bool expanded) {
+    if (expanded) {
+      return Row(
+        children: [
+          Assets.img.primevivaLogo.svg(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Assets.img.primevivaText.svg(),
+              Assets.img.healthcareText.svg(),
+            ],
+          ),
+        ],
+      );
+    }
+    return Assets.img.primevivaLogo.svg();
   }
 }

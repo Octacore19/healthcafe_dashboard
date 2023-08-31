@@ -63,17 +63,17 @@ class UserResponse {
     return {
       'uid': uid,
       'display_name': displayName,
-      'dob': dob,
+      'dob': dob?.toDate().toIso8601String(),
       'email': email,
       'email_verified': emailVerified,
       'gender': gender,
-      'last_sign_in_time': lastSignInTime,
+      'last_sign_in_time': lastSignInTime?.toDate().toIso8601String(),
       'onboarding_score': onboardingScore,
       'onboarding_test': onboarded,
       'phone_number': phoneNumber,
       'phone_verified': phoneVerified,
       'disabled': disabled,
-      'creation_time': creationTime,
+      'creation_time': creationTime?.toDate().toIso8601String(),
       'profile_picture': profilePicture,
     };
   }
@@ -95,4 +95,7 @@ class UserResponse {
       ..creationTime = creationTime?.toDate().toIso8601String()
       ..profilePicture = profilePicture;
   }
+
+  @override
+  String toString() => jsonEncode(toJson());
 }

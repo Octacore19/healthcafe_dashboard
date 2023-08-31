@@ -1,9 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';
 import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
-import 'package:healthcafe_dashboard/data/remote/models/user.dart';
 import 'package:healthcafe_dashboard/domain/models/gender.dart';
-import 'package:intl/intl.dart';
 
 class AuthUser extends Equatable {
   AuthUser._({

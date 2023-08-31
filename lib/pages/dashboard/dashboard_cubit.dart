@@ -16,6 +16,7 @@ class DashboardCubit extends Cubit<DashboardState> {
   })  : _userRepo = userRepo,
         _appointmentRepo = appointmentRepo,
         super(const InitialState()) {
+    _userRepo.fetchUsersList();
     _usersSub = _userRepo.users.listen((users) {
       emit(UpdatedState(
         users: users,

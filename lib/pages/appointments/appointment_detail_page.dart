@@ -15,19 +15,18 @@ class AppointmentDetailPage extends AppPage {
 
   @override
   Widget build(BuildContext context) {
-    return const AppointmentDetailScreen();
+    return const _Screen();
   }
 }
 
-class AppointmentDetailScreen extends StatefulWidget {
-  const AppointmentDetailScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<AppointmentDetailScreen> createState() =>
-      _AppointmentDetailScreenState();
+  State<_Screen> createState() => _State();
 }
 
-class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
+class _State extends State<_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

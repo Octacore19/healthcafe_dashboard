@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 
-class AssessmentsPage extends AppPage {
-  const AssessmentsPage({required super.state, super.key});
+class ProfilePage extends AppPage {
+  const ProfilePage({required super.state, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class AssessmentsPage extends AppPage {
 }
 
 class _Screen extends StatefulWidget {
-  const _Screen({super.key});
+  const _Screen({Key? key}) : super(key: key);
 
   @override
   State<_Screen> createState() => _State();
@@ -20,10 +20,6 @@ class _Screen extends StatefulWidget {
 class _State extends State<_Screen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Assessments Page'),
-      ),
-    );
+    return const Placeholder();
   }
 }

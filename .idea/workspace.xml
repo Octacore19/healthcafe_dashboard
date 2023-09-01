@@ -4,26 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="manage plan implementation">
-      <change afterPath="$PROJECT_DIR$/lib/data/repos/vaccine.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/domain/repos/vaccines.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/vaccines/manage_vaccine_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_state.dart" afterDir="false" />
+    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="manage vaccine implementation">
+      <change afterPath="$PROJECT_DIR$/lib/screens/auth_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/local/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/local/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/local/model/wellness/plan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/local/model/plan/plan.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/wellness_plan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/models/plan.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/wellness_plan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/wellness_plan.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/models/wellness_plan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/plan.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/repos/wellness_plan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/wellness_plan.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/requests/wellness_plan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/requests/plan.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/forgot_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/forgot_password/forgot_password_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/settings/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/settings_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/upload_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/assessments/upload_test_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/routing/app_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/app_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/routing/auth_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/auth_router.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/routing/home_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/home_router.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +34,7 @@
     <setting file="file://$PROJECT_DIR$/lib/pages/login/login_cubit.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/pages/login/login_state.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/pages/home_screen.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/screens/home_screen.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/routing/home_router.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/pages/login/login_page.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/main.dart" root0="FORCE_HIGHLIGHTING" />
@@ -91,11 +80,11 @@
       <recent name="$PROJECT_DIR$/lib/data/local" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/pages/screens" />
+      <recent name="$PROJECT_DIR$/lib/pages/assessments" />
+      <recent name="$PROJECT_DIR$/lib/pages/forgot_password" />
+      <recent name="$PROJECT_DIR$/lib/pages" />
       <recent name="$PROJECT_DIR$/lib/pages/user_profile" />
-      <recent name="$PROJECT_DIR$/lib/pages/settings" />
-      <recent name="$PROJECT_DIR$/lib/pages/wellness_plans" />
-      <recent name="$PROJECT_DIR$/lib/pages/appointments" />
-      <recent name="$PROJECT_DIR$/lib/pages/users" />
     </key>
   </component>
   <component name="RunManager" selected="Flutter.main.dart">
@@ -152,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693539617502</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="manage vaccine implementation">
+      <created>1693544108420</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693544108420</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -187,6 +183,7 @@
     <MESSAGE value="adjusted starting page" />
     <MESSAGE value="make dashboard load list of users" />
     <MESSAGE value="manage plan implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="manage plan implementation" />
+    <MESSAGE value="manage vaccine implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="manage vaccine implementation" />
   </component>
 </project>

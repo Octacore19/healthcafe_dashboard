@@ -23,19 +23,19 @@ class DashboardPage extends AppPage {
         userRepo: RepositoryProvider.of(context),
         appointmentRepo: RepositoryProvider.of(context),
       ),
-      child: const DashboardScreen(),
+      child: const _Screen(),
     );
   }
 }
 
-class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<DashboardScreen> createState() => _State();
+  State<_Screen> createState() => _State();
 }
 
-class _State extends State<DashboardScreen> {
+class _State extends State<_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

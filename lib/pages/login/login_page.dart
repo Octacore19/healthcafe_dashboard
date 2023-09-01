@@ -17,19 +17,19 @@ class LoginPage extends AppPage {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(authRepo: RepositoryProvider.of(context)),
-      child: const LoginScreen(),
+      child: const _Screen(),
     );
   }
 }
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<LoginScreen> createState() => _State();
+  State<_Screen> createState() => _State();
 }
 
-class _State extends State<LoginScreen> {
+class _State extends State<_Screen> {
   bool _hidePassword = true;
   LoginCubit? _login;
 

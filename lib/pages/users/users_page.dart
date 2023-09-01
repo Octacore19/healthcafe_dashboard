@@ -26,19 +26,19 @@ class UsersPage extends AppPage {
       create: (context) => UsersCubit(
         userRepo: RepositoryProvider.of(context),
       ),
-      child: const UsersScreen(),
+      child: const _Screen(),
     );
   }
 }
 
-class UsersScreen extends StatefulWidget {
-  const UsersScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<UsersScreen> createState() => _UsersScreenState();
+  State<_Screen> createState() => _State();
 }
 
-class _UsersScreenState extends State<UsersScreen>
+class _State extends State<_Screen>
     with SingleTickerProviderStateMixin {
   TabController? _controller;
   UsersCubit? _cubit;

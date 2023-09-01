@@ -8,8 +8,9 @@ typedef TransitionAnimationBuilder = Widget Function(
   Widget,
 );
 
-final GlobalKey<NavigatorState> rootNavKey = GlobalKey<NavigatorState>();
-final GlobalKey<NavigatorState> authNavKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> rootNavKey = GlobalKey();
+final GlobalKey<NavigatorState> authNavKey = GlobalKey();
+final GlobalKey<NavigatorState> settingsNavKey = GlobalKey();
 
 abstract class AppPage<P> extends Page<P> {
   const AppPage({

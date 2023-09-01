@@ -30,19 +30,19 @@ class WellnessPlansPage extends AppPage {
       create: (context) {
         return WellnessPlanCubit(planRepo: RepositoryProvider.of(context));
       },
-      child: const WellnessPlanScreen(),
+      child: const _Screen(),
     );
   }
 }
 
-class WellnessPlanScreen extends StatefulWidget {
-  const WellnessPlanScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<WellnessPlanScreen> createState() => _State();
+  State<_Screen> createState() => _State();
 }
 
-class _State extends State<WellnessPlanScreen> {
+class _State extends State<_Screen> {
   late final WellnessPlanCubit _cubit;
 
   @override

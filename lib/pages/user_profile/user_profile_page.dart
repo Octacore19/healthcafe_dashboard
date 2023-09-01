@@ -30,19 +30,19 @@ class UserProfilePage extends AppPage {
         appointmentRepo: RepositoryProvider.of(context),
         userId: state.pathParameters['id'],
       ),
-      child: const UserProfileScreen(),
+      child: const _Screen(),
     );
   }
 }
 
-class UserProfileScreen extends StatefulWidget {
-  const UserProfileScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<UserProfileScreen> createState() => _UserProfileScreenState();
+  State<_Screen> createState() => _State();
 }
 
-class _UserProfileScreenState extends State<UserProfileScreen> {
+class _State extends State<_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

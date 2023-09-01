@@ -13,18 +13,18 @@ class UploadTestPage extends AppPage {
 
   @override
   Widget build(BuildContext context) {
-    return const UploadTestScreen();
+    return const _Screen();
   }
 }
 
-class UploadTestScreen extends StatefulWidget {
-  const UploadTestScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<UploadTestScreen> createState() => _UploadTestScreenState();
+  State<_Screen> createState() => _State();
 }
 
-class _UploadTestScreenState extends State<UploadTestScreen> {
+class _State extends State<_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

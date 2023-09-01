@@ -24,21 +24,21 @@ class ManageVaccinePage extends AppPage {
         id: state.pathParameters['id'],
         manage: true,
       ),
-      child: ManageVaccineScreen(isEdit: state.pathParameters['id'] != null),
+      child: _Screen(isEdit: state.pathParameters['id'] != null),
     );
   }
 }
 
-class ManageVaccineScreen extends StatefulWidget {
-  const ManageVaccineScreen({required this.isEdit, Key? key}) : super(key: key);
+class _Screen extends StatefulWidget {
+  const _Screen({required this.isEdit, Key? key}) : super(key: key);
 
   final bool isEdit;
 
   @override
-  State<ManageVaccineScreen> createState() => _State();
+  State<_Screen> createState() => _State();
 }
 
-class _State extends State<ManageVaccineScreen> {
+class _State extends State<_Screen> {
   late final VaccinesCubit _cubit;
 
   @override

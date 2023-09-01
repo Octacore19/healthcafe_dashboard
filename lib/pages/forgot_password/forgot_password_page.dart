@@ -12,6 +12,20 @@ class ForgotPasswordPage extends AppPage {
 
   @override
   Widget build(BuildContext context) {
+    return const _Screen();
+  }
+}
+
+class _Screen extends StatefulWidget {
+  const _Screen({Key? key}) : super(key: key);
+
+  @override
+  State<_Screen> createState() => _State();
+}
+
+class _State extends State<_Screen> {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: LayoutBuilder(
         builder: (p0, p1) => SizedBox(

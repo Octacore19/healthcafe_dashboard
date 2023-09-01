@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/gen/assets.gen.dart';
 import 'package:healthcafe_dashboard/gen/colors.gen.dart';
-import 'package:healthcafe_dashboard/pages/forgot_password_page.dart';
+import 'package:healthcafe_dashboard/screens/auth_screen.dart';
+import 'package:healthcafe_dashboard/pages/forgot_password/forgot_password_page.dart';
 import 'package:healthcafe_dashboard/pages/login/login_page.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 
@@ -27,24 +28,5 @@ final authRoute = ShellRoute(
       ),
     )
   ],
-  builder: (context, state, child) => Scaffold(
-    body: Row(
-      children: [
-        SizedBox(
-          width: 0.5.sw,
-          child: DecoratedBox(
-            decoration: const BoxDecoration(color: ColorName.primary600),
-            child: Assets.img.loginFrameImg.image(
-              height: 1.sh,
-              fit: BoxFit.fitHeight,
-            ),
-          ),
-        ),
-        SizedBox(
-          width: 0.5.sw,
-          child: child,
-        ),
-      ],
-    ),
-  ),
+  builder: (context, state, child) => AuthScreen(child: child),
 );

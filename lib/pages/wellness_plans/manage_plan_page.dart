@@ -25,13 +25,13 @@ class ManagePlanPage extends AppPage {
         id: state.pathParameters['id'],
         manage: true,
       ),
-      child: ManagePlanScreen(isEdit: state.pathParameters['id'] != null),
+      child: _Screen(isEdit: state.pathParameters['id'] != null),
     );
   }
 }
 
-class ManagePlanScreen extends StatefulWidget {
-  const ManagePlanScreen({required this.isEdit, super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({required this.isEdit, super.key});
 
   final bool isEdit;
 
@@ -39,7 +39,7 @@ class ManagePlanScreen extends StatefulWidget {
   State<StatefulWidget> createState() => _State();
 }
 
-class _State extends State<ManagePlanScreen> {
+class _State extends State<_Screen> {
   late final WellnessPlanCubit _cubit;
 
   @override

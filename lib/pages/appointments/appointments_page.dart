@@ -25,19 +25,19 @@ class AppointmentsPage extends AppPage {
       create: (context) => AppointmentCubit(
         appointmentRepo: RepositoryProvider.of(context),
       ),
-      child: const AppointmentsScreen(),
+      child: const _Screen(),
     );
   }
 }
 
-class AppointmentsScreen extends StatefulWidget {
-  const AppointmentsScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<AppointmentsScreen> createState() => _AppointmentsScreenState();
+  State<_Screen> createState() => _State();
 }
 
-class _AppointmentsScreenState extends State<AppointmentsScreen> {
+class _State extends State<_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

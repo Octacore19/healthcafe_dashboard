@@ -25,19 +25,19 @@ class VaccinesPage extends AppPage {
       create: (context) => VaccinesCubit(
         repo: RepositoryProvider.of(context),
       ),
-      child: const VaccinesScreen(),
+      child: const _Screen(),
     );
   }
 }
 
-class VaccinesScreen extends StatefulWidget {
-  const VaccinesScreen({super.key});
+class _Screen extends StatefulWidget {
+  const _Screen({super.key});
 
   @override
-  State<VaccinesScreen> createState() => _State();
+  State<_Screen> createState() => _State();
 }
 
-class _State extends State<VaccinesScreen> {
+class _State extends State<_Screen> {
   late final VaccinesCubit _cubit;
 
   @override

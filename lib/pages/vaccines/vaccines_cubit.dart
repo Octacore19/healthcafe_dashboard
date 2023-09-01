@@ -1,38 +1,38 @@
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/domain/models/plan.dart';
-import 'package:healthcafe_dashboard/domain/repos/wellness_plan.dart';
+import 'package:healthcafe_dashboard/domain/repos/vaccines.dart';
 import 'package:healthcafe_dashboard/domain/requests/plan.dart';
 
-part 'wellness_plan_state.dart';
+part 'vaccines_state.dart';
 
-class WellnessPlanCubit extends Cubit<WellnessPlanState> {
-  WellnessPlanCubit({
-    required WellnessPlanRepo planRepo,
+class VaccinesCubit extends Cubit<VaccinesState> {
+  VaccinesCubit({
+    required VaccineRepo repo,
     bool manage = false,
     String? id,
-  })  : _planRepo = planRepo,
-        _planId = id,
+  })  : _repo = repo,
+        _id = id,
         super(const InitialState()) {
-    _subscription = _planRepo.plans.listen((plans) {
-      emit(UpdatedState(plans));
+    _subscription = _repo.vaccines.listen((vaccines) {
+      emit(UpdatedState(vaccines));
     });
-    _planRepo.fetchAllPlans();
+    _repo.fetchAllVaccines();
     if (manage) {
-      final plan = _planRepo.fetchPlan(id);
+      final plan = _repo.fetchVaccine(id);
       _nameController = TextEditingController(text: plan?.name);
       _priceController = TextEditingController(text: plan?.price);
       _descController = TextEditingController(text: plan?.description);
     }
   }
 
-  final WellnessPlanRepo _planRepo;
-  final String? _planId;
+  final VaccineRepo _repo;
+  final String? _id;
 
-  bool get _isEdit => _planId != null;
+  bool get _isEdit => _id != null;
 
   TextEditingController? _nameController;
   TextEditingController? _priceController;
@@ -47,7 +47,7 @@ class WellnessPlanCubit extends Cubit<WellnessPlanState> {
   TextEditingController? get descController => _descController;
 
   bool get valueChanged {
-    final plan = _planRepo.fetchPlan(_planId);
+    final plan = _repo.fetchVaccine(_id);
     final name = _nameController?.text.trim();
     final price = _priceController?.text.trim();
     final desc = _descController?.text.trim();
@@ -70,32 +70,32 @@ class WellnessPlanCubit extends Cubit<WellnessPlanState> {
       final name = _nameController?.text.trim();
       final price = _priceController?.text.trim();
       final desc = _descController?.text.trim();
-      emit(LoadingState(state.plans));
+      emit(LoadingState(state.vaccines));
       final request = PlanRequest(
         name: name,
         price: price,
         description: desc,
       );
       if (_isEdit) {
-        await _planRepo.updatePlan(_planId, request);
+        await _repo.updateVaccine(_id, request);
       } else {
-        await _planRepo.addNewPlan(request);
+        await _repo.addNewVaccine(request);
       }
-      emit(SuccessState(state.plans));
+      emit(SuccessState(state.vaccines));
     } on Exception catch (e) {
       debugPrint(e.toString());
-      emit(ErrorState(state.plans, 'An error occurred!'));
+      emit(ErrorState(state.vaccines, 'An error occurred!'));
     }
   }
 
   void delete(String? id) async {
-    emit(LoadingState(state.plans));
+    emit(LoadingState(state.vaccines));
     try {
-      await _planRepo.deletePlan(id);
-      emit(SuccessState(state.plans));
+      await _repo.deleteVaccine(id);
+      emit(SuccessState(state.vaccines));
     } on Exception catch (e) {
       debugPrint(e.toString());
-      emit(ErrorState(state.plans, 'An error occurred!'));
+      emit(ErrorState(state.vaccines, 'An error occurred!'));
     }
   }
 

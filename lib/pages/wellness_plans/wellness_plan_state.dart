@@ -3,7 +3,7 @@ part of 'wellness_plan_cubit.dart';
 abstract class WellnessPlanState extends Equatable {
   const WellnessPlanState(this.plans);
 
-  final List<WellnessPlan> plans;
+  final List<Plan> plans;
 
   @override
   List<Object?> get props => [plans];

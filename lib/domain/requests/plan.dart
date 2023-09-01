@@ -1,5 +1,5 @@
-class WellnessPlanRequest {
-  const WellnessPlanRequest({
+class PlanRequest {
+  const PlanRequest({
     this.name,
     this.price,
     this.description,

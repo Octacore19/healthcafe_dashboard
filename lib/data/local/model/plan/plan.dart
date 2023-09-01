@@ -6,8 +6,8 @@ import 'package:hive/hive.dart';
 
 part 'plan.g.dart';
 
-@HiveType(typeId: wellnessPlanId, adapterName: 'WellnessPlanAdapter')
-class HiveWellnessPlan extends HiveObject with BaseModel {
+@HiveType(typeId: planId, adapterName: 'PlanAdapter')
+class HivePlan extends HiveObject with BaseModel {
   @HiveField(0)
   String? id;
 

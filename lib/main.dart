@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthcafe_dashboard/app.dart';
 import 'package:healthcafe_dashboard/auth_cubit.dart';
+import 'package:healthcafe_dashboard/data/repos/vaccine.dart';
 import 'package:healthcafe_dashboard/data/repos/wellness_plan.dart';
+import 'package:healthcafe_dashboard/domain/repos/vaccines.dart';
 import 'package:healthcafe_dashboard/domain/repos/wellness_plan.dart';
 import 'package:healthcafe_dashboard/res/theme.dart';
 import 'package:healthcafe_dashboard/routing/app_router.dart';
@@ -39,6 +41,9 @@ void main() async {
       ),
       RepositoryProvider<WellnessPlanRepo>(
         create: (context) => IWellnessPlanRepo(firestore: App.db),
+      ),
+      RepositoryProvider<VaccineRepo>(
+        create: (context) => IVaccineRepo(firestore: App.db),
       ),
     ],
     child: MultiBlocProvider(

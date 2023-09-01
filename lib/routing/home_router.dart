@@ -11,6 +11,7 @@ import 'package:healthcafe_dashboard/pages/settings/settings_page.dart';
 import 'package:healthcafe_dashboard/pages/upload_test_page.dart';
 import 'package:healthcafe_dashboard/pages/user_profile/user_profile_page.dart';
 import 'package:healthcafe_dashboard/pages/users/users_page.dart';
+import 'package:healthcafe_dashboard/pages/vaccines/manage_vaccine_page.dart';
 import 'package:healthcafe_dashboard/pages/vaccines/vaccines_page.dart';
 import 'package:healthcafe_dashboard/pages/wellness_plans/manage_plan_page.dart';
 import 'package:healthcafe_dashboard/pages/wellness_plans/wellness_plan_page.dart';
@@ -142,6 +143,20 @@ final homeRoute = StatefulShellRoute.indexedStack(
             }
             return null;
           },
+          routes: [
+            GoRoute(
+              path: 'vaccine',
+              pageBuilder: (context, state) {
+                return ManageVaccinePage(state: state);
+              },
+            ),
+            GoRoute(
+              path: 'vaccine/:id',
+              pageBuilder: (context, state) {
+                return ManageVaccinePage(state: state);
+              },
+            ),
+          ],
         ),
       ],
     ),

@@ -10,8 +10,8 @@ import 'package:healthcafe_dashboard/config/prod_config.dart';
 import 'package:healthcafe_dashboard/config/stage_config.dart';
 import 'package:healthcafe_dashboard/data/local/model/appointment/appointment.dart';
 import 'package:healthcafe_dashboard/data/local/constants.dart';
+import 'package:healthcafe_dashboard/data/local/model/plan/plan.dart';
 import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
-import 'package:healthcafe_dashboard/data/local/model/wellness/plan.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -85,7 +85,8 @@ class App {
     await Hive.openBox<HiveUser>(adminBox);
     await Hive.openBox<HiveUser>(userBox);
     await Hive.openBox<HiveAppointment>(appointmentBox);
-    await Hive.openBox<HiveWellnessPlan>(wellnessPlanBox);
+    await Hive.openBox<HivePlan>(wellnessPlanBox);
+    await Hive.openBox<HivePlan>(vaccineBox);
 
     _initialized = true;
   }

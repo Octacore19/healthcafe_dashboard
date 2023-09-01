@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/domain/models/wellness_plan.dart';
+import 'package:healthcafe_dashboard/domain/models/plan.dart';
 import 'package:healthcafe_dashboard/gen/assets.gen.dart';
 import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/pages/wellness_plans/wellness_plan_cubit.dart';
@@ -137,7 +137,7 @@ class _State extends State<WellnessPlanScreen> {
     );
   }
 
-  Widget buildWellnessTable(BuildContext context, List<WellnessPlan> plans) {
+  Widget buildWellnessTable(BuildContext context, List<Plan> plans) {
     return Padding(
       padding: const EdgeInsets.only(top: 30).h,
       child: SizedBox(

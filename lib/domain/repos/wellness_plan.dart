@@ -1,17 +1,17 @@
-import 'package:healthcafe_dashboard/domain/models/wellness_plan.dart';
+import 'package:healthcafe_dashboard/domain/models/plan.dart';
 import 'package:healthcafe_dashboard/domain/repos/base.dart';
-import 'package:healthcafe_dashboard/domain/requests/wellness_plan.dart';
+import 'package:healthcafe_dashboard/domain/requests/plan.dart';
 
 abstract class WellnessPlanRepo with BaseRepo {
-  Stream<List<WellnessPlan>> get plans;
+  Stream<List<Plan>> get plans;
 
-  Future<void> addNewPlan(WellnessPlanRequest request);
+  Future<void> addNewPlan(PlanRequest request);
 
   Future<void> fetchAllPlans();
 
-  Future<void> updatePlan(String? id, WellnessPlanRequest request);
+  Future<void> updatePlan(String? id, PlanRequest request);
 
   Future<void> deletePlan(String? id);
 
-  WellnessPlan? fetchPlan(String? id);
+  Plan? fetchPlan(String? id);
 }

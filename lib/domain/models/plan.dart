@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:healthcafe_dashboard/data/local/model/wellness/plan.dart';
+import 'package:healthcafe_dashboard/data/local/model/plan/plan.dart';
 
-class WellnessPlan extends Equatable {
-  const WellnessPlan._({
+class Plan extends Equatable {
+  const Plan._({
     required this.id,
     required this.name,
     required this.price,
@@ -18,8 +18,8 @@ class WellnessPlan extends Equatable {
   final String totalOrders;
   final bool isActive;
 
-  factory WellnessPlan.fromHive(HiveWellnessPlan value) {
-    return WellnessPlan._(
+  factory Plan.fromHive(HivePlan value) {
+    return Plan._(
       id: value.id ?? '',
       name: value.name ?? '',
       price: value.price ?? '',

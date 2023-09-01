@@ -1,22 +1,22 @@
 import 'dart:async';
 
-import 'package:collection/collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:healthcafe_dashboard/data/local/constants.dart';
 import 'package:healthcafe_dashboard/data/local/model/plan/plan.dart';
 import 'package:healthcafe_dashboard/data/remote/models/plan.dart';
 import 'package:healthcafe_dashboard/data/repos/base.dart';
 import 'package:healthcafe_dashboard/domain/models/plan.dart';
-import 'package:healthcafe_dashboard/domain/repos/wellness_plan.dart';
+import 'package:healthcafe_dashboard/domain/repos/vaccines.dart';
 import 'package:healthcafe_dashboard/domain/requests/plan.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:rxdart/rxdart.dart';
 
-const _ref = 'plans';
+const _ref = 'vaccines';
 
-class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
-  IWellnessPlanRepo({required FirebaseFirestore firestore})
+class IVaccineRepo extends IBaseRepo implements VaccineRepo {
+  IVaccineRepo({required FirebaseFirestore firestore})
       : _firestore = firestore {
     _subscription = _firestore
         .collection(_ref)
@@ -43,24 +43,24 @@ class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
 
   final FirebaseFirestore _firestore;
 
-  final _box = Hive.box<HivePlan>(wellnessPlanBox);
+  final _box = Hive.box<HivePlan>(vaccineBox);
 
   StreamSubscription? _subscription;
 
   @override
-  Stream<List<Plan>> get plans =>
-      _box.watch().map((_) => _plans).startWith(_plans);
+  Stream<List<Plan>> get vaccines =>
+      _box.watch().map((_) => _vaccines).startWith(_vaccines);
 
   @override
-  Plan? fetchPlan(String? id) {
+  Plan? fetchVaccine(String? id) {
     final plan = _box.get(id);
     return plan == null ? null : Plan.fromHive(plan);
   }
 
   @override
-  Future<void> addNewPlan(PlanRequest request) async {
+  Future<void> addNewVaccine(PlanRequest request) async {
     final f = DateFormat('yyyyMMddhhmmss');
-    final id = 'WLP${f.format(DateTime.now())}';
+    final id = 'VAC${f.format(DateTime.now())}';
     Map<String, dynamic> payload = request.toJson();
     final creationTime = FieldValue.serverTimestamp();
     payload['created_at'] = creationTime;
@@ -70,7 +70,7 @@ class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
   }
 
   @override
-  Future<void> deletePlan(String? id) async {
+  Future<void> deleteVaccine(String? id) async {
     final data = {
       'is_active': false,
       'updated_at': FieldValue.serverTimestamp(),
@@ -80,7 +80,7 @@ class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
   }
 
   @override
-  Future<void> updatePlan(String? id, PlanRequest request) async {
+  Future<void> updateVaccine(String? id, PlanRequest request) async {
     Map<String, dynamic> payload = request.toJson();
     final updateTime = FieldValue.serverTimestamp();
     payload['updated_at'] = updateTime;
@@ -89,7 +89,7 @@ class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
   }
 
   @override
-  Future<void> fetchAllPlans() async {
+  Future<void> fetchAllVaccines() async {
     final res = await _firestore
         .collection(_ref)
         .withConverter(
@@ -116,7 +116,7 @@ class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
     _subscription?.cancel();
   }
 
-  List<Plan> get _plans {
+  List<Plan> get _vaccines {
     return _box.values.map(Plan.fromHive).toList();
   }
 }

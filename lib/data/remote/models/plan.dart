@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:healthcafe_dashboard/data/local/model/wellness/plan.dart';
+import 'package:healthcafe_dashboard/data/local/model/plan/plan.dart';
 
-class WellnessPlanResponse {
-  WellnessPlanResponse._({
+class PlanResponse {
+  PlanResponse._({
     this.id,
     this.description,
     this.price,
@@ -28,12 +28,12 @@ class WellnessPlanResponse {
   final Timestamp? updatedAt;
   final bool? isActive;
 
-  factory WellnessPlanResponse.fromFirestore(
+  factory PlanResponse.fromFirestore(
     DocumentSnapshot<Map<String, dynamic>> snapshot,
     SnapshotOptions? options,
   ) {
     final json = snapshot.data();
-    return WellnessPlanResponse._(
+    return PlanResponse._(
       id: snapshot.id,
       name: json?['name'],
       price: json?['price'],
@@ -60,8 +60,8 @@ class WellnessPlanResponse {
     };
   }
 
-  HiveWellnessPlan get toHive {
-    return HiveWellnessPlan()
+  HivePlan get toHive {
+    return HivePlan()
       ..name = name
       ..description = description
       ..totalOrders = totalOrders

@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="gray200">#EAECF0</color>
     <color name="gray300">#D0D5DD</color>
     <color name="gray500">#667085</color>
     <color name="gray700">#344054</color>
     <color name="grey25">#FCFCFD</color>
+    <color name="grey50">#F9FAFB</color>
     <color name="grey100">#F2F4F7</color>
+    <color name="grey200">#EAECF0</color>
+    <color name="grey300">#D0D5DD</color>
     <color name="grey400">#98A2B3</color>
+    <color name="grey500">#667085</color>
     <color name="grey600">#475467</color>
+    <color name="grey700">#344054</color>
+    <color name="grey800">#1D2939</color>
     <color name="grey900">#101828</color>
     <color name="primary25">#EAECF0</color>
     <color name="primary500">#304269</color>
     <color name="primary600">#222E4A</color>
     <color name="primary700">#1D283F</color>
     <color name="secondary25">#F4F9FB</color>
+    <color name="secondary700">#668594</color>
+    <color name="leafGreen500">#7CAA83</color>
+    <color name="neutral600">#EAEBF0</color>
+    <color name="success50">#ECFDF3</color>
+    <color name="success500">#12B76A</color>
+    <color name="success700">#027A48</color>
+    <color name="danger500">#A92F34</color>
+    <color name="warning50">#FFFAEB</color>
+    <color name="warning500">#F79009</color>
+    <color name="warning700">#B54708</color>
 </resources>

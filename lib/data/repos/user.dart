@@ -6,7 +6,7 @@ import 'package:healthcafe_dashboard/data/local/constants.dart';
 import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
 import 'package:healthcafe_dashboard/data/remote/models/user.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
+import 'package:healthcafe_dashboard/domain/repos/user.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 

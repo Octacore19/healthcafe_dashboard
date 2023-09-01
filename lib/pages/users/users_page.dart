@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/pages/users/users_cubit.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/utils/date_formatter.dart';
 import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
@@ -117,7 +117,7 @@ class _UsersScreenState extends State<UsersScreen>
       decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: AppColors.grey200,
+            color: ColorName.grey200,
           ),
         ),
       ),
@@ -126,9 +126,9 @@ class _UsersScreenState extends State<UsersScreen>
         isScrollable: true,
         padding: EdgeInsets.zero,
         labelPadding: const EdgeInsets.symmetric(horizontal: 20).w,
-        indicatorColor: AppColors.primary500,
-        labelColor: AppColors.primary500,
-        unselectedLabelColor: AppColors.grey400,
+        indicatorColor: ColorName.primary500,
+        labelColor: ColorName.primary500,
+        unselectedLabelColor: ColorName.grey400,
         labelStyle: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 14.sp,
@@ -162,7 +162,7 @@ class _UsersScreenState extends State<UsersScreen>
     TextStyle style = TextStyle(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
-      color: AppColors.grey800,
+      color: ColorName.grey800,
       overflow: TextOverflow.fade,
     );
 
@@ -171,7 +171,7 @@ class _UsersScreenState extends State<UsersScreen>
       child: Container(
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
-          border: Border.all(color: AppColors.gray200),
+          border: Border.all(color: ColorName.gray200),
           borderRadius: BorderRadius.circular(8),
         ),
         child: table.DataTable(
@@ -179,10 +179,10 @@ class _UsersScreenState extends State<UsersScreen>
           showCheckboxColumn: false,
           clipBehavior: Clip.hardEdge,
           headingRowColor: MaterialStateProperty.resolveWith(
-            (states) => AppColors.grey50,
+            (states) => ColorName.grey50,
           ),
           border: const TableBorder(
-            horizontalInside: BorderSide(color: AppColors.gray200),
+            horizontalInside: BorderSide(color: ColorName.gray200),
           ),
           headingTextStyle: style.copyWith(fontWeight: FontWeight.bold),
           columns: const [
@@ -196,7 +196,7 @@ class _UsersScreenState extends State<UsersScreen>
           ],
           rows: users.mapIndexed((index, element) {
             final creationDate = element.creationDate.formatDate;
-            style = style.copyWith(color: AppColors.grey600);
+            style = style.copyWith(color: ColorName.grey600);
             return table.DataRow.byIndex(
               index: index,
               cells: [
@@ -213,8 +213,8 @@ class _UsersScreenState extends State<UsersScreen>
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16).r,
                           color: !element.disabled
-                              ? AppColors.success50
-                              : AppColors.warning50,
+                              ? ColorName.success50
+                              : ColorName.warning50,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(8, 2, 8, 2).r,
@@ -222,8 +222,8 @@ class _UsersScreenState extends State<UsersScreen>
                             !element.disabled ? 'active' : 'inactive',
                             style: style.copyWith(
                                 color: !element.disabled
-                                    ? AppColors.success700
-                                    : AppColors.warning700),
+                                    ? ColorName.success700
+                                    : ColorName.warning700),
                           ),
                         ),
                       ),
@@ -235,7 +235,7 @@ class _UsersScreenState extends State<UsersScreen>
                       GoRouter.of(context).go('/users/detail/${element.id}');
                     },
                     label: 'View',
-                    fgColor: AppColors.primary500,
+                    fgColor: ColorName.primary500,
                     textStyle: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,

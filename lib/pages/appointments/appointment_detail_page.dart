@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
@@ -44,7 +44,7 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
                 label: const Text('Back'),
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
-                  foregroundColor: AppColors.grey900,
+                  foregroundColor: ColorName.grey900,
                 ),
               ),
             ),
@@ -71,7 +71,7 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
           child: Textbutton(
             onTap: () {},
             label: 'Download',
-            border: const BorderSide(color: AppColors.grey300),
+            border: const BorderSide(color: ColorName.grey300),
             borderRadius: BorderRadius.circular(8).r,
             padding: const EdgeInsets.fromLTRB(24, 8, 24, 8).r,
             minimumSize: Size(124.w, 48.h),
@@ -84,7 +84,7 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
               GoRouter.maybeOf(context)?.go('/appointments/detail/${0}/result');
             },
             label: 'Upload Result',
-            bgColor: AppColors.primary500,
+            bgColor: ColorName.primary500,
             fgColor: Colors.white,
             padding: const EdgeInsets.fromLTRB(24, 8, 24, 8).r,
             minimumSize: Size(124.w, 48.h),
@@ -395,13 +395,13 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
           PieChart(
             PieChartData(sections: [
               PieChartSectionData(
-                color: AppColors.primary25,
+                color: ColorName.primary25,
                 value: 30,
                 radius: 15,
                 showTitle: false,
               ),
               PieChartSectionData(
-                color: AppColors.primary500,
+                color: ColorName.primary500,
                 value: 70,
                 radius: 20,
                 showTitle: false,
@@ -415,7 +415,7 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
-                color: AppColors.primary500,
+                color: ColorName.primary500,
               ),
             ),
           ),
@@ -435,7 +435,7 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
               padding: const EdgeInsets.all(8).r,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.grey50,
+                color: ColorName.grey50,
               ),
               child: SvgPicture.asset(icon),
             ),
@@ -451,7 +451,7 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
                     fontWeight: FontWeight.w400,
                     fontSize: 14.sp,
                     fontFamily: 'Inter',
-                    color: AppColors.grey400,
+                    color: ColorName.grey400,
                   ),
                 ),
                 Text(
@@ -460,7 +460,7 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
                     fontWeight: FontWeight.w500,
                     fontSize: 16.sp,
                     fontFamily: 'Inter',
-                    color: AppColors.grey700,
+                    color: ColorName.grey700,
                   ),
                 ),
               ],

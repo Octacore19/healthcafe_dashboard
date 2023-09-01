@@ -56,7 +56,7 @@ class _State extends State<LoginScreen> {
             GoRouter.of(context).go('/');
           }
           if (state is ErrorState) {
-            showSnackBar(context: context, message: state.message);
+            showErrorSnackBar(context: context, message: state.message);
           }
         },
         child: LayoutBuilder(
@@ -91,7 +91,9 @@ class _State extends State<LoginScreen> {
                     width: constraints.maxWidth * 0.5,
                     label: 'Email',
                     hint: 'john.doe@domain.com',
+                    onSubmit: (_) => _login?.onLoginClicked(),
                     inputType: TextInputType.emailAddress,
+                    autofill: const [AutofillHints.email],
                   ),
                   SizedBox(height: 16.h),
                   LabelledTextField(
@@ -101,8 +103,10 @@ class _State extends State<LoginScreen> {
                     hint: '*********',
                     obscureText: hidePassword,
                     showSuffix: true,
+                    onSubmit: (_) => _login?.onLoginClicked(),
                     toggleVisibility: (p0) => hidePassword = p0,
                     inputType: TextInputType.visiblePassword,
+                    autofill: const [AutofillHints.password],
                   ),
                   Container(
                     alignment: Alignment.centerLeft,

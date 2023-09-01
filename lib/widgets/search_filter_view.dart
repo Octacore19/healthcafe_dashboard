@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 
@@ -39,19 +39,19 @@ class SearchFilterView extends StatelessWidget {
               hintStyle: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16.sp,
-                color: AppColors.grey500,
+                color: ColorName.grey500,
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8).r,
-                borderSide: const BorderSide(color: AppColors.grey300),
+                borderSide: const BorderSide(color: ColorName.grey300),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8).r,
-                borderSide: const BorderSide(color: AppColors.grey300),
+                borderSide: const BorderSide(color: ColorName.grey300),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8).r,
-                borderSide: const BorderSide(color: AppColors.grey300),
+                borderSide: const BorderSide(color: ColorName.grey300),
               ),
             ),
           ),
@@ -96,7 +96,7 @@ class SearchFilterView extends StatelessWidget {
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w500,
-              color: AppColors.grey600,
+              color: ColorName.grey600,
             ),
           ),
           SizedBox(width: 10.w),
@@ -104,10 +104,10 @@ class SearchFilterView extends StatelessWidget {
         Textbutton(
           onTap: onTap,
           border: const BorderSide(
-            color: AppColors.grey300,
+            color: ColorName.grey300,
           ),
           density: VisualDensity.standard,
-          fgColor: AppColors.grey700,
+          fgColor: ColorName.grey700,
           padding: const EdgeInsets.fromLTRB(16, 10, 16, 10).r,
           child: icon != null
               ? Row(

@@ -4,15 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthcafe_dashboard/app.dart';
 import 'package:healthcafe_dashboard/auth_cubit.dart';
+import 'package:healthcafe_dashboard/data/repos/wellness_plan.dart';
+import 'package:healthcafe_dashboard/domain/repos/wellness_plan.dart';
 import 'package:healthcafe_dashboard/res/theme.dart';
 import 'package:healthcafe_dashboard/routing/app_router.dart';
 import 'package:healthcafe_dashboard/data/remote/auth_service.dart';
-import 'package:healthcafe_dashboard/data/repos/appointment_repo.dart';
-import 'package:healthcafe_dashboard/data/repos/auth_repo.dart';
-import 'package:healthcafe_dashboard/data/repos/user_repo.dart';
-import 'package:healthcafe_dashboard/domain/repos/appointment_repo.dart';
-import 'package:healthcafe_dashboard/domain/repos/auth_repo.dart';
-import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
+import 'package:healthcafe_dashboard/data/repos/appointment.dart';
+import 'package:healthcafe_dashboard/data/repos/auth.dart';
+import 'package:healthcafe_dashboard/data/repos/user.dart';
+import 'package:healthcafe_dashboard/domain/repos/appointment.dart';
+import 'package:healthcafe_dashboard/domain/repos/auth.dart';
+import 'package:healthcafe_dashboard/domain/repos/user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +36,10 @@ void main() async {
         create: (context) => IAppointmentRepo(
           firebaseFirestore: App.db,
         ),
-      )
+      ),
+      RepositoryProvider<WellnessPlanRepo>(
+        create: (context) => IWellnessPlanRepo(firestore: App.db),
+      ),
     ],
     child: MultiBlocProvider(
       providers: [

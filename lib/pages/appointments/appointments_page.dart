@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/domain/models/appointment.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/pages/appointments/appointment_cubit.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/utils/date_formatter.dart';
 import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
@@ -103,17 +103,17 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
         child: Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.gray200),
+            border: Border.all(color: ColorName.gray200),
             borderRadius: BorderRadius.circular(16),
           ),
           child: table.DataTable(
             columnSpacing: 4,
             showCheckboxColumn: false,
             headingRowColor: MaterialStateProperty.resolveWith(
-              (states) => AppColors.grey50,
+              (states) => ColorName.grey50,
             ),
             border: const TableBorder(
-              horizontalInside: BorderSide(color: AppColors.gray200),
+              horizontalInside: BorderSide(color: ColorName.gray200),
             ),
             columns: const [
               table.DataColumn(label: Text('Date')),

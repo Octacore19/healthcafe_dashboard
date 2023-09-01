@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 
 class AssessmentsPage extends AppPage {
-  const AssessmentsPage({required super.state});
+  const AssessmentsPage({required super.state, super.key});
 
   @override
   Widget build(BuildContext context) {

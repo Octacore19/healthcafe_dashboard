@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
 
 class PaginationFooter extends StatelessWidget {
@@ -16,7 +16,7 @@ class PaginationFooter extends StatelessWidget {
         children: [
           Textbutton(
             onTap: () {},
-            fgColor: AppColors.gray50,
+            fgColor: ColorName.grey50,
             child: Row(
               children: [
                 Icon(Icons.arrow_back, size: 16.r),
@@ -62,7 +62,7 @@ class PaginationFooter extends StatelessWidget {
           ),
           Textbutton(
             onTap: () {},
-            fgColor: AppColors.gray50,
+            fgColor: ColorName.grey50,
             child: Row(
               children: [
                 Text(

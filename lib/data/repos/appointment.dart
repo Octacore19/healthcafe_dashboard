@@ -8,7 +8,7 @@ import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
 import 'package:healthcafe_dashboard/data/remote/models/appointment.dart';
 import 'package:healthcafe_dashboard/domain/models/appointment.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/domain/repos/appointment_repo.dart';
+import 'package:healthcafe_dashboard/domain/repos/appointment.dart';
 import 'package:hive/hive.dart';
 import 'package:rxdart/rxdart.dart';
 

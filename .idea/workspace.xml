@@ -4,24 +4,59 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="adjusted starting page">
-      <change afterPath="$PROJECT_DIR$/assets/img/healthcare_text.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/primeviva_logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/primeviva_text.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/assessments/assessments_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="make dashboard load list of users">
+      <change afterPath="$PROJECT_DIR$/assets/img/error_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/success_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/warning_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/data/local/model/wellness/plan.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/data/remote/models/wellness_plan.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/data/repos/base.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/data/repos/wellness_plan.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/domain/models/wellness_plan.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/domain/repos/wellness_plan.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/domain/requests/wellness_plan.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/manage_plan_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/currency_text_formatter.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/dialog_prompt.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assets/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/auth_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/models/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/auth_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/user_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/models/homepage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/homepage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/local/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/local/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/repos/appointment_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/appointment.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/repos/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/auth.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/repos/appointment_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/appointment.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/repos/auth_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/auth.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/repos/base_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/base.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/repos/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/requests/login_request.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/requests/login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/appointments/appointment_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/appointments/appointment_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/appointments/appointments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointments_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/assessments/assessments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/assessments/assessments_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/login/login_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/upload_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/upload_test_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/users/users_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/users/users_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/res/colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/res/colors.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/routing/home_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/home_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/widget_utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/widget_utils.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/labelled_textfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/labelled_textfield.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/pagination_footer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/pagination_footer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/search_filter_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/search_filter_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/text_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/text_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/title_subtitle_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/title_subtitle_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693441069327</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="make dashboard load list of users">
+      <created>1693448618323</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693448618323</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -168,6 +210,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="tbc" />
     <MESSAGE value="adjusted starting page" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjusted starting page" />
+    <MESSAGE value="make dashboard load list of users" />
+    <option name="LAST_COMMIT_MESSAGE" value="make dashboard load list of users" />
   </component>
 </project>

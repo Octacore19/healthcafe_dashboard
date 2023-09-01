@@ -1,14 +1,18 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
+import 'package:healthcafe_dashboard/domain/repos/user.dart';
 import 'package:healthcafe_dashboard/pages/appointments/appointment_detail_page.dart';
 import 'package:healthcafe_dashboard/pages/appointments/appointments_page.dart';
+import 'package:healthcafe_dashboard/pages/assessments/assessments_page.dart';
 import 'package:healthcafe_dashboard/pages/dashboard/dashboard_page.dart';
 import 'package:healthcafe_dashboard/pages/home_screen.dart';
 import 'package:healthcafe_dashboard/pages/settings/settings_page.dart';
 import 'package:healthcafe_dashboard/pages/upload_test_page.dart';
 import 'package:healthcafe_dashboard/pages/user_profile/user_profile_page.dart';
 import 'package:healthcafe_dashboard/pages/users/users_page.dart';
+import 'package:healthcafe_dashboard/pages/vaccines/vaccines_page.dart';
+import 'package:healthcafe_dashboard/pages/wellness_plans/manage_plan_page.dart';
 import 'package:healthcafe_dashboard/pages/wellness_plans/wellness_plan_page.dart';
 
 final homeRoute = StatefulShellRoute.indexedStack(
@@ -24,6 +28,7 @@ final homeRoute = StatefulShellRoute.indexedStack(
           redirect: (context, state) {
             final repo = RepositoryProvider.of<UserRepo>(context);
             final user = repo.currentUser;
+            debugPrint('User: $user');
             if (user == null || user.id.isEmpty) {
               return '/login';
             }
@@ -92,7 +97,7 @@ final homeRoute = StatefulShellRoute.indexedStack(
     ]),
     StatefulShellBranch(routes: [
       GoRoute(
-        path: '/wellness-plans',
+        path: '/wellness',
         pageBuilder: (context, state) => WellnessPlansPage(
           state: state,
           key: state.pageKey,
@@ -105,13 +110,27 @@ final homeRoute = StatefulShellRoute.indexedStack(
           }
           return null;
         },
+        routes: [
+          GoRoute(
+            path: 'plan',
+            pageBuilder: (context, state) {
+              return ManagePlanPage(state: state);
+            },
+          ),
+          GoRoute(
+            path: 'plan/:id',
+            pageBuilder: (context, state) {
+              return ManagePlanPage(state: state);
+            },
+          ),
+        ],
       ),
     ]),
     StatefulShellBranch(
       routes: [
         GoRoute(
-          path: '/vacciness',
-          pageBuilder: (context, state) => SettingsPage(
+          path: '/vaccines',
+          pageBuilder: (context, state) => VaccinesPage(
             state: state,
             key: state.pageKey,
           ),
@@ -130,7 +149,7 @@ final homeRoute = StatefulShellRoute.indexedStack(
       routes: [
         GoRoute(
           path: '/assessments',
-          pageBuilder: (context, state) => SettingsPage(
+          pageBuilder: (context, state) => AssessmentsPage(
             state: state,
             key: state.pageKey,
           ),

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/domain/repos/auth_repo.dart';
+import 'package:healthcafe_dashboard/domain/repos/auth.dart';
 
 part 'auth_state.dart';
 

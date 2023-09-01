@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/domain/models/appointment.dart';
-import 'package:healthcafe_dashboard/domain/repos/appointment_repo.dart';
+import 'package:healthcafe_dashboard/domain/repos/appointment.dart';
 
 part 'appointment_state.dart';
 

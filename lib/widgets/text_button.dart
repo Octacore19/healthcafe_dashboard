@@ -44,9 +44,10 @@ class Textbutton extends StatelessWidget {
       );
     }
     return TextButton(
-      onPressed: onTap,
+      onPressed: inProgress ? null : onTap,
       style: TextButton.styleFrom(
-        backgroundColor: inProgress ? bgColor?.withOpacity(0.5) : bgColor,
+        backgroundColor: bgColor,
+        disabledBackgroundColor: bgColor?.withOpacity(0.2),
         foregroundColor: fgColor,
         textStyle: textStyle ??
             TextStyle(

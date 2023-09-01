@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
@@ -43,7 +43,7 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
                   label: const Text('Back'),
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
-                    foregroundColor: AppColors.grey900,
+                    foregroundColor: ColorName.grey900,
                   ),
                 ),
               ),
@@ -87,13 +87,13 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
                         padding: const EdgeInsets.all(8).r,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.gray100,
+                          color: ColorName.grey100,
                         ),
                         child: Container(
                           padding: const EdgeInsets.all(8).r,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
-                            color: AppColors.grey50,
+                            color: ColorName.grey50,
                           ),
                           child: SvgPicture.asset(AppSvgs.uploadCloud),
                         ),
@@ -104,11 +104,12 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
                           TextButton(
                             onPressed: () {},
                             style: TextButton.styleFrom(
-                                foregroundColor: AppColors.primary500,
-                                textStyle: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                )),
+                              foregroundColor: ColorName.primary500,
+                              textStyle: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                             child: const Text('Click to upload'),
                           ),
                           Text(
@@ -116,7 +117,7 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
-                              color: AppColors.gray500,
+                              color: ColorName.gray500,
                             ),
                           )
                         ],
@@ -131,7 +132,7 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
                 child: Textbutton(
                   onTap: () {},
                   label: 'Submit',
-                  bgColor: AppColors.primary500,
+                  bgColor: ColorName.primary500,
                   fgColor: Colors.white,
                   padding: const EdgeInsets.fromLTRB(24, 8, 24, 8).r,
                   minimumSize: Size(124.w, 48.h),
@@ -153,7 +154,7 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
     Widget child = Text(
       text,
       style: TextStyle(
-        color: AppColors.gray900,
+        color: ColorName.grey900,
         fontWeight: FontWeight.w400,
         fontSize: 16.sp,
       ),
@@ -165,7 +166,7 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
         Text(
           label,
           style: TextStyle(
-            color: AppColors.gray700,
+            color: ColorName.gray700,
             fontWeight: FontWeight.w400,
             fontSize: 14.sp,
           ),
@@ -176,8 +177,8 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
           padding: const EdgeInsets.fromLTRB(14, 10, 14, 10).r,
           margin: const EdgeInsets.only(top: 8).h,
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.gray300),
-            color: AppColors.grey100,
+            border: Border.all(color: ColorName.gray300),
+            color: ColorName.grey100,
             borderRadius: BorderRadius.circular(8).r,
           ),
           child: child,
@@ -195,7 +196,7 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
           Text(
             'Doctor\'s remark',
             style: TextStyle(
-              color: AppColors.gray700,
+              color: ColorName.gray700,
               fontWeight: FontWeight.w400,
               fontSize: 14.sp,
             ),
@@ -207,13 +208,13 @@ class _UploadTestScreenState extends State<UploadTestScreen> {
               maxLines: null,
               decoration: InputDecoration(
                 filled: true,
-                fillColor: AppColors.grey100,
+                fillColor: ColorName.grey100,
                 border: OutlineInputBorder(
-                  borderSide: const BorderSide(color: AppColors.gray300),
+                  borderSide: const BorderSide(color: ColorName.gray300),
                   borderRadius: BorderRadius.circular(8).r,
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: AppColors.gray300),
+                  borderSide: const BorderSide(color: ColorName.gray300),
                   borderRadius: BorderRadius.circular(8).r,
                 ),
               ),

@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
+import 'package:healthcafe_dashboard/domain/repos/user.dart';
 
 part 'users_state.dart';
 

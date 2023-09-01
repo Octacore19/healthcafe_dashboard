@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/gen/fonts.gen.dart';
@@ -16,6 +17,12 @@ class LabelledTextField extends StatelessWidget {
     this.width = double.maxFinite,
     this.obscureText = false,
     this.showSuffix = false,
+    this.multiline = false,
+    this.minLine = 1,
+    this.autofill,
+    this.formatters,
+    this.textCapitalization = TextCapitalization.none,
+    this.onSubmit,
     super.key,
   });
 
@@ -29,6 +36,12 @@ class LabelledTextField extends StatelessWidget {
   final Widget? suffix;
   final TextInputType? inputType;
   final Function(bool)? toggleVisibility;
+  final bool multiline;
+  final int minLine;
+  final List<String>? autofill;
+  final List<TextInputFormatter>? formatters;
+  final TextCapitalization textCapitalization;
+  final Function(String?)? onSubmit;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +67,12 @@ class LabelledTextField extends StatelessWidget {
             initialValue: initialValue,
             controller: controller,
             keyboardType: inputType,
+            minLines: minLine,
+            maxLines: multiline ? null : 1,
+            autofillHints: autofill,
+            inputFormatters: formatters,
+            textCapitalization: textCapitalization,
+            onFieldSubmitted: onSubmit,
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.w400,

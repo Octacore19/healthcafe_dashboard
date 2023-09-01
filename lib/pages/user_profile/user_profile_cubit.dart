@@ -5,8 +5,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/domain/models/appointment.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/domain/repos/appointment_repo.dart';
-import 'package:healthcafe_dashboard/domain/repos/user_repo.dart';
+import 'package:healthcafe_dashboard/domain/repos/appointment.dart';
+import 'package:healthcafe_dashboard/domain/repos/user.dart';
 
 part 'user_profile_state.dart';
 

@@ -11,6 +11,7 @@ import 'package:healthcafe_dashboard/config/stage_config.dart';
 import 'package:healthcafe_dashboard/data/local/model/appointment/appointment.dart';
 import 'package:healthcafe_dashboard/data/local/constants.dart';
 import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
+import 'package:healthcafe_dashboard/data/local/model/wellness/plan.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -59,18 +60,10 @@ class App {
 
     _pref = await SharedPreferences.getInstance();
 
-    // Bloc.observer = AppBlocObserver();
     await Firebase.initializeApp(
       name: kIsWeb ? null : _env.name,
       options: _env.firebase,
     );
-
-    // final remoteConfig = FirebaseRemoteConfig.instance;
-    /* final config = RemoteConfigSettings(
-      fetchTimeout: const Duration(minutes: 1),
-      minimumFetchInterval: const Duration(hours: 1),
-    );
-    await remoteConfig.setConfigSettings(config); */
 
     _auth = FirebaseAuth.instance;
     _firestore = FirebaseFirestore.instance;
@@ -83,19 +76,16 @@ class App {
       await _storage.useStorageEmulator("localhost", 9199);
     }
 
-    // setPathUrlStrategy();
-
-    // await Hive.initFlutter();
-    // HydratedBloc.storage = AppHydratedStorage();
-
     // Hive
     await Hive.initFlutter();
     Hive.registerAdapter(UserAdapter());
     Hive.registerAdapter(AppointmentAdapter());
+    Hive.registerAdapter(WellnessPlanAdapter());
 
     await Hive.openBox<HiveUser>(adminBox);
     await Hive.openBox<HiveUser>(userBox);
     await Hive.openBox<HiveAppointment>(appointmentBox);
+    await Hive.openBox<HiveWellnessPlan>(wellnessPlanBox);
 
     _initialized = true;
   }

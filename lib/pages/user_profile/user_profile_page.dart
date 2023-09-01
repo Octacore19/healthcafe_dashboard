@@ -7,9 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/domain/models/appointment.dart';
 import 'package:healthcafe_dashboard/domain/models/appointment_status.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/pages/user_profile/user_profile_cubit.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/res/images.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/utils/date_formatter.dart';
@@ -59,7 +59,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 label: const Text('Back'),
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
-                  foregroundColor: AppColors.grey900,
+                  foregroundColor: ColorName.grey900,
                 ),
               ),
             ),
@@ -102,7 +102,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       fontSize: 18.sp,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w600,
-                      color: AppColors.grey700,
+                      color: ColorName.grey700,
                     ),
                   ),
                 ),
@@ -153,7 +153,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w600,
                   fontSize: 24.sp,
-                  color: AppColors.grey900,
+                  color: ColorName.grey900,
                 ),
               ),
               Text(
@@ -162,7 +162,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w400,
                   fontSize: 16.sp,
-                  color: AppColors.grey500,
+                  color: ColorName.grey500,
                 ),
               ),
             ],
@@ -174,7 +174,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             onPressed: () {},
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
-              backgroundColor: AppColors.danger500,
+              backgroundColor: ColorName.danger500,
               minimumSize: Size(124.w, 48.h),
             ),
             child: const Text('Deactivate'),
@@ -388,7 +388,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     TextStyle style = TextStyle(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
-      color: AppColors.grey900,
+      color: ColorName.grey900,
       overflow: TextOverflow.fade,
     );
     return SizedBox(
@@ -396,7 +396,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       child: Container(
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
-          border: Border.all(color: AppColors.gray200),
+          border: Border.all(color: ColorName.gray200),
           borderRadius: BorderRadius.circular(8),
         ),
         child: table.DataTable(
@@ -404,10 +404,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           showCheckboxColumn: false,
           clipBehavior: Clip.hardEdge,
           headingRowColor: MaterialStateProperty.resolveWith(
-            (states) => AppColors.grey50,
+            (states) => ColorName.grey50,
           ),
           border: const TableBorder(
-            horizontalInside: BorderSide(color: AppColors.gray200),
+            horizontalInside: BorderSide(color: ColorName.gray200),
           ),
           headingTextStyle: style,
           columns: const [
@@ -420,20 +420,20 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             table.DataColumn(label: Text("Status")),
           ],
           rows: appointments.mapIndexed((index, appointment) {
-            style = style.copyWith(color: AppColors.grey500);
+            style = style.copyWith(color: ColorName.grey500);
             final appointmentDate = appointment.date.formatDate;
             final appointmentTime = appointment.date.formatTime;
             final statusTextColor =
                 appointment.status == AppointmentStatus.completed
-                    ? AppColors.success700
+                    ? ColorName.success700
                     : appointment.status == AppointmentStatus.upcoming
-                        ? AppColors.warning700
+                        ? ColorName.warning700
                         : Colors.grey.shade300;
             final statusBoxColor =
                 appointment.status == AppointmentStatus.completed
-                    ? AppColors.success50
+                    ? ColorName.success50
                     : appointment.status == AppointmentStatus.upcoming
-                        ? AppColors.warning50
+                        ? ColorName.warning50
                         : Colors.grey.shade100;
             return table.DataRow.byIndex(
               index: index,
@@ -481,13 +481,13 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           PieChart(
             PieChartData(sections: [
               PieChartSectionData(
-                color: AppColors.primary25,
+                color: ColorName.primary25,
                 value: 30,
                 radius: 15,
                 showTitle: false,
               ),
               PieChartSectionData(
-                color: AppColors.primary500,
+                color: ColorName.primary500,
                 value: 70,
                 radius: 20,
                 showTitle: false,
@@ -501,7 +501,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
-                color: AppColors.primary500,
+                color: ColorName.primary500,
               ),
             ),
           ),
@@ -521,7 +521,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               padding: const EdgeInsets.all(8).r,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.grey50,
+                color: ColorName.grey50,
               ),
               child: SvgPicture.asset(icon),
             ),
@@ -537,7 +537,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     fontWeight: FontWeight.w400,
                     fontSize: 14.sp,
                     fontFamily: 'Inter',
-                    color: AppColors.grey400,
+                    color: ColorName.grey400,
                   ),
                 ),
                 Text(
@@ -546,7 +546,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     fontWeight: FontWeight.w500,
                     fontSize: 16.sp,
                     fontFamily: 'Inter',
-                    color: AppColors.grey700,
+                    color: ColorName.grey700,
                   ),
                 ),
               ],

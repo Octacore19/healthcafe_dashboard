@@ -5,8 +5,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
-import 'package:healthcafe_dashboard/domain/repos/auth_repo.dart';
-import 'package:healthcafe_dashboard/domain/requests/login_request.dart';
+import 'package:healthcafe_dashboard/domain/repos/auth.dart';
+import 'package:healthcafe_dashboard/domain/requests/login.dart';
 import 'package:healthcafe_dashboard/utils/cred_utils.dart';
 
 part 'login_state.dart';
@@ -45,6 +45,7 @@ class LoginCubit extends Cubit<LoginState> {
       } else {
         final request = LoginRequest(email: email, password: pwd);
         await _authRepo.login(request);
+        await Future.delayed(const Duration(milliseconds: 1000));
         emit(SuccessState());
       }
     } on DioException catch (e) {

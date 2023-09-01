@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthcafe_dashboard/auth_cubit.dart';
+import 'package:healthcafe_dashboard/gen/colors.gen.dart';
 import 'package:healthcafe_dashboard/pages/dashboard/dashboard_cubit.dart';
-import 'package:healthcafe_dashboard/res/colors.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 import 'package:healthcafe_dashboard/widgets/pagination_footer.dart';
 import 'package:healthcafe_dashboard/widgets/text_button.dart';
@@ -165,7 +165,7 @@ class _State extends State<DashboardScreen> {
                 Icon(
                   icon,
                   size: 20.r,
-                  color: isSuccess ? AppColors.success500 : AppColors.danger500,
+                  color: isSuccess ? ColorName.success500 : ColorName.danger500,
                 ),
                 Text(
                   '$percent%',
@@ -173,7 +173,7 @@ class _State extends State<DashboardScreen> {
                     fontWeight: FontWeight.w400,
                     fontSize: 14.sp,
                     color:
-                        isSuccess ? AppColors.success500 : AppColors.danger500,
+                        isSuccess ? ColorName.success500 : ColorName.danger500,
                   ),
                 ),
                 SizedBox(width: 6.w),
@@ -182,7 +182,7 @@ class _State extends State<DashboardScreen> {
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppColors.grey500,
+                    color: ColorName.grey500,
                   ),
                 ),
               ],
@@ -276,7 +276,7 @@ class _State extends State<DashboardScreen> {
   ) {
     Widget buildItem(
       String title, {
-      Color color = AppColors.gray50,
+      Color color = ColorName.grey50,
       FontWeight weight = FontWeight.w600,
       double size = 14,
     }) {
@@ -327,7 +327,7 @@ class _State extends State<DashboardScreen> {
                 child: buildItem(
                   'Fullname',
                   weight: FontWeight.w500,
-                  color: AppColors.grey700,
+                  color: ColorName.grey700,
                 ),
               ),
               Expanded(child: buildItem('Date', weight: FontWeight.w400)),
@@ -350,7 +350,7 @@ class _State extends State<DashboardScreen> {
                     Textbutton(
                       onTap: () {},
                       label: 'View',
-                      fgColor: AppColors.primary500,
+                      fgColor: ColorName.primary500,
                       textStyle: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
@@ -405,7 +405,7 @@ class _State extends State<DashboardScreen> {
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 16.sp,
-            color: AppColors.grey700,
+            color: ColorName.grey700,
           ),
         ),
       ),

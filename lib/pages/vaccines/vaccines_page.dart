@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:healthcafe_dashboard/routing/app_page.dart';
 
 class VaccinesPage extends AppPage {
-  const VaccinesPage({required super.state});
+  const VaccinesPage({required super.state, super.key});
 
   @override
   Widget build(BuildContext context) {
     return const VaccinesScreen();
   }
-
 }
 
 class VaccinesScreen extends StatefulWidget {

@@ -12,6 +12,7 @@ class SearchFilterView extends StatelessWidget {
     this.onFilterTapped,
     this.controller,
     this.showFilter = false,
+    this.showDateSelector = true,
     super.key,
   });
 
@@ -20,6 +21,7 @@ class SearchFilterView extends StatelessWidget {
   final VoidCallback onToTapped;
   final VoidCallback? onFilterTapped;
   final bool showFilter;
+  final bool showDateSelector;
 
   @override
   Widget build(BuildContext context) {
@@ -57,19 +59,21 @@ class SearchFilterView extends StatelessWidget {
           ),
         ),
         const Expanded(child: SizedBox()),
-        buildFilterItem(
-          onTap: onFromTapped,
-          title: 'Jan 6, 2022',
-          label: 'From:',
-          icon: AppSvgs.calendarTick,
-        ),
-        SizedBox(width: 12.w),
-        buildFilterItem(
-          onTap: onToTapped,
-          title: 'Jan 6, 2022',
-          label: 'To:',
-          icon: AppSvgs.calendarTick,
-        ),
+        if (showDateSelector) ...[
+          buildFilterItem(
+            onTap: onFromTapped,
+            title: 'Jan 6, 2022',
+            label: 'From:',
+            icon: AppSvgs.calendarTick,
+          ),
+          SizedBox(width: 12.w),
+          buildFilterItem(
+            onTap: onToTapped,
+            title: 'Jan 6, 2022',
+            label: 'To:',
+            icon: AppSvgs.calendarTick,
+          ),
+        ],
         if (showFilter) ...[
           SizedBox(width: 12.w),
           buildFilterItem(

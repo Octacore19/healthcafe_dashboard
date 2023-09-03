@@ -18,13 +18,14 @@ class ManageVaccinePage extends AppPage {
 
   @override
   Widget build(BuildContext context) {
+    final hasId = state.pathParameters.containsKey('id');
     return BlocProvider(
       create: (context) => VaccinesCubit(
         repo: RepositoryProvider.of(context),
-        id: state.pathParameters['id'],
+        id: hasId ? state.pathParameters['id'] : null,
         manage: true,
       ),
-      child: _Screen(isEdit: state.pathParameters['id'] != null),
+      child: _Screen(isEdit: hasId),
     );
   }
 }
@@ -56,8 +57,11 @@ class _State extends State<_Screen> {
             context.pop();
             showSuccessSnackBar(
               context: context,
-              message: 'Plan added successfully',
+              message: widget.isEdit
+                  ? 'Entry edited successfully'
+                  : 'Plan added successfully',
             );
+            context.pop();
           }
           if (state is ErrorState) {
             showErrorSnackBar(

@@ -4,9 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:healthcafe_dashboard/app.dart';
 import 'package:healthcafe_dashboard/auth_cubit.dart';
+import 'package:healthcafe_dashboard/data/repos/assessment.dart';
 import 'package:healthcafe_dashboard/data/repos/vaccine.dart';
 import 'package:healthcafe_dashboard/data/repos/wellness_plan.dart';
-import 'package:healthcafe_dashboard/domain/repos/vaccines.dart';
+import 'package:healthcafe_dashboard/domain/repos/assessment.dart';
+import 'package:healthcafe_dashboard/domain/repos/vaccine.dart';
 import 'package:healthcafe_dashboard/domain/repos/wellness_plan.dart';
 import 'package:healthcafe_dashboard/res/theme.dart';
 import 'package:healthcafe_dashboard/routing/app_router.dart';
@@ -32,10 +34,7 @@ void main() async {
         ),
       ),
       RepositoryProvider<UserRepo>(
-        create: (context) => IUserRepo(
-          firestore: App.db,
-          service: RepositoryProvider.of(context),
-        ),
+        create: (context) => IUserRepo(firestore: App.db),
       ),
       RepositoryProvider<AppointmentRepo>(
         create: (context) => IAppointmentRepo(
@@ -47,6 +46,9 @@ void main() async {
       ),
       RepositoryProvider<VaccineRepo>(
         create: (context) => IVaccineRepo(firestore: App.db),
+      ),
+      RepositoryProvider<AssessmentRepo>(
+        create: (context) => IAssessmentRepo(firestore: App.db),
       ),
     ],
     child: MultiBlocProvider(

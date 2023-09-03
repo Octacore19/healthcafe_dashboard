@@ -5,6 +5,7 @@ import 'package:healthcafe_dashboard/domain/repos/auth.dart';
 import 'package:healthcafe_dashboard/pages/appointments/appointment_detail_page.dart';
 import 'package:healthcafe_dashboard/pages/appointments/appointments_page.dart';
 import 'package:healthcafe_dashboard/pages/assessments/assessments_page.dart';
+import 'package:healthcafe_dashboard/pages/assessments/manage_assessments.dart';
 import 'package:healthcafe_dashboard/pages/dashboard/dashboard_page.dart';
 import 'package:healthcafe_dashboard/pages/profile/profile_page.dart';
 import 'package:healthcafe_dashboard/pages/team/team_page.dart';
@@ -240,6 +241,36 @@ final homeRoute = StatefulShellRoute.indexedStack(
             }
             return null;
           },
+          routes: [
+            GoRoute(
+              path: 'assessment',
+              redirect: (context, state) {
+                final repo = RepositoryProvider.of<AuthRepo>(context);
+                final user = repo.currentUser;
+                if (user == null || user.id.isEmpty) {
+                  return '/login';
+                }
+                return null;
+              },
+              pageBuilder: (context, state) {
+                return ManageAssessmentsPage(state: state);
+              },
+            ),
+            GoRoute(
+              path: 'assessment/:id',
+              redirect: (context, state) {
+                final repo = RepositoryProvider.of<AuthRepo>(context);
+                final user = repo.currentUser;
+                if (user == null || user.id.isEmpty) {
+                  return '/login';
+                }
+                return null;
+              },
+              pageBuilder: (context, state) {
+                return ManageAssessmentsPage(state: state);
+              },
+            ),
+          ],
         ),
       ],
     ),

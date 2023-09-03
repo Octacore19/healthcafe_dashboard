@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:healthcafe_dashboard/domain/models/plan.dart';
-import 'package:healthcafe_dashboard/domain/repos/vaccines.dart';
+import 'package:healthcafe_dashboard/domain/repos/vaccine.dart';
 import 'package:healthcafe_dashboard/domain/requests/plan.dart';
 
 part 'vaccines_state.dart';

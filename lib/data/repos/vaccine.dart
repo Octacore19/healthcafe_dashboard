@@ -1,13 +1,12 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:healthcafe_dashboard/data/local/constants.dart';
 import 'package:healthcafe_dashboard/data/local/model/plan/plan.dart';
 import 'package:healthcafe_dashboard/data/remote/models/plan.dart';
 import 'package:healthcafe_dashboard/data/repos/base.dart';
 import 'package:healthcafe_dashboard/domain/models/plan.dart';
-import 'package:healthcafe_dashboard/domain/repos/vaccines.dart';
+import 'package:healthcafe_dashboard/domain/repos/vaccine.dart';
 import 'package:healthcafe_dashboard/domain/requests/plan.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
@@ -18,27 +17,7 @@ const _ref = 'vaccines';
 class IVaccineRepo extends IBaseRepo implements VaccineRepo {
   IVaccineRepo({required FirebaseFirestore firestore})
       : _firestore = firestore {
-    _subscription = _firestore
-        .collection(_ref)
-        .withConverter(
-          fromFirestore: PlanResponse.fromFirestore,
-          toFirestore: (PlanResponse res, _) => res.toJson(),
-        )
-        .where('is_active', isEqualTo: true)
-        .snapshots()
-        .listen((snapshot) {
-      final values = snapshot.docs.map((e) => e.data().toHive);
-      List<HivePlan> existing = _box.values.toList();
-      if (existing.isNotEmpty) {
-        for (var hive in existing) {
-          final found = values.firstWhereOrNull((e) => e.id == hive.id);
-          found == null ? hive.delete() : _box.put(found.id, found);
-        }
-      } else {
-        final users = {for (var v in values) v.id: v};
-        _box.putAll(users);
-      }
-    });
+    _listenForUpdates();
   }
 
   final FirebaseFirestore _firestore;
@@ -47,13 +26,19 @@ class IVaccineRepo extends IBaseRepo implements VaccineRepo {
 
   StreamSubscription? _subscription;
 
+  CollectionReference<PlanResponse> get collection =>
+      _firestore.collection(_ref).withConverter(
+            fromFirestore: PlanResponse.fromFirestore,
+            toFirestore: (PlanResponse res, _) => res.toJson(),
+          );
+
   @override
   Stream<List<Plan>> get vaccines =>
       _box.watch().map((_) => _vaccines).startWith(_vaccines);
 
   @override
   Plan? fetchVaccine(String? id) {
-    final plan = _box.get(id);
+    final plan = id == null ? null : _box.get(id);
     return plan == null ? null : Plan.fromHive(plan);
   }
 
@@ -90,30 +75,28 @@ class IVaccineRepo extends IBaseRepo implements VaccineRepo {
 
   @override
   Future<void> fetchAllVaccines() async {
-    final res = await _firestore
-        .collection(_ref)
-        .withConverter(
-          fromFirestore: PlanResponse.fromFirestore,
-          toFirestore: (PlanResponse res, _) => res.toJson(),
-        )
-        .where('is_active', isEqualTo: true)
-        .get();
-    List<HivePlan> existing = _box.values.toList();
+    final res = await collection.where('is_active', isEqualTo: true).get();
     List<HivePlan> newData = res.docs.map((e) => e.data().toHive).toList();
-    if (existing.isNotEmpty) {
-      for (var hive in existing) {
-        final found = newData.firstWhereOrNull((e) => e.id == hive.id);
-        found == null ? hive.delete() : _box.put(found.id, found);
-      }
-    } else {
-      final hiveUsers = {for (var value in newData) value.id: value};
-      _box.putAll(hiveUsers);
-    }
+    await _box.clear();
+    final hiveUsers = {for (var value in newData) value.id: value};
+    await _box.putAll(hiveUsers);
   }
 
   @override
   Future<void> close() async {
     _subscription?.cancel();
+  }
+
+  void _listenForUpdates() {
+    _subscription = collection
+        .where('is_active', isEqualTo: true)
+        .snapshots()
+        .listen((snapshot) async {
+      final values = snapshot.docs.map((e) => e.data().toHive);
+      await _box.clear();
+      final users = {for (var v in values) v.id: v};
+      await _box.putAll(users);
+    });
   }
 
   List<Plan> get _vaccines {

@@ -52,7 +52,6 @@ class _State extends State<_Screen> {
       body: BlocListener<VaccinesCubit, VaccinesState>(
         listener: (context, state) {
           if (state is SuccessState) {
-            context.pop();
             showSuccessSnackBar(
               context: context,
               message: 'Vaccine deleted successfully',
@@ -184,7 +183,10 @@ class _State extends State<_Screen> {
                               leftBtnTxt: 'Cancel',
                               rightBtnBg: ColorName.danger500,
                               onLeftClicked: context.pop,
-                              onRightClicked: () => _cubit.delete(e.id),
+                              onRightClicked: () {
+                                _cubit.delete(e.id);
+                                context.pop();
+                              },
                             ),
                             icon: Assets.img.trash.svg(),
                           ),

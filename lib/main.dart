@@ -32,7 +32,10 @@ void main() async {
         ),
       ),
       RepositoryProvider<UserRepo>(
-        create: (context) => IUserRepo(firestore: App.db),
+        create: (context) => IUserRepo(
+          firestore: App.db,
+          service: RepositoryProvider.of(context),
+        ),
       ),
       RepositoryProvider<AppointmentRepo>(
         create: (context) => IAppointmentRepo(

@@ -1,12 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:healthcafe_dashboard/domain/models/homepage.dart';
 import 'package:healthcafe_dashboard/gen/assets.gen.dart';
 import 'package:healthcafe_dashboard/gen/colors.gen.dart';
-import 'package:healthcafe_dashboard/res/images.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({required this.navShell, super.key});
@@ -77,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 20).w,
                     child: IconButton(
                       onPressed: () {},
-                      icon: SvgPicture.asset(AppSvgs.notificationIcon),
+                      icon: Assets.img.notificationIcon.svg(),
                     ),
                   ),
                   Padding(
@@ -85,10 +83,10 @@ class HomeScreen extends StatelessWidget {
                     child: IconButton(
                       onPressed: () {},
                       icon: FadeInImage.assetNetwork(
-                        placeholder: AppImages.loading,
+                        placeholder: Assets.img.loading.path,
                         image: 'https://www.google.com',
                         imageErrorBuilder: (_, __, stack) => Image(
-                          image: const AssetImage(AppImages.profilePicture),
+                          image: Assets.img.profilePlaceholder.provider(),
                           height: 24.h,
                           width: 24.w,
                         ),
@@ -101,7 +99,7 @@ class HomeScreen extends StatelessWidget {
               ),
               body: navShell,
             ),
-          )
+          ),
         ],
       ),
     );

@@ -13,7 +13,7 @@ class UploadTestPage extends AppPage {
 
   @override
   Widget build(BuildContext context) {
-    return const _Screen();
+    return _Screen(key: super.key);
   }
 }
 

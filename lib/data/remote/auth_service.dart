@@ -28,4 +28,9 @@ class AuthService {
     );
     return AuthResponse.fromJson(res.data);
   }
+
+  Future<bool?> updateUser(String? id, Map<String, dynamic> data) async {
+    final res = await _dio.put('/admin/$id', data: data);
+    return res.data?['status'];
+  }
 }

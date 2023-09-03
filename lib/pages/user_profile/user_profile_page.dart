@@ -30,7 +30,7 @@ class UserProfilePage extends AppPage {
         appointmentRepo: RepositoryProvider.of(context),
         userId: state.pathParameters['id'],
       ),
-      child: const _Screen(),
+      child: _Screen(key: super.key),
     );
   }
 }

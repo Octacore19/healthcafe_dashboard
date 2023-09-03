@@ -25,7 +25,7 @@ class AppointmentsPage extends AppPage {
       create: (context) => AppointmentCubit(
         appointmentRepo: RepositoryProvider.of(context),
       ),
-      child: const _Screen(),
+      child: _Screen(key: super.key),
     );
   }
 }
@@ -135,10 +135,10 @@ class _State extends State<_Screen> {
                   table.DataCell(Text(appointmentDate)),
                   table.DataCell(Text(appointment.user?.name ?? 'Nil')),
                   table.DataCell(Text(appointment.id)),
-                  table.DataCell(Text('Olivia Rhye')),
-                  table.DataCell(Text('Olivia Rhye')),
-                  table.DataCell(Text('Olivia Rhye')),
-                  table.DataCell(
+                  const table.DataCell(Text('Olivia Rhye')),
+                  const table.DataCell(Text('Olivia Rhye')),
+                  const table.DataCell(Text('Olivia Rhye')),
+                  const table.DataCell(
                     Text('Completed'),
                     showSuffix: true,
                   ),

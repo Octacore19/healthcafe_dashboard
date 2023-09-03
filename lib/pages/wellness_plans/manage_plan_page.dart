@@ -25,7 +25,10 @@ class ManagePlanPage extends AppPage {
         id: state.pathParameters['id'],
         manage: true,
       ),
-      child: _Screen(isEdit: state.pathParameters['id'] != null),
+      child: _Screen(
+        isEdit: state.pathParameters['id'] != null,
+        key: super.key,
+      ),
     );
   }
 }

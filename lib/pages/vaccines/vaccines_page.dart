@@ -25,7 +25,7 @@ class VaccinesPage extends AppPage {
       create: (context) => VaccinesCubit(
         repo: RepositoryProvider.of(context),
       ),
-      child: const _Screen(),
+      child: _Screen(key: super.key),
     );
   }
 }

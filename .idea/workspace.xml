@@ -4,16 +4,38 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="manage vaccine implementation">
-      <change afterPath="$PROJECT_DIR$/lib/screens/auth_screen.dart" afterDir="false" />
+    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="renamed all pages">
+      <change afterPath="$PROJECT_DIR$/assets/img/edit-2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/profile-2user.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/profile-circle.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/domain/requests/profile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/profile/profile_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/profile/profile_state.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/forgot_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/forgot_password/forgot_password_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/settings/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/settings_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/upload_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/assessments/upload_test_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/routing/app_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/app_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/remote/auth_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/auth_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/repos/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/auth.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/repos/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/repos/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/auth.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/repos/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/repos/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/appointments/appointment_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointment_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/appointments/appointments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/appointments_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/appointments/upload_test_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/appointments/upload_test_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/assessments/assessments_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/assessments/assessments_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/login/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/profile/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/profile_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/user_profile/user_profile_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/users/users_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/users/users_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/vaccines/vaccines_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plans/manage_plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/manage_plan_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/routing/auth_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/auth_router.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/routing/home_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/routing/home_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/settings_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/settings_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/labelled_textfield.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/labelled_textfield.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,16 +52,29 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/lib/pages/login/login_cubit.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/pages/login/login_state.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/screens/home_screen.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/routing/home_router.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/pages/forgot_password/forgot_password_page.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/routing/auth_router.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/pages/login/login_page.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/main.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/screens/auth_screen.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pubspec.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.env.dev" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/screens/settings_screen.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/pages/dashboard/dashboard_page.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/screens/home_screen.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/pages/appointments/upload_test_page.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/routing/home_router.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/main.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/auth_cubit.dart" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -80,11 +115,11 @@
       <recent name="$PROJECT_DIR$/lib/data/local" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/pages/appointments" />
       <recent name="$PROJECT_DIR$/lib/pages/screens" />
       <recent name="$PROJECT_DIR$/lib/pages/assessments" />
       <recent name="$PROJECT_DIR$/lib/pages/forgot_password" />
       <recent name="$PROJECT_DIR$/lib/pages" />
-      <recent name="$PROJECT_DIR$/lib/pages/user_profile" />
     </key>
   </component>
   <component name="RunManager" selected="Flutter.main.dart">
@@ -148,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693544108420</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="renamed all pages">
+      <created>1693547611600</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1693547611601</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -184,6 +226,7 @@
     <MESSAGE value="make dashboard load list of users" />
     <MESSAGE value="manage plan implementation" />
     <MESSAGE value="manage vaccine implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="manage vaccine implementation" />
+    <MESSAGE value="renamed all pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed all pages" />
   </component>
 </project>

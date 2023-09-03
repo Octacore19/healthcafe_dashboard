@@ -78,6 +78,7 @@ class LabelledTextField extends StatelessWidget {
               fontWeight: FontWeight.w400,
               color: ColorName.gray500,
             ),
+            cursorColor: ColorName.gray300,
             decoration: InputDecoration(
               isDense: true,
               hintText: hint,
@@ -88,8 +89,17 @@ class LabelledTextField extends StatelessWidget {
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8).r,
+                borderSide: const BorderSide(color: ColorName.gray300),
               ),
-              suffix: showSuffix ? getSuffix() : null,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8).r,
+                borderSide: const BorderSide(color: ColorName.gray300),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8).r,
+                borderSide: const BorderSide(color: ColorName.gray300),
+              ),
+              suffixIcon: showSuffix ? getSuffix() : null,
             ),
           ),
         ],

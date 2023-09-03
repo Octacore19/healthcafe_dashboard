@@ -17,7 +17,7 @@ class LoginPage extends AppPage {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(authRepo: RepositoryProvider.of(context)),
-      child: const _Screen(),
+      child: _Screen(key: super.key),
     );
   }
 }

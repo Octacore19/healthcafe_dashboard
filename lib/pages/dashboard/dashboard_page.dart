@@ -23,7 +23,7 @@ class DashboardPage extends AppPage {
         userRepo: RepositoryProvider.of(context),
         appointmentRepo: RepositoryProvider.of(context),
       ),
-      child: const _Screen(),
+      child: _Screen(key: super.key),
     );
   }
 }

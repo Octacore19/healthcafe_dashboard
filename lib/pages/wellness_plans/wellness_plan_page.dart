@@ -30,7 +30,7 @@ class WellnessPlansPage extends AppPage {
       create: (context) {
         return WellnessPlanCubit(planRepo: RepositoryProvider.of(context));
       },
-      child: const _Screen(),
+      child: _Screen(key: super.key),
     );
   }
 }

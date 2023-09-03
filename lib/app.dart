@@ -80,7 +80,7 @@ class App {
     await Hive.initFlutter();
     Hive.registerAdapter(UserAdapter());
     Hive.registerAdapter(AppointmentAdapter());
-    Hive.registerAdapter(WellnessPlanAdapter());
+    Hive.registerAdapter(PlanAdapter());
 
     await Hive.openBox<HiveUser>(adminBox);
     await Hive.openBox<HiveUser>(userBox);

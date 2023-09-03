@@ -26,7 +26,7 @@ class UsersPage extends AppPage {
       create: (context) => UsersCubit(
         userRepo: RepositoryProvider.of(context),
       ),
-      child: const _Screen(),
+      child: _Screen(key: super.key),
     );
   }
 }

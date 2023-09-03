@@ -4,14 +4,20 @@ import 'package:collection/collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:healthcafe_dashboard/data/local/constants.dart';
 import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
+import 'package:healthcafe_dashboard/data/remote/auth_service.dart';
 import 'package:healthcafe_dashboard/data/remote/models/user.dart';
 import 'package:healthcafe_dashboard/domain/models/auth_user.dart';
 import 'package:healthcafe_dashboard/domain/repos/user.dart';
+import 'package:healthcafe_dashboard/domain/requests/profile.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 
 class IUserRepo implements UserRepo {
-  IUserRepo({required FirebaseFirestore firestore}) : _db = firestore {
+  IUserRepo({
+    required FirebaseFirestore firestore,
+    required AuthService service,
+  })  : _db = firestore,
+        _service = service {
     final res = _userCollection
         .snapshots()
         .map((e) => e.docs.map((e) => e.data().toHive).toList());
@@ -31,6 +37,7 @@ class IUserRepo implements UserRepo {
   }
 
   final FirebaseFirestore _db;
+  final AuthService _service;
 
   StreamSubscription? _usersSub;
   final _box = Hive.box<HiveUser>(userBox);
@@ -62,12 +69,6 @@ class IUserRepo implements UserRepo {
         _box.putAll(hiveUsers);
       }
     });
-  }
-
-  @override
-  AuthUser? get currentUser {
-    final user = _adminBox.values.firstOrNull;
-    return user == null ? null : AuthUser.fromHive(user);
   }
 
   @override

@@ -36,7 +36,7 @@ class IAssessmentRepo extends IBaseRepo implements AssessmentRepo {
 
   @override
   Future<void> fetchAssessmentList() async {
-    final res = await collection.get();
+    final res = await collection.where('is_active', isEqualTo: true).get();
     List<HiveAssessment> newData =
         res.docs.map((e) => e.data().toHive).toList();
     await _box.clear();
@@ -87,7 +87,10 @@ class IAssessmentRepo extends IBaseRepo implements AssessmentRepo {
   }
 
   void _listenForUpdates() {
-    _subscription = collection.snapshots().listen((snapshot) async {
+    _subscription = collection
+        .where('is_active', isEqualTo: true)
+        .snapshots()
+        .listen((snapshot) async {
       final values = snapshot.docs.map((e) => e.data().toHive);
       await _box.clear();
       final users = {for (var value in values) value.id: value};

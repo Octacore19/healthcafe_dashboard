@@ -30,24 +30,21 @@ class HiveUser extends HiveObject with BaseModel {
   int? gender;
 
   @HiveField(7)
-  String? onboardingScore;
-
-  @HiveField(8)
   bool? onboarded;
 
-  @HiveField(9)
+  @HiveField(8)
   bool? phoneVerified;
 
-  @HiveField(10)
+  @HiveField(9)
   bool? disabled;
 
-  @HiveField(11)
+  @HiveField(10)
   String? profilePicture;
 
-  @HiveField(12)
+  @HiveField(11)
   String? creationTime;
 
-  @HiveField(13)
+  @HiveField(12)
   String? lastSignInTime;
 
   @override
@@ -59,7 +56,6 @@ class HiveUser extends HiveObject with BaseModel {
       'dob': dob,
       'emailVerified': emailVerified,
       'gender': gender,
-      'onboardScore': onboardingScore,
       'onboarded': onboarded,
       'phoneVerified': phoneVerified,
       'disabled': disabled,

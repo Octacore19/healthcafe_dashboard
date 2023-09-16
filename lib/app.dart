@@ -14,6 +14,8 @@ import 'package:healthcafe_dashboard/data/local/model/assessment/assessment.dart
 import 'package:healthcafe_dashboard/data/local/model/plan/plan.dart';
 import 'package:healthcafe_dashboard/data/local/model/user/user.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class App {
@@ -70,6 +72,10 @@ class App {
     _firestore = FirebaseFirestore.instance;
     _storage = FirebaseStorage.instance;
     _firestore.settings = const Settings(persistenceEnabled: true);
+
+    HydratedBloc.storage = await HydratedStorage.build(
+      storageDirectory: HydratedStorage.webStorageDirectory,
+    );
 
     if (_env is DevConfig) {
       await _auth.useAuthEmulator("localhost", 9099);

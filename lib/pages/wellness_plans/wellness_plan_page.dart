@@ -57,10 +57,9 @@ class _State extends State<_Screen> {
       body: BlocListener<WellnessPlanCubit, WellnessPlanState>(
         listener: (context, state) {
           if (state is SuccessState) {
-            context.pop();
             showSuccessSnackBar(
               context: context,
-              message: 'Plan added successfully',
+              message: 'Plan deleted successfully',
             );
           }
           if (state is ErrorState) {
@@ -189,7 +188,10 @@ class _State extends State<_Screen> {
                                 leftBtnTxt: 'Cancel',
                                 rightBtnBg: ColorName.danger500,
                                 onLeftClicked: context.pop,
-                                onRightClicked: () => _cubit.delete(e.id),
+                                onRightClicked: () {
+                                  _cubit.delete(e.id);
+                                  context.pop();
+                                },
                               ),
                               icon: SvgPicture.asset(AppSvgs.trash),
                             ),

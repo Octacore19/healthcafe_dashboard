@@ -1,0 +1,16 @@
+workflows:
+  devevlopment-work:
+    environment:
+      flutter: fvm
+    scripts:
+      - name: Set config file
+        script: |
+          echo $STAGE | base64 --decode > $CM_BUILD_DIR/config.json
+      - name: Build web
+        script: |
+          flutter config --enable-web
+          flutter build web --release --dart-define-from-file=config.json
+          cd build/web
+          7z a -r ../web.zip ./*
+    artifacts:
+      - build/*.zip

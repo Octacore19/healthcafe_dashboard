@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:collection/collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:healthcafe_dashboard/data/local/constants.dart';
 import 'package:healthcafe_dashboard/data/local/model/plan/plan.dart';
@@ -26,18 +25,11 @@ class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
         )
         .where('is_active', isEqualTo: true)
         .snapshots()
-        .listen((snapshot) {
+        .listen((snapshot) async {
       final values = snapshot.docs.map((e) => e.data().toHive);
-      List<HivePlan> existing = _box.values.toList();
-      if (existing.isNotEmpty) {
-        for (var hive in existing) {
-          final found = values.firstWhereOrNull((e) => e.id == hive.id);
-          found == null ? hive.delete() : _box.put(found.id, found);
-        }
-      } else {
-        final users = {for (var v in values) v.id: v};
-        _box.putAll(users);
-      }
+      await _box.clear();
+      final users = {for (var v in values) v.id: v};
+      await _box.putAll(users);
     });
   }
 
@@ -53,7 +45,7 @@ class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
 
   @override
   Plan? fetchPlan(String? id) {
-    final plan = _box.get(id);
+    final plan = id == null ? null : _box.get(id);
     return plan == null ? null : Plan.fromHive(plan);
   }
 
@@ -98,17 +90,10 @@ class IWellnessPlanRepo extends IBaseRepo implements WellnessPlanRepo {
         )
         .where('is_active', isEqualTo: true)
         .get();
-    List<HivePlan> existing = _box.values.toList();
     List<HivePlan> newData = res.docs.map((e) => e.data().toHive).toList();
-    if (existing.isNotEmpty) {
-      for (var hive in existing) {
-        final found = newData.firstWhereOrNull((e) => e.id == hive.id);
-        found == null ? hive.delete() : _box.put(found.id, found);
-      }
-    } else {
-      final hiveUsers = {for (var value in newData) value.id: value};
-      _box.putAll(hiveUsers);
-    }
+    await _box.clear();
+    final hiveUsers = {for (var value in newData) value.id: value};
+    await _box.putAll(hiveUsers);
   }
 
   @override

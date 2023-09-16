@@ -15,7 +15,6 @@ class AuthUser extends Equatable {
     required this.gender,
     required this.emailVerified,
     required this.dob,
-    required this.onboardScore,
     required this.profilePicture,
     this.creationDate,
   }) {
@@ -32,7 +31,6 @@ class AuthUser extends Equatable {
   final DateTime? creationDate;
   final bool emailVerified;
   final Gender gender;
-  final double onboardScore;
   final bool onboardedTest;
   final bool phoneVerified;
   final bool disabled;
@@ -53,7 +51,6 @@ class AuthUser extends Equatable {
       gender: Gender.unknown,
       onboardedTest: false,
       phoneVerified: false,
-      onboardScore: 0.0,
       profilePicture: '',
     );
   }
@@ -78,9 +75,6 @@ class AuthUser extends Equatable {
       disabled: user?.disabled ?? false,
       profilePicture: user?.profilePicture ?? '',
       onboardedTest: user?.onboarded ?? false,
-      onboardScore: user?.onboardingScore != null
-          ? double.tryParse(user!.onboardingScore!) ?? 0.0
-          : 0.0,
     );
   }
 
@@ -98,7 +92,6 @@ class AuthUser extends Equatable {
         onboardedTest,
         phoneVerified,
         disabled,
-        onboardScore,
         profilePicture,
       ];
 }

@@ -62,6 +62,7 @@ class _State extends State<_Screen> {
               context: context,
               message: 'Plan added successfully',
             );
+            context.pop();
           }
           if (state is ErrorState) {
             showErrorSnackBar(

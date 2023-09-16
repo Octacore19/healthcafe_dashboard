@@ -11,7 +11,6 @@ class UserResponse {
     this.emailVerified,
     this.gender,
     this.lastSignInTime,
-    this.onboardingScore,
     this.onboarded,
     this.phoneNumber,
     this.phoneVerified,
@@ -26,7 +25,6 @@ class UserResponse {
   final String? email;
   final String? phoneNumber;
   final String? profilePicture;
-  final String? onboardingScore;
   final int? gender;
   final Timestamp? dob;
   final Timestamp? creationTime;
@@ -42,14 +40,13 @@ class UserResponse {
   ) {
     final json = snapshot.data();
     return UserResponse._(
-      uid: json?['uid'],
+      uid: snapshot.id,
       displayName: json?['display_name'],
       dob: json?['dob'],
       email: json?['email'],
       emailVerified: json?['email_verified'],
       gender: json?['gender'],
       lastSignInTime: json?['last_sign_in_time'],
-      onboardingScore: json?['onboarding_score'],
       onboarded: json?['onboarding_test'],
       phoneNumber: json?['phone_number'],
       phoneVerified: json?['phone_verified'],
@@ -68,7 +65,6 @@ class UserResponse {
       'email_verified': emailVerified,
       'gender': gender,
       'last_sign_in_time': lastSignInTime?.toDate().toIso8601String(),
-      'onboarding_score': onboardingScore,
       'onboarding_test': onboarded,
       'phone_number': phoneNumber,
       'phone_verified': phoneVerified,
@@ -87,7 +83,6 @@ class UserResponse {
       ..emailVerified = emailVerified
       ..gender = gender
       ..lastSignInTime = lastSignInTime?.toDate().toIso8601String()
-      ..onboardingScore = onboardingScore
       ..onboarded = onboarded
       ..phoneNumber = phoneNumber
       ..phoneVerified = phoneVerified

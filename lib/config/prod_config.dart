@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:healthcafe_dashboard/config/env_config.dart';
-import 'package:healthcafe_dashboard/firebase/prod_options.dart';
+import 'package:healthcafe_dashboard/firebase.dart';
 
 class ProdConfig implements EnvConfig {
   @override

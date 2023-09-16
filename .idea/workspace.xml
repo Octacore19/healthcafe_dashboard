@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="updated codemagic.yaml">
+      <change afterPath="$PROJECT_DIR$/lib/firebase.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,21 +80,22 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/data/local/model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/firebase" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/firebase" />
       <recent name="$PROJECT_DIR$/lib/data/local/model" />
       <recent name="$PROJECT_DIR$/lib/data/local" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/lib/pages/appointments" />
       <recent name="$PROJECT_DIR$/lib/pages/screens" />
       <recent name="$PROJECT_DIR$/lib/pages/assessments" />
       <recent name="$PROJECT_DIR$/lib/pages/forgot_password" />
-      <recent name="$PROJECT_DIR$/lib/pages" />
     </key>
   </component>
   <component name="RunManager" selected="Flutter.stage.dart">
@@ -206,7 +208,84 @@
       <option name="project" value="LOCAL" />
       <updated>1694846287281</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="updated codemagic.yaml">
+      <created>1694846951495</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694846951495</updated>
+    </task>
+    <task id="LOCAL-00014" summary="updated codemagic.yaml">
+      <created>1694847432782</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694847432782</updated>
+    </task>
+    <task id="LOCAL-00015" summary="updated codemagic.yaml">
+      <created>1694849657938</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694849657938</updated>
+    </task>
+    <task id="LOCAL-00016" summary="updated codemagic.yaml">
+      <created>1694850037741</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1694850037741</updated>
+    </task>
+    <task id="LOCAL-00017" summary="updated codemagic.yaml">
+      <created>1694850317943</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1694850317943</updated>
+    </task>
+    <task id="LOCAL-00018" summary="updated codemagic.yaml">
+      <created>1694850409081</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694850409081</updated>
+    </task>
+    <task id="LOCAL-00019" summary="updated codemagic.yaml">
+      <created>1694853946238</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1694853946238</updated>
+    </task>
+    <task id="LOCAL-00020" summary="updated codemagic.yaml">
+      <created>1694853971692</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1694853971692</updated>
+    </task>
+    <task id="LOCAL-00021" summary="updated codemagic.yaml">
+      <created>1694854095425</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1694854095425</updated>
+    </task>
+    <task id="LOCAL-00022" summary="updated codemagic.yaml">
+      <created>1694854309066</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1694854309066</updated>
+    </task>
+    <task id="LOCAL-00023" summary="updated codemagic.yaml">
+      <created>1694854634532</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1694854634532</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">

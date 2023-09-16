@@ -8,12 +8,8 @@ workflows:
           #!/usr/bin/env sh
           set -e # exit on first failed command
           
-          ls
-          
-          PROJECT_ROOT=$CM_BUILD_DIR/healthcafe_dashboard
-          
           echo $stage_config | base64 --decode > $CM_BUILD_DIR/config.json
-          echo $stage_options | base64 --decode > $PROJECT_ROOT/lib/firebase/stage_options.dart
+          echo $stage_options | base64 --decode > $$CM_BUILD_DIR/lib/firebase/stage_options.dart
       - name: Get flutter packages
         script: flutter pub get
       - name: Generate assets

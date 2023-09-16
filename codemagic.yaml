@@ -1,13 +1,13 @@
 workflows:
-  devevlopment-work:
+  development-work:
     environment:
       flutter: fvm
     scripts:
-      - name: Set config file
+      - name: Set pre-config file
         script: |
+          #!/usr/bin/env sh
+          set -e # exit on first failed command
           echo $stage_config | base64 --decode > $CM_BUILD_DIR/config.json
-      - name: Set firebase file
-        script: |
           echo $stage_options | base64 --decode > $CM_BUILD_DIR/lib/firebase/stage_options.dart
       - name: Get flutter packages
         script: flutter pub get

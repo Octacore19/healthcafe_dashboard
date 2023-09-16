@@ -6,6 +6,7 @@ workflows:
       - name: Set pre-config file
         script: |
           #!/usr/bin/env sh
+          ls
           set -e # exit on first failed command
           
           echo $stage_config | base64 --decode > $CM_BUILD_DIR/config.json

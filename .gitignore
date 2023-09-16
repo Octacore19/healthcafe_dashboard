@@ -8,7 +8,7 @@ build/
 pubspec.lock
 *.g.dart
 /lib/gen
-/lib/firebase
+*_options.dart
 
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.

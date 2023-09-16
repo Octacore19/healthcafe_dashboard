@@ -5,7 +5,10 @@ workflows:
     scripts:
       - name: Set config file
         script: |
-          echo $STAGE | base64 --decode > $CM_BUILD_DIR/config.json
+          echo $stage_config | base64 --decode > $CM_BUILD_DIR/config.json
+      - name: Set firebase file
+        script: |
+          echo $stage_options | base64 --decode > $CM_BUILD_DIR/lib/firebase/stage_options.json
       - name: Get flutter packages
         script: flutter pub get
       - name: Generate assets

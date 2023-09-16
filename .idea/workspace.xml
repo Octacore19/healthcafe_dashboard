@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="added codemagic.yaml">
+    <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="updated codemagic.yaml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codemagic.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/codemagic.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694845357529</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="updated codemagic.yaml">
+      <created>1694846287281</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1694846287281</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -241,6 +247,7 @@
     <MESSAGE value="added team page" />
     <MESSAGE value="added assessment implementation" />
     <MESSAGE value="added codemagic.yaml" />
-    <option name="LAST_COMMIT_MESSAGE" value="added codemagic.yaml" />
+    <MESSAGE value="updated codemagic.yaml" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated codemagic.yaml" />
   </component>
 </project>

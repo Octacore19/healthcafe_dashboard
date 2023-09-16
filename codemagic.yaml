@@ -8,9 +8,11 @@ workflows:
           #!/usr/bin/env sh
           ls
           set -e # exit on first failed command
-          
+          mkdir -p $CM_BUILD_DIR/lib/firebase
           echo $stage_config | base64 --decode > $CM_BUILD_DIR/config.json
-          echo $stage_options | base64 --decode > $CM_BUILD_DIR/lib/firebase.dart
+          echo $stage_options | base64 --decode > $CM_BUILD_DIR/lib/firebase/dev_options.dart
+          echo $stage_options | base64 --decode > $CM_BUILD_DIR/lib/firebase/stage_options.dart
+          echo $prod_options | base64 --decode > $CM_BUILD_DIR/lib/firebase/prod_options.dart
       - name: Get flutter packages
         script: flutter pub get
       - name: Generate assets

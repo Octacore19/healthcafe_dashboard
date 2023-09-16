@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="updated codemagic.yaml">
-      <change afterPath="$PROJECT_DIR$/lib/firebase.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codemagic.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/codemagic.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/config/prod_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/prod_config.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/config/stage_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/stage_config.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/firebase.dart" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694854634532</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="updated codemagic.yaml">
+      <created>1694855354518</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1694855354519</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">

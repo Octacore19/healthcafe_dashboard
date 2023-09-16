@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a364ff7c-d8d1-4a02-a9f7-6347d8dcf96a" name="Changes" comment="added codemagic.yaml">
-      <change afterPath="$PROJECT_DIR$/.fvm/fvm_config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codemagic.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/main_dart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/main_dart.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config/dev_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/dev_config.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config/prod_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/prod_config.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config/stage_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/stage_config.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/local/model/user/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/local/model/user/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/remote/models/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/remote/models/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/assessment.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/assessment.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repos/wellness_plan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repos/wellness_plan.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/models/auth_user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plans/manage_plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/manage_plan_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/wellness_plans/wellness_plan_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codemagic.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/codemagic.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +186,21 @@
       <option name="project" value="LOCAL" />
       <updated>1693767579011</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added codemagic.yaml">
+      <created>1694845347376</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694845347376</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added codemagic.yaml">
+      <created>1694845357529</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694845357529</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">

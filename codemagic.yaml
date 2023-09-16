@@ -6,6 +6,10 @@ workflows:
       - name: Set config file
         script: |
           echo $STAGE | base64 --decode > $CM_BUILD_DIR/config.json
+      - name: Get flutter packages
+        script: flutter pub get
+      - name: Generate assets
+        script: flutter packages pub run build_runner build --delete-conflicting-outputs
       - name: Build web
         script: |
           flutter config --enable-web
